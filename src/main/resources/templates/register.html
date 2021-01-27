@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+ <!-- Libreria w3.js -->
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+  <!--Estilos css -->
+  <style>
+.indexBody{
+  height: 800px;  
+}
+.noMenu{
+  height: 56px;
+}
+
+
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 30px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */  
+}
+  </style>
+  <title>RidersRegister</title>
+</head>
+
+<body>
+   <div class="container-fluid">
+      <!-- Header -->
+      <div w3-include-html="./templates/headerMaster.html"></div>  
+      <!-- NavBar -->
+      <div w3-include-html="./templates/navbarMaster.html"></div>       
+      <!-- Cuerpo Principal -->
+      <section>
+        <div class="row indexBody">
+          <div class="col-12 col-sm-6 col-md-6 bg-light">
+              <p>Formulario Columna 1 de 2</p>
+              <p>si se selecciona rider, apareceran unos campos de formulario 
+                  adicionales en la segunda columna
+                y el botón de enviar</p>
+            </div>
+          <div class="col-12 col-sm-6  d-none d-sm-block col-md-6 bg-success">
+              <p>Formulario Columna 2 de 2</p>
+                <p>Vamos a ajustar los campos del formulario para que entren en dos columnas
+                    La altura de la página nos dará algo de margen
+                    Debe caber el botón de enviar
+                    Recordar poner como activo el selector
+                     rider/cliente y poner bien el orden de tabulado
+                      de los diferentes campos delformularios
+                </p>
+            </div>          
+        </div>
+      </section>
+      <!-- Footer -->
+      <div w3-include-html="./templates/footer.html"></div>
+
+  </div><!-- Fin container principal -->
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    w3.includeHTML(function(){    
+        $("#UserMessageHeader").html(`<div class="p-1"><a class="text-dark text-decoration-none"  href="./index.html">Home</a></div>
+        <div class="p-1"><a class="text-dark text-decoration-none" href="./login.html">LogIn</a></div>
+        <div class="p-1"><a class="text-dark text-decoration-none"  href="./contact.html">Contact</a></div>`);
+        $("a #UserMessageNavBar").html(`Registro`);
+        }); 
+      </script>
+</body>
+</html>

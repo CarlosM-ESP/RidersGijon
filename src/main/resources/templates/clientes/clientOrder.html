@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+  <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+ <!-- Libreria w3.js -->
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+ <!--Estilos css -->
+  <style>
+.indexBody{
+  height: 400px;
+}
+img{
+  margin-top: 100px;
+  width: 80%;
+}
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 30px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */  
+}
+
+  </style>
+  <title>RidersClientOrder</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- Header -->
+    <div w3-include-html="../templates/headerMaster.html"></div>
+    <!--navBar-->
+    <div w3-include-html="../templates/navBarClientes.html"></div>
+    <!-- Cuerpo Principal -->
+    <section>
+        <div class="row indexBody">
+          <div class="col-12 col-sm-6 col-md-4 bg-light">1Columna
+              <h2>Pedido</h2>
+              <p>formulario de pedido</p>
+              <p>boton de lanzar pedido</p>
+          </div>
+          <div class="col-12 col-sm-6 d-none d-sm-block  col-md-4 bg-info">
+            <h5>Origen</h5>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27520.434383255746!2d-5.694626084361345!3d43.52883681334418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c66cbf494bf%3A0xbd06d207048d3536!2sGij%C3%B3n%2C%20Asturias!5e0!3m2!1ses!2ses!4v1604647933150!5m2!1ses!2ses" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                      
+            <h5>Destino</h5>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27520.434383255746!2d-5.694626084361345!3d43.52883681334418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c66cbf494bf%3A0xbd06d207048d3536!2sGij%C3%B3n%2C%20Asturias!5e0!3m2!1ses!2ses!4v1604647933150!5m2!1ses!2ses" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                      
+          </div>
+          <div class="col-12 col-md-4 d-none d-md-block bg-success">3Columna
+            <img src="../img/amazon.PNG" alt="">
+            <img src="../img/seur.PNG" alt="">
+              
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <div w3-include-html="../templates/footer.html"></div>
+  
+  </div><!-- Fin container principal -->
+
+  <script src="../js/jquery-3.5.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script>
+    //Includes
+    w3.includeHTML(function(){    
+        $("#UserMessageHeader").html(`<div class="p-1"><a href="../clients/clientProfile.html">Bienvenido, cliente: "Nombre Cliente"</a></div>
+       <div class="p-1"><a href="#">Logout [Modal o popover con confirmación]</a></div>`);
+        /* $("a #UserMessageNavBar").html(`Bienvenido`); */
+        }); 
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+  <!-- Includes 
+  Nos permite reutilizar pantilas como headers, footers, etc...-->
+  <script src="../js/includeHtml.js"></script>
+
+  <!--Estilos css -->
+  <style>
+.indexBody{
+  height: 400px;
+}
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 30px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */  
+}
+
+  </style>
+  <title>RidersAdminOrderList</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!--Header-->
+    <div w3-include-html="../templates/headerAdmin.html"></div>
+    
+        <!--NavBar-->
+    <div w3-include-html="../templates/navbarAdmin.html"></div>
+
+    <!-- Cuerpo Principal -->
+    <section>
+        <div class="row indexBody">
+          <div class="col-12 col-sm-6 col-md-4 bg-light">1Columna
+              <h2>Pedido.Detalle</h2>
+              <p>Muestra en formato de formulario los datos completos
+                  del pedido en tres columnas
+              </p>
+              <p>los campos que apareceran
+                 dependerán del tamaño de la pantalla</p>
+                 <p>Como campo especial aparece el status con input y actualización</p>
+              
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 bg-info">2Columna 
+            <p>se mueve abajo al pasar a modo movil</p>
+          </div>
+          <div class="col-12 col-md-4 bg-success">3Columna
+              <p>se mueve abajo al pasar a modo tablet</p>
+              
+              
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <div w3-include-html="../templates/footer.html"></div>
+  </div><!-- Fin container principal -->
+
+  <script src="../js/jquery-3.5.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script>
+    //Includes
+  includeHTML(); 
+  </script>
+</body>
+</html>

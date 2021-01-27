@@ -1,0 +1,39 @@
+<!-- HEADER PARA LAS PAGINAS tipo CLIENTES. INCLUYE Mensaje Bienvenida cliente y logout -->
+<header>    
+  <div class="row">
+    <div class="col-12 col-sm-4 col-md-2 bg-primary">Logo</div>
+    <div class="col-12 col-sm-8 col-md-10 bg-info">
+    <div class="d-flex justify-content-around">
+       <div class="p-1"><a href="../clients/clientProfile.html">Bienvenido, "Nombre Administrador"</a></div>
+       <div class="p-1">
+        <a href="#exampleModal" data-toggle="modal">Logout</a>
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </button> -->
+        
+        <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Logging-Out</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ¿Está seguro de que quiere desloguearse?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="button" id="logout" class="btn btn-dark"><a href="../index.html">Log-Out</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>        
+        </div>       
+        </div>
+    </div>
+  </div>      
+</header>  

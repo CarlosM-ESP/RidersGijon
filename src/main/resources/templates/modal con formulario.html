@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!--Estilos css -->
+  <style>
+.indexBody{
+  height: 400px;
+}
+/* .navbar-toggler-icon{
+  width: 20px !important;
+  height:15px !important;
+}
+ */
+ /* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 30px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */  
+}
+  </style>
+  <title>RidersGijon</title>
+</head>
+
+<body>
+  <a href="#nuevoUsu" data-toggle="modal">Dispara Modal</a>
+
+
+    <div class="modal" id="nuevoUsu" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h4>Nuevo Contacto</h4>         
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  
+<!--
+https://es.stackoverflow.com/questions/148434/validar-datos-y-mostrar-alertas-bootstrap
+
+
+-->
+              </div>
+              <div class="modal-body">
+                 <form action="#" method="GET">            
+                      <div class="form-group">
+                          <label for="nombre">Nombre:</label>
+                          <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre"></input>
+                      </div>
+                      <div class="form-group">
+                          <label for="edad">Edad:</label>
+                          <input class="form-control" id="edad" name="edad" type="text" placeholder="Edad"></input>
+                      </div>
+                      <div class="form-group">
+                          <label for="direccion">Direccion:</label>
+                          <input class="form-control" id="direccion" name="direccion" type="text" placeholder="Direccion"></input>
+                      </div>
+  
+                      <input type="submit" class="btn btn-success" value="Salvar">
+                 </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+      </div>
+  </div> 
+  
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

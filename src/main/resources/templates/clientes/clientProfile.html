@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+  <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+ <!-- Libreria w3.js -->
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <!--Estilos css -->
+  <style>
+.indexBody{
+  height: 400px;
+}
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 30px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px; /* Set the fixed height of the footer here */
+  line-height: 30px; /* Vertically center the text there */  
+}
+
+  </style>
+  <title>RidersClientProfile</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- Header -->
+    <div w3-include-html="../templates/headerMaster.html"></div>
+    <!-- NavBar -->
+    <div w3-include-html="../templates/navBarClientes.html"></div>
+    <!-- Cuerpo Principal -->
+    <section>
+        <div class="row indexBody">
+          <div class="col-12 col-md-4 bg-light">1Columna
+              <h2>Perfil</h2>
+              <p>formulario con todos los datos del cliente y marcados los no actualizables</p>
+              <p>boton de actualizar perfil</p>
+          </div>
+          <div class="col-12 col-md-8 d-none d-md-block bg-success">
+              <p>Tabla ultimos pedidos</p>
+              <p>se mostrarán solo los campos que quepan en el contenedor, pero típicamente
+                  id, fecha, status y el campo de editar pedido
+              </p>
+              <p>Desaparece en modo tablet y movil</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <div w3-include-html="../templates/footer.html"></div>
+  
+  </div><!-- Fin container principal -->
+
+  <script src="../js/jquery-3.5.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script>
+    //Includes
+    w3.includeHTML(function(){    
+        $("#UserMessageHeader").html(`<div class="p-1"><a href="../clients/clientProfile.html">Bienvenido, cliente: "Nombre Cliente"</a></div>
+       <div class="p-1"><a href="#">Logout [Modal o popover con confirmación]</a></div>`);
+        /* $("a #UserMessageNavBar").html(`Bienvenido`); */
+        }); 
+        
+    </script>
+</body>
+</html>
