@@ -20,5 +20,19 @@ public class ClienteController {
 		return "/clientes/clientHistory";
 	}
 	
+	@GetMapping ("/history")
+	public String clientHistory(){
+		return "/clientes/clientHistory";
+	}
+	
+	@GetMapping ("/profile")
+	public String clienteProfile(){
+		return "/clientes/clientProfile";
+	}
+	
+	@GetMapping ("/orders")
+	public String clientOrder(){
+		return "/clientes/clientOrder";
+	}
 	
 }

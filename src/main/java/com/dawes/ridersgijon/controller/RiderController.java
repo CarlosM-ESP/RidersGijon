@@ -21,6 +21,20 @@ public class RiderController {
 		return "/riders/riderHistory";
 	}
 	
+	@GetMapping ("/history")
+	public String riderHistory(){
+		return "/riders/riderHistory";
+	}
+	
+	@GetMapping ("/profile")
+	public String ridereProfile(){
+		return "/riders/riderProfile";
+	}
+	
+	@GetMapping ("/available")
+	public String riderOrder(){
+		return "/riders/riderAvailable";
+	}
+	
 	
 }
-//@RequestMapping(value = "/ex/foos", method = RequestMethod.GET)

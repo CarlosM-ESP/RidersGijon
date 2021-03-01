@@ -59,7 +59,7 @@ public class UserController {
     }
 	@GetMapping("/modal")
     public String modal() {
-        return "modal";
+        return "../modal";
     }
 
 }
