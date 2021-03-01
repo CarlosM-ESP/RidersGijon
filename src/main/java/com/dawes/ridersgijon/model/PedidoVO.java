@@ -6,6 +6,7 @@ package com.dawes.ridersgijon.model;
 import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,7 +43,11 @@ public class PedidoVO {
 	private String dir_destinatario;
 	private String telefono_destinatario;
 	private int status;
+	
+	//Provisional...TEST
+	@Column(unique=true)
 	private String comentarios;
+	
 	private LocalDate fecha_entregado;
 	
 	@ManyToOne	

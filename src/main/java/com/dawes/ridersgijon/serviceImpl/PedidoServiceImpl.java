@@ -22,7 +22,7 @@ import com.dawes.ridersgijon.service.PedidoService;
 public class PedidoServiceImpl implements PedidoService{
 	
 	@Autowired
-	PedidoRepository pedidoRepository;
+	private PedidoRepository pedidoRepository;
 	
 	/**
 	 * @param <S>

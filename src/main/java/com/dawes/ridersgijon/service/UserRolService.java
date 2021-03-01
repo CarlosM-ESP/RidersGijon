@@ -1,14 +1,10 @@
 package com.dawes.ridersgijon.service;
 
-import java.util.List;
 import java.util.Optional;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import com.dawes.ridersgijon.model.UserRolVO;
 
-import com.dawes.ridersgijon.model.UserVO;
-
-public interface UserService {
+public interface UserRolService {
 
 	/**
 	 * @param <S>
@@ -16,7 +12,7 @@ public interface UserService {
 	 * @return
 	 * @see org.springframework.data.repository.CrudRepository#save(java.lang.Object)
 	 */
-	<S extends UserVO> S save(S entity);
+	<S extends UserRolVO> S save(S entity);
 
 	/**
 	 * @param <S>
@@ -24,14 +20,14 @@ public interface UserService {
 	 * @return
 	 * @see org.springframework.data.repository.CrudRepository#saveAll(java.lang.Iterable)
 	 */
-	<S extends UserVO> Iterable<S> saveAll(Iterable<S> entities);
+	<S extends UserRolVO> Iterable<S> saveAll(Iterable<S> entities);
 
 	/**
 	 * @param id
 	 * @return
 	 * @see org.springframework.data.repository.CrudRepository#findById(java.lang.Object)
 	 */
-	Optional<UserVO> findById(Integer id);
+	Optional<UserRolVO> findById(Integer id);
 
 	/**
 	 * @param id
@@ -44,14 +40,14 @@ public interface UserService {
 	 * @return
 	 * @see org.springframework.data.repository.CrudRepository#findAll()
 	 */
-	Iterable<UserVO> findAll();
+	Iterable<UserRolVO> findAll();
 
 	/**
 	 * @param ids
 	 * @return
 	 * @see org.springframework.data.repository.CrudRepository#findAllById(java.lang.Iterable)
 	 */
-	Iterable<UserVO> findAllById(Iterable<Integer> ids);
+	Iterable<UserRolVO> findAllById(Iterable<Integer> ids);
 
 	/**
 	 * @return
@@ -69,32 +65,18 @@ public interface UserService {
 	 * @param entity
 	 * @see org.springframework.data.repository.CrudRepository#delete(java.lang.Object)
 	 */
-	void delete(UserVO entity);
+	void delete(UserRolVO entity);
 
 	/**
 	 * @param entities
 	 * @see org.springframework.data.repository.CrudRepository#deleteAll(java.lang.Iterable)
 	 */
-	void deleteAll(Iterable<? extends UserVO> entities);
+	void deleteAll(Iterable<? extends UserRolVO> entities);
 
 	/**
 	 * 
 	 * @see org.springframework.data.repository.CrudRepository#deleteAll()
 	 */
 	void deleteAll();
-	
-	//********************************************* NO CRUD REPOSITORY **************************************
-	
-	Optional<UserVO> findByEmailAndPassword(String email, String password);
-	
-	List<UserVO> findByIsActive(Boolean activo);
-	
-	List<UserVO> findByUser_type(String type);
-	
-	List<UserVO> findRidersByCliente(UserVO cliente);
-	
-	//Spring Security
-	UserDetails loadUserByUsername(String email) throws UsernameNotFoundException;
-	
-	
+
 }

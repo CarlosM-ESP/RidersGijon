@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
@@ -19,11 +22,22 @@ import com.dawes.ridersgijon.service.UserService;
  *
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserDetailsService, UserService{
 	
 	@Autowired
 	UserRepository userRepository;
 	
+	//Requerido por Spring Security
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {		
+		UserVO user = userRepository.findByEmail(email).get();
+	    if (user == null) {
+	        throw new UsernameNotFoundException("Not found!");
+	    }
+	    return user;
+	}
+
+
 	/**
 	 * @param <S>
 	 * @param entity
@@ -167,6 +181,4 @@ public class UserServiceImpl implements UserService{
 	public List<UserVO> findRidersByCliente(UserVO cliente) {
 		return userRepository.findRidersByCliente(cliente);
 	}
-	
-	
 }

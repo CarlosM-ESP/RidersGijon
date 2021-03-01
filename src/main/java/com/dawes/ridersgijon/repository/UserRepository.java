@@ -31,5 +31,7 @@ public interface UserRepository extends CrudRepository<UserVO, Integer>{
 		
 	@Query("SELECT u FROM UserVO AS u where u IN (SELECT DISTINCT p.rider FROM PedidoVO p WHERE p.cliente = :clienteUser)")
 	List<UserVO> findRidersByCliente(UserVO clienteUser);
+	
+	Optional<UserVO> findByEmail(String email);
 
 }
