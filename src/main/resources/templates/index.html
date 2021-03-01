@@ -26,14 +26,67 @@
 				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
 					<div id="UserMessageHeader" class="d-flex justify-content-between border border-2">
 						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{register}">Sign-Up</a>
+							<a class="text-dark text-decoration-none" th:href="@{/register}">Sign-Up</a>
 						</div>
 						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{login}">Login</a>
+							<a class="text-dark text-decoration-none" th:href="@{/login}">Login</a>
 						</div>
 						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{contact}">Contact</a>
+							<a class="text-dark text-decoration-none"  th:href="@{/contact}">Contact</a>
 						</div>
+						
+						
+						<!-- ***************************************PROVISIONAL -->
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" href="#modalLogout" data-toggle="modal">Logout</a>
+						</div>
+
+
+						<div class="modal" id="modalLogout" tabindex="-1" role="dialog"
+							aria-labellebdy="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4>LogOut</h4>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+									</div>
+									<div class="modal-body">
+										<form th:action="@{/logout}" method="post">
+											<!-- <div class="form-group">
+												<label for="nombre">Nombre:</label> <input
+													class="form-control" id="nombre" name="nombre" type="text"
+													placeholder="Nombre"></input>
+											</div>
+											<div class="form-group">
+												<label for="edad">Edad:</label> <input class="form-control"
+													id="edad" name="edad" type="text" placeholder="Edad"></input>
+											</div>
+											<div class="form-group">
+												<label for="direccion">Direccion:</label> <input
+													class="form-control" id="direccion" name="direccion"
+													type="text" placeholder="Direccion"></input>
+											</div> -->
+											
+											<h4>¿Está seguro de querer salir del sistema?</h4>
+
+											<input type="submit" class="btn btn-danger" value="LogOut">
+											<button type="button" class="btn btn-info"
+											data-dismiss="modal">Cancelar</button>
+										</form>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+						<!-- ***************************************PROVISIONAL -->
 					</div>
 				</div>
 			</div>
@@ -52,7 +105,9 @@
 			</nav>
 		</div>
 		
-		<!-- Pruebas autenticacion -->
+		<!-- 
+***********************************************************************************************************************		
+		Pruebas autenticacion
 		
 		<div class="row indexBody">
 				<div class="col-6 col-md-6 col-lg-4 bg-light embed-responsive"></div>
@@ -70,10 +125,11 @@
 				
 				</div>
 		</div>
-		
+********************************************************************************************************************************
+		-->
 		
 		<!-- Cuerpo Principal -->
-		<!-- <section>
+		<section>
 			<div class="row indexBody">
 				<div class="col-12 col-md-6 col-lg-4 bg-light embed-responsive">
 					<iframe class="embed-responsive-item"
@@ -110,15 +166,16 @@
 							nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 						</div>
 					</div>
-				</div>FIN PRUEBAS DE MAQUETACION DE BANNER
-			</div>Fin row
-		</section>
+				</div><!-- FIN PRUEBAS DE MAQUETACION DE BANNER -->
+			</div>
+			<!-- Fin row -->
+		</section>		
 
-		Footer
+		<!-- Footer -->
 		<footer class="footer row">
 			<div class="col-12 bg-dark text-white text-center">CopyRight&copy; 2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral (Gijón)</div>
-		</footer> -->
-													<!-- <div w3-include-html="./templates/footer.html"></div></div> -->
+		</footer> 
+		<!-- <div w3-include-html="./templates/footer.html"></div></div> -->
 		<!-- Fin container principal -->
 
 		<script src="js/jquery-3.5.1.min.js"></script>

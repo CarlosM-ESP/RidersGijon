@@ -8,45 +8,51 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
-
- <!-- Libreria w3.js -->
- <script src="https://www.w3schools.com/lib/w3.js"></script>
-
-  <!--Estilos css -->
-  <style>
-.indexBody{
-  height: 800px;  
-}
-.noMenu{
-  height: 56px;
-}
-
-
-/* Sticky Footer */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: 30px; /* Margin bottom by footer height */
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 30px; /* Set the fixed height of the footer here */
-  line-height: 30px; /* Vertically center the text there */  
-}
-  </style>
+<!-- Custom css  -->
+	<link rel="stylesheet" href="./css/styles.css">
+ 
   <title>RidersRegister</title>
 </head>
 
 <body>
    <div class="container-fluid">
-      <!-- Header -->
-      <div w3-include-html="./templates/headerMaster.html"></div>  
-      <!-- NavBar -->
-      <div w3-include-html="./templates/navbarMaster.html"></div>       
+      <!-- Header -->													
+		<header>
+			<div class="row">
+				<div
+					class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
+					<img class="img-fluid" src="./img/logoRecortado.png" width="100px"
+						alt="logo de la aplicacion">
+				</div>
+													<!-- IncludeHTML. Texto Personalizado desde cada página -->
+				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
+					<div id="UserMessageHeader" class="d-flex justify-content-between border border-2">
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" th:href="@{register}">Sign-Up</a>
+						</div>
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" th:href="@{login}">Login</a>
+						</div>
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" th:href="@{contact}">Contact</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- NavBar -->											
+		<div class="row">
+			<nav class="col-12 navbar navbar-expand-md navbar-light bg-light border border-2 no-gutters">				
+				<a>
+					<div class="navbar-brand" id="UserMessageNavBar">
+					<h4>Bienvenidos a RidersGijón</h4>
+					</div>
+				</a>
+				<div class="collapse navbar-collapse border border-2" id="navbarNavAltMarkup">
+					<div class="navbar-nav"></div>
+				</div>
+			</nav>
+		</div>
       <!-- Cuerpo Principal -->
       <section>
         <div class="row indexBody">

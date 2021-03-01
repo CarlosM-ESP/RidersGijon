@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.dawes.ridersgijon.service.UserService;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 	
 	@Autowired
 	UserService user;	
 	
-	@GetMapping ("/admin")
+	@GetMapping ("")
 	public String admin(){
 		return "/admin/adminOrdersOrderList";
 	}

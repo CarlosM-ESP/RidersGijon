@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:th="thymeleaf.org">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -46,14 +46,10 @@ body {
                 <h4>Nuevo Contacto</h4>         
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   
-<!--
-https://es.stackoverflow.com/questions/148434/validar-datos-y-mostrar-alertas-bootstrap
 
-
--->
               </div>
               <div class="modal-body">
-                 <form action="#" method="GET">            
+               <form th:action="@{/logout}" method="post">                             
                       <div class="form-group">
                           <label for="nombre">Nombre:</label>
                           <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre"></input>

@@ -30,32 +30,36 @@ public class UserController {
 		return "index";
 	}
 	
-	@GetMapping ("index")
+	@GetMapping ("/index")
 	public String index(){
 		return "index";
 	}
 		
-	@GetMapping ("register")
+	@GetMapping ("/register")
 	public String register(){
 		return "register";
 	}
 	
-	@GetMapping ("login")
+	@GetMapping ("/login")
 	public String login(){
 		return "login";
 	}
 	
-	@GetMapping ("contact")
+	@GetMapping ("/contact")
 	public String contact(){
 		return "contact";
 	}
-	@GetMapping ("403")
+	@GetMapping ("/403")
 	public String error403(){
 		return "403";
 	}
-	@GetMapping("logout")
+	@GetMapping("/logout")
     public String logout() {
         return "logout";
+    }
+	@GetMapping("/modal")
+    public String modal() {
+        return "modal";
     }
 
 }
