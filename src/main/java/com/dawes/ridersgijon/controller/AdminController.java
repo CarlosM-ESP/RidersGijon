@@ -20,5 +20,44 @@ public class AdminController {
 		return "/admin/adminOrdersOrderList";
 	}
 	
+	@GetMapping ("/adminList")
+	public String adminList(){
+		return "/admin/adminAdminsAdminList";
+	}
+	
+	@GetMapping ("/adminDetail")
+	public String adminDetail(){
+		return "/admin/adminAdminsAdminDetail";
+	}
+	
+	@GetMapping ("/clientList")
+	public String clientList(){
+		return "/admin/adminClientsClientList";
+	}
+	
+	@GetMapping ("/clientDetail")
+	public String clientDetail(){
+		return "/admin/adminClientsClientDetail";
+	}
+	
+	@GetMapping ("/riderList")
+	public String riderList(){
+		return "/admin/adminRidersRiderList";
+	}
+	
+	@GetMapping ("/riderDetail")
+	public String riderDetail(){
+		return "/admin/adminRidersRiderDetail";
+	}
+	
+	@GetMapping ("/orderList")
+	public String orderList(){
+		return "/admin/adminOrdersOrderList";
+	}
+	
+	@GetMapping ("/orderDetail")
+	public String orderDetail(){
+		return "/admin/adminOrdersOrderDetail";
+	}
 	
 }

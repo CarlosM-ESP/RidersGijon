@@ -1,22 +1,23 @@
 <!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
-   <!-- Custom css  -->
+<!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
 
-  <title>AdminRiderDetail</title>
+<title>RidersAdminClientList</title>
 </head>
 
 <body>
-  <div class="container-fluid">
-   <!-- HEADER PARA LAS PAGINAS tipo ADMIN. INCLUYE Mensaje Bienvenida y logout -->
+	<div class="container-fluid">
+		<!-- HEADER PARA LAS PAGINAS tipo ADMIN. INCLUYE Mensaje Bienvenida y logout -->
 		<header>
 			<div class="row">
 				<div
@@ -75,32 +76,37 @@
 			</nav>
 		</div>
 
-    <!-- Cuerpo Principal -->
-    <section>
-        <div class="row indexBody">
-          <div class="col-12 col-md-4 bg-light">1Columna
-              <h2>Rider.Detalle</h2>
-              <p>formulario con todos los datos del rider y marcados los no actualizables</p>
-              <p>boton de actualizar perfil del Rider</p>
-              <p>boton de Eliminar Rider</p>
-          </div>
-          <div class="col-12 col-md-8 d-none d-md-block bg-success">
-              <p>Tabla ultimos trabajos</p>
-              <p>se mostrarán solo los campos que quepan en el contenedor, pero típicamente
-                  id, fecha, status y el campo de editar pedido
-              </p>
-              <p>Desaparece en el modo tablet y móvil</p>
-            </div>
-        </div>
-    </section>
-     <!-- Footer -->
-		<footer class="footer row">
-			<div class="col-12 bg-dark text-white text-center">CopyRight&copy; 2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral (Gijón)</div>
-		</footer> 
-  </div><!-- Fin container principal -->
+		<!-- Cuerpo Principal -->
+		<section>
+			<div class="row indexBody">
+				<div class="col-12 col-md-8 bg-light">
+					1Columna
+					<h2>Clientes</h2>
+					<p>Tabla con todos los clientes de la aplicación</p>
+					<p>los campos que apareceran dependerán del tamaño de la
+						pantalla</p>
 
-  <script src="../js/jquery-3.5.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
- 
+				</div>
+				<div class="col-12 col-md-4 bg-success">
+					2Columna
+					<p>selectores de filtrado para la tabla</p>
+					<p>Se ponen debajo cuando el tamaño de pantalla es más pequeño</p>
+
+				</div>
+			</div>
+		</section>
+		<!-- Footer -->
+		<footer class="footer row">
+			<div class="col-12 bg-dark text-white text-center">CopyRight&copy;
+				2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral
+				(Gijón)</div>
+		</footer>
+	</div>
+	<!-- Fin container principal -->
+
+	<script src="../js/jquery-3.5.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

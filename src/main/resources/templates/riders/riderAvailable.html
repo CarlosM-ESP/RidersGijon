@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:th="thymeleaf.org">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -30,7 +30,7 @@
 					<div class="d-flex justify-content-between border border-2">
 						<div class="p-1">
 							<a class="text-dark text-decoration-none" th:href="@{/riders/profile}" href="#">Bienvenido,
-								Rider: "Nombre Cliente"</a>
+								Rider: "Nombre Rider"</a>
 						</div>
 
 						<div class="p-1">
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 			</div>
-	</div>
+	
 	</header>
          <div class="row">
       <nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
@@ -54,7 +54,7 @@
           <div class="navbar-nav ml-auto">                  
             <a class="nav-item nav-link active" th:href="@{/riders/history}" href="#">Histórico Pedidos<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link"  th:href="@{/riders/profile}" href="#">Perfil</a>                  
-            <a class="nav-item nav-link"  th:href="@{/riders/available}" href="#">Disponibles</a>
+            <a class="nav-item nav-link"  th:href="@{/riders/available}" autofocus href="#">Disponibles</a>
             <!-- <a class="nav-item nav-link" href="../contact.html?origin=clientProfile">Contacto</a> -->                      
           </div>
         </div>

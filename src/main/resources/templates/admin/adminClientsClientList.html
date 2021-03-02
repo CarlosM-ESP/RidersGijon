@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" xmlns:th="thymeleaf.org">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -8,40 +8,72 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-    <!-- Includes -->
-    <script src="../js/includeHtml.js"></script>
+    <!-- Custom css  -->
+<link rel="stylesheet" href="../css/styles.css">
 
-  <!--Estilos css -->
-  <style>
-.indexBody{
-  height: 400px;
-}
-/* Sticky Footer */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: 30px; /* Margin bottom by footer height */
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 30px; /* Set the fixed height of the footer here */
-  line-height: 30px; /* Vertically center the text there */  
-}
-
-  </style>
   <title>RidersAdminClientList</title>
 </head>
 
 <body>
   <div class="container-fluid">
-    <!--Header-->
-    <div w3-include-html="../templates/headerAdmin.html"></div>
-    <!--NavBar-->
-    <div w3-include-html="../templates/navbarAdmin.html"></div>
+    <!-- HEADER PARA LAS PAGINAS tipo ADMIN. INCLUYE Mensaje Bienvenida y logout -->
+		<header>
+			<div class="row">
+				<div
+					class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
+					<img class="img-fluid" src="../img/logoRecortado.png" width="100px"
+						alt="logo de la aplicacion">
+				</div>
+
+				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
+					<div class="d-flex justify-content-between border border-2">
+
+						<div class="p-1">
+							<a class="text-dark text-decoration-none"
+								th:href="@{/clientes/profile}" href="#">Bienvenido, Nombre
+								Admin"</a>
+						</div>
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" href="#">Logout
+								[Modal o popover con confirmación]</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<div class="row">
+			<nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
+				<a class="navbar-brand">Admin</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav ml-auto">
+
+						<a class="nav-item nav-link active" th:href="@{/admin/orderList}"
+							href="#">Pedidos</a>
+						<a class="nav-item nav-link" th:href="@{/admin/clientList}" autofocus
+						    href="#">Clientes</a>
+						<a class="nav-item nav-link" th:href="@{/admin/riderList}"
+							href="#">Riders</a>
+						<a class="nav-item nav-link" th:href="@{/admin/adminList}"
+						    href="#">Administración</a>
+						<a class="nav-item nav-link" th:href="@{/clientes/history}"
+							href="#">Area Clientes<span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link" th:href="@{/riders/history}"
+							href="#">Area Riders</a>
+			<!-- AÑADIR LA ETIQUETA DE ORIGEN PARA VER DE DONDE VIENES
+            <a class="nav-item nav-link" href="../clientes/clientHistory.html?origin=admin">Area Clientes</a>                 
+            <a class="nav-item nav-link" href="../riders/riderHistory.html?origin=admin">Area Riders</a> -->
+					</div>
+				</div>
+			</nav>
+		</div>
     <!-- Cuerpo Principal -->
     <section>
         <div class="row indexBody">
@@ -59,16 +91,15 @@ body {
             </div>
         </div>
     </section>
-    <!-- Footer -->
-    <div w3-include-html="../templates/footer.html"></div>
+     <!-- Footer -->
+		<footer class="footer row">
+			<div class="col-12 bg-dark text-white text-center">CopyRight&copy; 2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral (Gijón)</div>
+		</footer> 
   </div><!-- Fin container principal -->
 
   <script src="../js/jquery-3.5.1.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
 
-  <script>
-    //Includes
-      includeHTML();
-    </script>
+  
 </body>
 </html>
