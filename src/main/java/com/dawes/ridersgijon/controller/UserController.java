@@ -3,9 +3,11 @@ package com.dawes.ridersgijon.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dawes.ridersgijon.service.EmailService;
 import com.dawes.ridersgijon.service.UserService;
 
 
@@ -24,6 +26,9 @@ public class UserController {
 	
 	@Autowired
 	UserService user;
+	
+	@Autowired
+	EmailService email;
 	
 	@GetMapping ("/")
 	public String inicio(){
@@ -49,6 +54,14 @@ public class UserController {
 	public String contact(){
 		return "contact";
 	}
+	
+	
+	@PostMapping ("/enviar")
+	public String contactoEnviado(){
+		email.sendSimpleMessage("carlosmdaw2020@gmail.com", "AsuntoMensaje","CuerpoMensaje");		
+		return "enviado";
+	}
+	
 	@GetMapping ("/403")
 	public String error403(){
 		return "403";

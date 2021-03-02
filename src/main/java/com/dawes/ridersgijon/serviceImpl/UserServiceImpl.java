@@ -25,7 +25,7 @@ import com.dawes.ridersgijon.service.UserService;
 public class UserServiceImpl implements UserDetailsService, UserService{
 	
 	@Autowired
-	UserRepository userRepository;
+	UserRepository userRepository;	
 	
 	//Requerido por Spring Security
 	@Override
