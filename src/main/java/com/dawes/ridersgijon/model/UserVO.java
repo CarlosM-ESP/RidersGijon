@@ -104,5 +104,4 @@ public class UserVO implements UserDetails{
 				+ matricula + ", vehiculo=" + vehiculo + ", isActive=" + isActive + "]";
 	}
 	
-	
 }

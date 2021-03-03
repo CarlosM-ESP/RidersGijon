@@ -18,51 +18,72 @@
 <body>
 	<div class="container-fluid">
 		<!-- Header -->
-		<header>
-			<div class="row">
-				<div
-					class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
-					<img class="img-fluid" src="./img/logoRecortado.png" width="100px"
-						alt="logo de la aplicacion">
-				</div>
-				<!-- IncludeHTML. Texto Personalizado desde cada página -->
-				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
-					<div id="UserMessageHeader"
-						class="d-flex justify-content-between border border-2">
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{index}">Home</a>
-						</div>
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{login}">Login</a>
-						</div>
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{contact}">Contact</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+		<div th:insert="templates/headerMaster :: headerInicio"></div>
+
 		<!-- NavBar -->
-		<div class="row">
-			<nav
-				class="col-12 navbar navbar-expand-md navbar-light bg-light border border-2 no-gutters">
-				<div class="navbar-brand">
-					<a><h4>Bienvenido a RidersGijón</h4></a>
-				</div>
-				<div class="collapse navbar-collapse border border-2"
-					id="navbarNavAltMarkup">
-					<div class="navbar-nav"></div>
-				</div>
-			</nav>
-		</div>
+		<div th:insert="templates/navbarMaster :: navInicio"></div>
+		
 		<!-- Cuerpo Principal -->
 		<section>
 			<div class="row indexBody">
 				<div class="col-12 col-sm-6 col-md-6 bg-light">
-					<p>Formulario Columna 1 de 2</p>
-					<p>si se selecciona rider, apareceran unos campos de formulario
-						adicionales en la segunda columna y el botón de enviar</p>
+					<h5>Formulario Registro</h5>
+					<form th:action="@{/register}" method="post" class="form-signin">
+
+						 <select class="form-control" name="user_type" id="user_type">
+							<option th:value="CLIENT">CLIENTE</option>
+							<option th:value="RIDER">RIDER</option>
+						</select>						
+						
+						<label for="inputNombre" class="sr-only">Nombre</label>
+						<input	type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+						
+						<label for="inputApellido1" class="sr-only">Primer Apellido</label>
+						<input	type="text" id="inputApellido1" name="apellido1" class="form-control" placeholder="Primer Apellido" required>
+						
+						<label for="inputApellido2" class="sr-only">Segundo Apellido</label>
+						<input	type="text" id="inputApellido2" name="apellido2" class="form-control" placeholder="Segundo Apellido" required>
+						
+						<label for="inputNIF" class="sr-only">NIF</label>
+						<input	type="text" id="inputNIF" name="nif" class="form-control" placeholder="NIF" required>
+						
+						<label for="inputDireccion" class="sr-only">Dirección</label>
+						<input	type="text" id="inputDireccion" name="direccion" class="form-control" placeholder="Dirección" required>
+						
+						<label for="inputTelefono" class="sr-only">Teléfono</label>
+						<input	type="text" id="inputTelefono" name="telefono" class="form-control" placeholder="Teléfono" required>
+						
+						<label for="inputNick" class="sr-only">Nick del Usuario</label>
+						<input	type="text" id="inputNick" name="nick" class="form-control" placeholder="Nick" required>
+						
+						<label for="inputEmail" class="sr-only">Email address</label>
+						<input	type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required>
+						
+						<label for="inputPassword" class="sr-only">Password</label>
+						<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+						
+						
+						<!-- HIDDEN SI SE SELECCIONA CLIENTE  -->
+						<label for="inputVehiculo" class="sr-only">Tipo de Vehículo</label>
+						<input	type="text" id="inputVehiculo" name="vehiculo" class="form-control" placeholder="Vehículo">						
+						
+						<label for="inputMatricula" class="sr-only">Matrícula</label>
+						<input	type="text" id="inputMatricula" name="matricula" class="form-control" placeholder="Matrícula">
+						<!-- FIN HIDDEN -->
+						
+						
+						
+						
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+					</form>
 				</div>
+				
+				
+				
+				
+				
+				
+				
 				<div class="col-12 col-sm-6  d-none d-sm-block col-md-6 bg-success">
 					<p>Formulario Columna 2 de 2</p>
 					<p>Vamos a ajustar los campos del formulario para que entren en
@@ -74,12 +95,7 @@
 			</div>
 		</section>
 		<!-- Footer -->
-		<footer class="footer row">
-			<div class="col-12 bg-dark text-white text-center">CopyRight&copy;
-				2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral
-				(Gijón)</div>
-		</footer>
-
+		 <div th:replace="templates/footer::footer"></div>
 	</div>
 	<!-- Fin container principal -->
 

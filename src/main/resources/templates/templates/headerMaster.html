@@ -1,12 +1,54 @@
-<!-- HEADER PARA LAS PAGINAS INDEX, SIGNUP, LOGIN Y CONTACT-->
-<header>    
-      <div class="row">        
-        <div class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
-          <img class="img-fluid" src="./img/logoRecortado.png" width="100px" alt="logo de la aplicacion">
-        </div>
-        <!-- IncludeHTML. Texto Personalizado desde cada página -->
-        <div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
-          <div id="UserMessageHeader"class="d-flex justify-content-between border border-2"></div> 
-        </div>
-      </div>      
-</header>
+<div th:fragment="headerInicio">	
+<meta charset="utf-8">
+<!-- Header -->													
+		<header>
+			<div class="row">
+				<div class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
+					<img class="img-fluid" src="./img/logoRecortado.png" width="100px"	alt="logo de la aplicacion">
+				</div>
+
+				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
+					<div class="d-flex justify-content-between border border-2">
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" th:href="@{/index}">Home</a>
+						</div>
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" th:href="@{/register}">Sign-Up</a>
+						</div>
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" th:href="@{/login}">Login</a>
+						</div>
+						<div class="p-1">
+							<a class="text-dark text-decoration-none"  th:href="@{/contact}">Contact</a>
+						</div>						
+						<div class="p-1">
+							<a class="text-dark text-decoration-none" href="#modalLogout" data-toggle="modal">Logout</a>
+						</div>
+						
+						<!-- MODAL LOGOUT -->	
+						<div class="modal" id="modalLogout" tabindex="-1" role="dialog"
+							aria-labellebdy="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4>LogOut</h4>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+									</div>
+									<div class="modal-body">
+										<form th:action="@{/logout}" method="post">
+											<h4>¿Está seguro de querer salir del sistema?</h4>
+
+											<input type="submit" class="btn btn-danger" value="LogOut">
+											<button type="button" class="btn btn-info"
+											data-dismiss="modal">Cancelar</button>
+										</form>
+									</div>									
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</header>		
+</div>

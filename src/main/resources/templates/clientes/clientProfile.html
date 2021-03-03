@@ -20,51 +20,11 @@
 
 <body>
   <div class="container-fluid">
-    <!-- HEADER PARA LAS PAGINAS tipo CLIENTES. INCLUYE Mensaje Bienvenida cliente y logout -->
-		<header>
-			<div class="row">
-				<div
-					class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
-					<img class="img-fluid" src="../img/logoRecortado.png" width="100px"
-						alt="logo de la aplicacion">
-				</div>
+  
+  		<div th:insert="templates/headerClientes :: headerClientes"></div>
 
-				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
-					<div class="d-flex justify-content-between border border-2">
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{/clientes/profile}" href="#">Bienvenido,
-								cliente: "Nombre Cliente"</a>
-						</div>
-
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" href="#">Logout</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			</header>
-	
-	
-         <div class="row">
-      <nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
-        <a class="navbar-brand">Clientes</a>            
-        <button class="navbar-toggler" type="button" 
-        data-toggle="collapse" data-target="#navbarNavAltMarkup" 
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" 
-        aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">                  
-            <a class="nav-item nav-link active" th:href="@{/clientes/history}" href="#">Histórico Pedidos<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link"  th:href="@{/clientes/profile}" autofocus href="#">Perfil</a>                  
-            <a class="nav-item nav-link"  th:href="@{/clientes/orders}" href="#">Pedidos</a>
-            <!-- <a class="nav-item nav-link" href="../contact.html?origin=clientProfile">Contacto</a> -->                      
-          </div>
-        </div>
-      </nav>    
-    </div>
-	<!-- Fin row -->
+		<div th:insert="templates/navbarClientes :: navbarClientes"></div>
+		
 	<!-- Cuerpo Principal -->
     <section>
         <div class="row indexBody">
@@ -83,9 +43,7 @@
         </div>
     </section>
    <!-- Footer -->
-		<footer class="footer row">
-			<div class="col-12 bg-dark text-white text-center">CopyRight&copy; 2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral (Gijón)</div>
-		</footer> 
+		<div th:insert="templates/footer :: footer"></div>
   
   </div><!-- Fin container principal -->
 

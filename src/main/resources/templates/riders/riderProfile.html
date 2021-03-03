@@ -17,49 +17,11 @@
 
 <body>
  <div class="container-fluid">
-    <!-- HEADER PARA LAS PAGINAS tipo RIDER. INCLUYE Mensaje Bienvenida rider y logout -->
-		<header>
-			<div class="row">
-				<div
-					class="col-12 col-sm-4 col-md-2 bg-light text-center border border-2">
-					<img class="img-fluid" src="../img/logoRecortado.png" width="100px"
-						alt="logo de la aplicacion">
-				</div>
+ 
+ 	   <div th:insert="templates/headerRiders :: headerRiders"></div>
 
-				<div class="col-12 col-sm-8 col-md-10 bg-light align-self-center">
-					<div class="d-flex justify-content-between border border-2">
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" th:href="@{/riders/profile}" href="#">Bienvenido,
-								Rider: "Nombre Rider"</a>
-						</div>
-
-						<div class="p-1">
-							<a class="text-dark text-decoration-none" href="#">Logout</a>
-						</div>
-					</div>
-				</div>
-			</div>
-	
-	</header>
-         <div class="row">
-      <nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
-        <a class="navbar-brand">Riders</a>            
-        <button class="navbar-toggler" type="button" 
-        data-toggle="collapse" data-target="#navbarNavAltMarkup" 
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" 
-        aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">                  
-            <a class="nav-item nav-link active" th:href="@{/riders/history}" href="#">Histórico Pedidos<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link"  th:href="@{/riders/profile}" autofocus href="#">Perfil</a>                  
-            <a class="nav-item nav-link"  th:href="@{/riders/available}" href="#">Disponibles</a>
-            <!-- <a class="nav-item nav-link" href="../contact.html?origin=clientProfile">Contacto</a> -->                      
-          </div>
-        </div>
-      </nav>    
-    </div>
+		<div th:insert="templates/navbarRiders :: navbarRiders"></div>
+		
     <!-- Cuerpo Principal -->
     <section>
         <div class="row indexBody">
