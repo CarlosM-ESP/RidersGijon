@@ -61,14 +61,7 @@ public class UserController {
 	@GetMapping("/index")
 	public String index() {
 		return "index";
-	}
-
-	//Se añade un modelo vacío donde se guardaran los datos del formulario
-	@GetMapping("/register")
-	public String register(Model model) {
-		model.addAttribute("user", new UserVO());
-		return "register";
-	}
+	}	
 
 	@GetMapping("/login")
 	public String login() {
@@ -95,31 +88,50 @@ public class UserController {
 		return "../modal";
 	}
 	
-	
-	
+	//Se añade un modelo vacío donde se guardaran los datos del formulario
+		@GetMapping("/register")
+		public String register(Model model) {
+			model.addAttribute("user", new UserVO());
+			return "register";
+		}	
 	
 	// Guardar en BBDD los datos de nuevo usuario
 	@PostMapping("/register")
 	public String registerSuccess(@ModelAttribute UserVO user, Model model){		
 		user.setActive(true);
 		user.setPassword(encode(user.getPassword()));				
-		userService.save(user);
+		userService.save(user);		
 		
-		//VALIDACION DEL TIPO DE USUARIO NO FUNCIONA
-		//String tipoUsuario = "CLIENT";
-//		String tipoUsuario = user.getUser_type();
-//		if (tipoUsuario == "CLIENT") {			
-//			UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
-//			userRolService.save(userRol);
-//		}else if(tipoUsuario == "RIDER") {			
-//			UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(3).get());
-//			userRolService.save(userRol);
-//		}else{
-//			userService.delete(user);
-//			return "errorRoles";
-//		}
+		//Añadir el Rol de usuario escogido y validar que no se intente añadir otro
+		String tipoUsuario = user.getUser_type();		
+		if (tipoUsuario.equals("CLIENT")) {			
+			UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
+			userRolService.save(userRol);
+		}else if(tipoUsuario.equals("RIDER")) {			
+			UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(3).get());
+			userRolService.save(userRol);
+		}else{
+			userService.delete(user);
+			return "errorRoles";
+		}
 		return "signingSuccess";
 }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@PostMapping("/enviar")
 	public String contactoEnviado() {
