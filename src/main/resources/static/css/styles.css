@@ -5,6 +5,14 @@
 .indexBody {
 	height: 750px;
 }
+
+/*Register.html*/
+
+.indexBodyRegister {
+	height: 500px;
+}
+
+
 /********************************* Sticky Footer. Documentacion Bootstrap 4 */
 html {
 	position: relative;

@@ -12,10 +12,10 @@
 <!-- Custom css  -->
 <link rel="stylesheet" href="./css/styles.css">
 
-<title>RidersRegister</title>
+<title>UsersRegister</title>
 </head>
 
-<body>
+<body class="bg-light">
 	<div class="container-fluid">
 		<!-- Header -->
 		<div th:insert="templates/headerMaster :: headerInicio"></div>
@@ -24,74 +24,68 @@
 		<div th:insert="templates/navbarMaster :: navInicio"></div>
 		
 		<!-- Cuerpo Principal -->
-		<section>
-			<div class="row indexBody">
-				<div class="col-12 col-sm-6 col-md-6 bg-light">
-					<h5>Formulario Registro</h5>
-					<form th:action="@{/register}" method="post" class="form-signin">
-
+		<section class="indexBody">
+			<div class="row">
+				<div class="col-12 d-sm-block bg-light text-center">
+					<h5 class="text-center">Formulario Registro</h5>
+				</div>
+			</div>
+			<div class="row ">				
+				<div class="col-12 col-sm-6 col-md-6 bg-light">					
+					<form th:action="@{/register}" method="post" class="form-signin">						 					
+						
+						<label for="inputNombre">Nombre</label>
+						<input	type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+						
+						<label for="inputApellido1">Primer Apellido</label>
+						<input	type="text" id="inputApellido1" name="apellido1" class="form-control" placeholder="Primer Apellido" required>
+						
+						<label for="inputApellido2">Segundo Apellido</label>
+						<input	type="text" id="inputApellido2" name="apellido2" class="form-control" placeholder="Segundo Apellido" required>
+						
+						<label for="inputNIF">NIF</label>
+						<input	type="text" id="inputNIF" name="nif" class="form-control" placeholder="NIF" required>
+						
+						<label for="inputDireccion">Dirección</label>
+						<input	type="text" id="inputDireccion" name="direccion" class="form-control" placeholder="Dirección" required>
+						
+						<label for="inputTelefono">Teléfono</label>
+						<input	type="text" id="inputTelefono" name="telefono" class="form-control" placeholder="Teléfono" required>
+						
+					</div>
+						
+					<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light">
+						<label for="user_type">¿Qué tipo de usuario quieres ser?</label>	
 						 <select class="form-control" name="user_type" id="user_type">
 							<option th:value="CLIENT">CLIENTE</option>
 							<option th:value="RIDER">RIDER</option>
 							<option th:value="ADMIN">Prueba De falseo De ROL</option>
-						</select>						
+						</select>		
 						
-						<label for="inputNombre" class="sr-only">Nombre</label>
-						<input	type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
-						
-						<label for="inputApellido1" class="sr-only">Primer Apellido</label>
-						<input	type="text" id="inputApellido1" name="apellido1" class="form-control" placeholder="Primer Apellido" required>
-						
-						<label for="inputApellido2" class="sr-only">Segundo Apellido</label>
-						<input	type="text" id="inputApellido2" name="apellido2" class="form-control" placeholder="Segundo Apellido" required>
-						
-						<label for="inputNIF" class="sr-only">NIF</label>
-						<input	type="text" id="inputNIF" name="nif" class="form-control" placeholder="NIF" required>
-						
-						<label for="inputDireccion" class="sr-only">Dirección</label>
-						<input	type="text" id="inputDireccion" name="direccion" class="form-control" placeholder="Dirección" required>
-						
-						<label for="inputTelefono" class="sr-only">Teléfono</label>
-						<input	type="text" id="inputTelefono" name="telefono" class="form-control" placeholder="Teléfono" required>
-						
-						<label for="inputNick" class="sr-only">Nick del Usuario</label>
+						<label for="inputNick">Nick del Usuario</label>
 						<input	type="text" id="inputNick" name="nick" class="form-control" placeholder="Nick" required>
 						
-						<label for="inputEmail" class="sr-only">Email address</label>
+						<label for="inputEmail">Email address</label>
 						<input	type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required>
 						
-						<label for="inputPassword" class="sr-only">Password</label>
+						<label for="inputPassword">Password</label>
 						<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 						
 						
 						<!-- HIDDEN SI SE SELECCIONA CLIENTE  -->
-						<label for="inputVehiculo" class="sr-only">Tipo de Vehículo</label>
+						<label for="inputVehiculo">Tipo de Vehículo</label>
 						<input	type="text" id="inputVehiculo" name="vehiculo" class="form-control" placeholder="Vehículo">						
 						
-						<label for="inputMatricula" class="sr-only">Matrícula</label>
+						<label for="inputMatricula">Matrícula</label>
 						<input	type="text" id="inputMatricula" name="matricula" class="form-control" placeholder="Matrícula">
 						<!-- FIN HIDDEN -->
-						
-						
-						
-						
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
-					</form>
-				</div>
-				
-				
-				
-				
-				
-				
-				
-				<div class="col-12 col-sm-6  d-none d-sm-block col-md-6 bg-success">
-					<p>Formulario Columna 2 de 2</p>
-					<p>Vamos a ajustar los campos del formulario para que entren en
-						dos columnas La altura de la página nos dará algo de margen Debe
-						caber el botón de enviar Recordar poner como activo el selector
-						rider/cliente y poner bien el orden de tabulado de los diferentes
-						campos delformularios</p>
+							
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-12 bg-light text-center">
+					<button class="btn btn-lg btn-primary " type="submit">Registrar</button>
+					</form>			
 				</div>
 			</div>
 		</section>

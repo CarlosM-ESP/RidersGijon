@@ -13,7 +13,7 @@
   <title>RidersLogin</title>
 </head>
 
-<body>
+<body class="bg-light">
    <div class="container-fluid">
      <!-- Header -->
 		<div th:insert="templates/headerMaster :: headerInicio"></div>
@@ -22,29 +22,37 @@
 		<div th:insert="templates/navbarMaster :: navInicio"></div>
 		
       <!-- Cuerpo Principal -->
-      <section>      
-        <div class="row indexBody">
-          <div class="col-12 col-sm-6 bg-light">
-            <h5>Formulario Acceso</h5>
-		            <div th:if="${param.error}">
+      <section class="indexBody">      
+        	<div class="row ">
+				<div class="col-12 d-sm-block bg-light text-center">
+					<h5 class="text-center">Formulario Registro</h5>
+				</div>
+			</div>
+
+			<div class="row ">				
+				<div class="col-12 col-sm-4 bg-light"></div>	
+				<div class="col-12 col-sm-4 bg-light">
+		           <!--  <div th:if="${param.error}">
 		           		Nombre o password incorrecta
 		        	</div>
 		        	<div th:if="${param.logout}">
 		           		Ha terminado la sesión
-		        	</div>
+		        	</div> -->
             <form th:action="@{/login}" method="post" class="form-signin">                            
-              <label for="inputEmail" class="sr-only">Email address</label>
+              <label for="inputEmail">Email address</label>
               <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputPassword" class="sr-only">Password</label>
+              <label for="inputPassword">Password</label>
               <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>              
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>              
-            </form>
+             
           </div>
-          <!-- <div class="col-12 col-sm-6 d-none d-sm-block bg-success">
-            <img class="img-fluid" src="./img/amazon.PNG" alt="">
-            <img class="img-fluid"  src="./img/seur.PNG" alt="">
-          </div>      -->     
-        </div>      
+          <div class="col-12 col-sm-4 bg-light"></div>
+          </div> 
+          <div class="row">
+				<div class="col-12 bg-light text-center">
+					<button class="btn btn-lg btn-primary " type="submit">Login</button>
+					</form>			
+				</div>
+			</div>
     </section>
     <!-- Footer -->
 		 <div th:replace="templates/footer::footer"></div>

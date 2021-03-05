@@ -22,15 +22,15 @@
 					<div class="modal" id="modalLogout" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
-								<div class="modal-header">
+								<div class="modal-header ">
 									<h4>LogOut</h4>
 									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 								</div>
 								<div class="modal-body">
 									<form th:action="@{/logout}" method="post">
-										<h4>¿Está seguro de querer salir del sistema?</h4>
+										<h4>¿Está seguro de querer salir del sistema?</h4>										
 										<input type="submit" class="btn btn-danger" value="LogOut">
-										<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+										<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>										
 									</form>
 								</div>
 							</div>

@@ -13,72 +13,69 @@
   <title>RidersContact</title>
 </head>
 
-<body>
+<body class="bg-light">
   <div class="container-fluid">
-          <!-- Header -->
+         <!-- Header -->
 		<div th:insert="templates/headerMaster :: headerInicio"></div>
 
 		<!-- NavBar -->
 		<div th:insert="templates/navbarMaster :: navInicio"></div>
 		
-    <!-- Cuerpo Principal -->
-    <section>
-      <div class="row indexBody">
-        <div class="col-12 col-sm-6 bg-light align-self-center ">
-          <!-- FORMULARIO CONTACTO --> 
-                <form id="contact-form" name="contact-form" th:action="@{enviar}" method="post">                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="md-form mb-0">
-                                <input type="text" id="name" name="name" class="form-control">
-                                <label for="name" class="">Nombre</label>
-                            </div>
-                        </div>                        
-                        <div class="col-md-6">
-                            <div class="md-form mb-0">
-                                <input type="text" id="email" name="email" class="form-control">
-                                <label for="email" class="">Email</label>
-                            </div>
-                        </div>
-                    </div><!-- Fin Fila -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="md-form mb-0">
-                                <input type="text" id="subject" name="subject" class="form-control">
-                                <label for="subject" class="">Asunto</label>
-                            </div>
-                        </div>
-                    </div><!--Fin Fila-->                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="md-form">
-                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                                <label for="message">Cuéntanos</label>
-                            </div>
-                        </div>
-                    </div><!-- Fin Fila -->
-                </form>
-                <div class="text-center text-md-left">
-                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Enviar</a>
-                </div>
-                <div class="status"></div>
-           
-        </div><!-- FIN FORMULARIO CONTACTO -->
-        <div class="col-12 col-sm-6 d-none d-sm-block bg-success">
-          <img class="img-fluid"  src="./img/amazon.PNG" alt="">
-          <img class="img-fluid"  src="./img/seur.PNG" alt="">
-        </div>
-      </div>
-    </section>
-
+    	<!-- Cuerpo Principal -->
+   	 	<section class="indexBody">
+			<div class="row  bg-light">
+				<div class="col-12 col-sm-4"></div>
+				<div class="col-12 col-sm-4 align-self-center ">					
+					<h5 class="text-center">Formulario Contacto</h5>
+					<form id="contact-form" name="contact-form" th:action="@{enviar}"
+						method="post">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="md-form mb-0">
+									<label for="name" class="">Nombre</label>
+									<input type="text" id="name" name="name" class="form-control">									
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="md-form mb-0">
+									<label for="email" class="">Email</label>
+									<input type="text" id="email" name="email" class="form-control">									
+								</div>
+							</div>
+						</div><!-- Fin Fila -->
+						<div class="row">
+							<div class="col-md-12">
+								<div class="md-form mb-0">
+								 	<label for="subject" class="">Asunto</label>
+									<input type="text" id="subject" name="subject" class="form-control">
+								</div>
+							</div>
+						</div><!--Fin Fila-->
+						<div class="row">
+							<div class="col-md-12">
+								<div class="md-form">
+									<label for="message">Cuéntanos</label>
+									<textarea id="message" name="message" rows="4"class="form-control md-textarea"></textarea>									
+								</div>
+							</div>
+						</div><!-- Fin Fila -->
+					</form>
+					<div class="text-center">
+						<a class="btn btn-primary" type="submit">Enviar</a>
+					</div>
+					<div class="status"></div>
+				</div>
+				<div class="col-12 col-sm-4"></div>
+			</div><!-- Fin row -->
+		</section>
+	
 		<!-- Footer -->
-		<div th:replace="templates/footer::footer"></div>
-
-	</div><!-- Fin container principal -->
-
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  
+		<div th:insert="templates/footer :: footer"></div>
+		
+	</div><!-- Fin container Flex -->
+	
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	
 </body>
-
 </html>
