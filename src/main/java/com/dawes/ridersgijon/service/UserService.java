@@ -96,5 +96,11 @@ public interface UserService {
 	//Spring Security
 	UserDetails loadUserByUsername(String email) throws UsernameNotFoundException;
 	
+	//Encoding password
+	String encode(String password);
+	
+	//Autenticacion
+	boolean isAuthenticated();
+	String giveMeTheRole();
 	
 }

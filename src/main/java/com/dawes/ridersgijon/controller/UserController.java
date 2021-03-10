@@ -45,41 +45,12 @@ public class UserController {
 	EmailService email;
 	
 	@Autowired
-	PasswordEncoder encoder;
-	
-	@Autowired
 	UserRolService userRolService;
 	
 	@Autowired
 	RolService rolService;	
 
-	//Codificador de la contraseña
-	public String encode(String password) {
-		return encoder.encode(password);
-	}
-	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion**************************************************
-	//Verificación de autenticación
-	private boolean isAuthenticated() {
-	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
-	        return false;
-	    }
-	    System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities());	    
-	    return authentication.isAuthenticated();
-	}
-	
-	//Recuperar el rol del usuario autenticado
-		private String giveMeTheRole() {
-		    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
-		        return null;
-		    }
-//		    String roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();	    
-//		    return roles;
-		    String roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();	    
-		    return roles;
-		}
-//**********************************PRUEBAS redireccionamiento usuarios y autenticacion******
+//	
 	
 	
 	@GetMapping("/")
@@ -99,41 +70,39 @@ public class UserController {
 		return "login";
 	}
 	
-	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion
-	//Si estás autenticado no
+	
+	//Mapeo definido en securityConfig tras logueo exitoso
 	@GetMapping("/loginUser")
 	public String getUserLoginPage() {
-	    if (isAuthenticated()) {
-	    	if (giveMeTheRole().contains("ADMIN")) {
+	    if (userService.isAuthenticated()) {
+	    	if (userService.giveMeTheRole().contains("ADMIN")) {
 		        return "redirect:admin";	    		
 	    	}
-	    	if (giveMeTheRole().contains("CLIENT")) {
+	    	if (userService.giveMeTheRole().contains("CLIENT")) {
 		        return "redirect:clientes";	    		
 	    	}
-	    	if (giveMeTheRole().contains("RIDER")) {
+	    	if (userService.giveMeTheRole().contains("RIDER")) {
 		        return "redirect:riders";	    		
 	    	}
 	    }
 	    return "login";
 	}
 	
-	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion
-
 	
-//  Obsoleto
-//	@GetMapping("/loginSuccess")
-//	public String loginSuccess() {
-//		return "loginSuccess";		
-//		}
-	
-	
-	
-
 
 	@GetMapping("/contact")
 	public String contact() {
 		return "contact";
 	}
+	
+	//Envio de Emails desde contactos...PRUEBAS*****************************************
+		@PostMapping("/enviar")
+		public String contactoEnviado() {
+			email.sendSimpleMessage("carlosmdaw2020@gmail.com", "AsuntoMensaje", "CuerpoMensaje");
+			return "enviado";
+		}	
+		//Envio de Emails...PRUEBAS*****************************************
+	
 
 	@GetMapping("/403")
 	public String error403() {
@@ -163,7 +132,7 @@ public class UserController {
 		
 		//*******************************
 		user.setActive(true);
-		user.setPassword(encode(user.getPassword()));				
+		user.setPassword(userService.encode(user.getPassword()));				
 		userService.save(user);		
 		
 		//Añadir el Rol de usuario escogido y validar que no se intente añadir otro
@@ -181,11 +150,5 @@ public class UserController {
 		return "signingSuccess";
 }	
 
-	//Envio de Emails desde contactos...PRUEBAS*****************************************
-	@PostMapping("/enviar")
-	public String contactoEnviado() {
-		email.sendSimpleMessage("carlosmdaw2020@gmail.com", "AsuntoMensaje", "CuerpoMensaje");
-		return "enviado";
-	}	
-	//Envio de Emails...PRUEBAS*****************************************
+	
 }

@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -25,7 +29,10 @@ import com.dawes.ridersgijon.service.UserService;
 public class UserServiceImpl implements UserDetailsService, UserService{
 	
 	@Autowired
-	UserRepository userRepository;	
+	UserRepository userRepository;
+	
+	@Autowired
+	PasswordEncoder encoder;
 	
 	//Requerido por Spring Security
 	@Override
@@ -181,4 +188,36 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 	public List<UserVO> findRidersByCliente(UserVO cliente) {
 		return userRepository.findRidersByCliente(cliente);
 	}
+	
+	//Codificador de la contraseña
+		public String encode(String password) {
+			return encoder.encode(password);
+		}
+	
+	
+	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion**************************************************
+		//Verificación de autenticación. Devuleve true si existe un usuario autenticado en el contexto
+		public boolean isAuthenticated() {
+		    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
+		        return false;
+		    }	    	    
+		    return authentication.isAuthenticated();
+		}
+		
+		//Devuelve, en formato String la colección de roles del usuario autenticado en el contexto
+		public String giveMeTheRole() {
+				String roles;		    
+			    if (isAuthenticated()) {
+			    	roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();	    
+				    
+			    }else {
+			    	roles = "";
+			    }
+			    return roles;
+			}
+	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion******
+	
+	
+	
 }
