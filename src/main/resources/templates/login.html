@@ -18,41 +18,50 @@
      <!-- Header -->
 		<div th:insert="templates/headerMaster :: headerInicio"></div>
 
-		<!-- NavBar -->
+	<!-- NavBar -->
 		<div th:insert="templates/navbarMaster :: navInicio"></div>
 		
       <!-- Cuerpo Principal -->
-      <section class="indexBody">      
+      	<section class="indexBody">      
         	<div class="row ">
 				<div class="col-12 d-sm-block bg-light text-center">
 					<h5 class="text-center">Formulario Registro</h5>
 				</div>
 			</div>
 
+<!-- Si no hay errores de logueo pinta todo el formulario ************************-->
+		<div th:if="${param.error == null}">	
 			<div class="row ">				
-				<div class="col-12 col-sm-4 bg-light"></div>	
+				<div class="col-12 col-sm-4 bg-light"></div>
+
 				<div class="col-12 col-sm-4 bg-light">
-		           <!--  <div th:if="${param.error}">
-		           		Nombre o password incorrecta
-		        	</div>
-		        	<div th:if="${param.logout}">
-		           		Ha terminado la sesión
-		        	</div> -->
-            <form th:action="@{/login}" method="post" class="form-signin">                            
-              <label for="inputEmail">Email address</label>
-              <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputPassword">Password</label>
-              <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>              
-             
-          </div>
-          <div class="col-12 col-sm-4 bg-light"></div>
-          </div> 
-          <div class="row">
+
+					<form th:action="@{/login}" method="post" class="form-signin">
+						<label for="inputEmail">Email address</label> <input type="email"
+							id="inputEmail" name="email" class="form-control"
+							placeholder="Email address" required autofocus> <label
+							for="inputPassword">Password</label> <input type="password"
+							id="inputPassword" name="password" class="form-control"
+							placeholder="Password" required>
+				</div>
+				
+				<div class="col-12 col-sm-4 bg-light"></div>
+         	</div>
+         	
+         <div class="row">
 				<div class="col-12 bg-light text-center">
 					<button class="btn btn-lg btn-primary " type="submit">Login</button>
-					</form>			
-				</div>
-			</div>
+					</form>	
+		 		</div>
+		 </div>
+		 </div><!-- Fin fragment sin errores -->
+		 
+		 <!-- Si hay un error de Logueo pinta este fragment ********************************-->
+					<div th:if="${param.error != null}">
+						<div th:insert="templates/loginError :: loginError"></div>
+					</div>
+<!-- ****************************************************************************** -->
+		 
     </section>
     <!-- Footer -->
 		 <div th:replace="templates/footer::footer"></div>

@@ -63,10 +63,43 @@ public class UserController {
 		return "index";
 	}	
 
+	//LOGIN USUARIO	
 	@GetMapping("/login")
-	public String login() {
+	public String login(Model model) {
+		model.addAttribute("user", new UserVO());
 		return "login";
 	}
+	
+	@GetMapping("/loginSuccess")
+	public String loginSuccess() {
+		return "loginSuccess";
+	}	
+	
+	
+	
+	//Redireccionamiento según rol usuario tras el login
+	@PostMapping("/login")
+	public String loginSubmit(@ModelAttribute UserVO user, Model model) {
+		
+		UserVO userExists = userService.findByEmailAndPassword(user.getEmail(), encode(user.getPassword())).get();
+		
+		if (userExists != null) {
+			System.out.println("Tipo usuario "+ userExists.getUser_type());
+			System.out.println("Tipo usuario "+ userExists.getAuthorities());
+		
+		
+		}else {
+			System.out.println("Algo no funcionó");
+		}
+		return "loginSuccess";
+		
+		
+	}
+	
+	
+	
+	
+	
 
 	@GetMapping("/contact")
 	public String contact() {
@@ -83,10 +116,11 @@ public class UserController {
 		return "logout";
 	}
 
-	@GetMapping("/modal")
-	public String modal() {
-		return "../modal";
-	}
+//OBOSLETO
+//	@GetMapping("/modal")
+//	public String modal() {
+//		return "../modal";
+//	}
 	
 	//Se añade un modelo vacío donde se guardaran los datos del formulario
 		@GetMapping("/register")
@@ -97,7 +131,13 @@ public class UserController {
 	
 	// Guardar en BBDD los datos de nuevo usuario
 	@PostMapping("/register")
-	public String registerSuccess(@ModelAttribute UserVO user, Model model){		
+	public String registerSuccess(@ModelAttribute UserVO user, Model model){
+		
+		//Falta Validación Datos Formulario	
+		
+		
+		
+		//*******************************
 		user.setActive(true);
 		user.setPassword(encode(user.getPassword()));				
 		userService.save(user);		
@@ -118,20 +158,7 @@ public class UserController {
 }	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	@PostMapping("/enviar")
 	public String contactoEnviado() {
