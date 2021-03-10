@@ -1,7 +1,13 @@
 package com.dawes.ridersgijon.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -51,6 +57,29 @@ public class UserController {
 	public String encode(String password) {
 		return encoder.encode(password);
 	}
+	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion**************************************************
+	//Verificación de autenticación
+	private boolean isAuthenticated() {
+	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
+	        return false;
+	    }
+	    System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities());	    
+	    return authentication.isAuthenticated();
+	}
+	
+	//Recuperar el rol del usuario autenticado
+		private String giveMeTheRole() {
+		    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
+		        return null;
+		    }
+//		    String roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();	    
+//		    return roles;
+		    String roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();	    
+		    return roles;
+		}
+//**********************************PRUEBAS redireccionamiento usuarios y autenticacion******
 	
 	
 	@GetMapping("/")
@@ -70,36 +99,36 @@ public class UserController {
 		return "login";
 	}
 	
-	@GetMapping("/loginSuccess")
-	public String loginSuccess() {
-		return "loginSuccess";
-	}	
-	
-	
-	
-	//Redireccionamiento según rol usuario tras el login
-	@PostMapping("/login")
-	public String loginSubmit(@ModelAttribute UserVO user, Model model) {
-		
-		UserVO userExists = userService.findByEmailAndPassword(user.getEmail(), encode(user.getPassword())).get();
-		
-		if (userExists != null) {
-			System.out.println("Tipo usuario "+ userExists.getUser_type());
-			System.out.println("Tipo usuario "+ userExists.getAuthorities());
-		
-		
-		}else {
-			System.out.println("Algo no funcionó");
-		}
-		return "loginSuccess";
-		
-		
+	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion
+	//Si estás autenticado no
+	@GetMapping("/loginUser")
+	public String getUserLoginPage() {
+	    if (isAuthenticated()) {
+	    	if (giveMeTheRole().contains("ADMIN")) {
+		        return "redirect:admin";	    		
+	    	}
+	    	if (giveMeTheRole().contains("CLIENT")) {
+		        return "redirect:clientes";	    		
+	    	}
+	    	if (giveMeTheRole().contains("RIDER")) {
+		        return "redirect:riders";	    		
+	    	}
+	    }
+	    return "login";
 	}
 	
+	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion
+
+	
+//  Obsoleto
+//	@GetMapping("/loginSuccess")
+//	public String loginSuccess() {
+//		return "loginSuccess";		
+//		}
 	
 	
 	
-	
+
 
 	@GetMapping("/contact")
 	public String contact() {
@@ -116,11 +145,6 @@ public class UserController {
 		return "logout";
 	}
 
-//OBOSLETO
-//	@GetMapping("/modal")
-//	public String modal() {
-//		return "../modal";
-//	}
 	
 	//Se añade un modelo vacío donde se guardaran los datos del formulario
 		@GetMapping("/register")
@@ -156,13 +180,12 @@ public class UserController {
 		}
 		return "signingSuccess";
 }	
-	
-	
 
-	
+	//Envio de Emails desde contactos...PRUEBAS*****************************************
 	@PostMapping("/enviar")
 	public String contactoEnviado() {
 		email.sendSimpleMessage("carlosmdaw2020@gmail.com", "AsuntoMensaje", "CuerpoMensaje");
 		return "enviado";
-	}
+	}	
+	//Envio de Emails...PRUEBAS*****************************************
 }

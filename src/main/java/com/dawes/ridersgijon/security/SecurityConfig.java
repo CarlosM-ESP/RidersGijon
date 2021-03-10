@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	http.authorizeRequests()
         	.antMatchers("/riders/**")
         	.hasAnyRole("RIDER","ADMIN");
-    	http.formLogin().loginPage("/login").usernameParameter("email").defaultSuccessUrl("/loginSuccess");
+    	http.formLogin().loginPage("/login").usernameParameter("email").defaultSuccessUrl("/loginUser");
     	http.exceptionHandling().accessDeniedPage("/403");
     	http.logout().logoutSuccessUrl("/index");
     	http.csrf().disable();
