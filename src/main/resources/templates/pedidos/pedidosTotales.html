@@ -4,16 +4,17 @@
 	<table id="tablaPedidosTotales" class="dataTable display compact">
 		<thead>
 			<tr>
-				<th>id</th>
+				
 				<th>Fecha Pedido</th>
 				<th>Remitente</th>
 				<th>Destinatario</th>
 				<th>Status Pedido</th>
 				<th>Comentarios</th>
+				<th></th>
+				
 			</tr>
 		</thead>
- 		<tr data-th-each="pedido : ${listaPedidos}">
-	    	<td data-th-text="${pedido.id_pedido}">...</td>
+ 		<tr data-th-each="pedido : ${listaPedidos}">	    	
 	        <td data-th-text="${pedido.fechaPedido}">...</td>
 	        <td data-th-text="${pedido.nombre_remitente}">...</td>
 	        <!-- <td data-th-text="${pedido.dir_remitente}">...</td>
@@ -26,5 +27,10 @@
 	        <!-- <td data-th-text="${pedido.fecha_entregado}">...</td>        
 	        <td data-th-text="${pedido.cliente.nick}">...</td>
 	        <td data-th-text="${pedido.rider.nick}">...</td> -->
+	        
+	        
+	        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
+						    href="#">Detalles</a></td>
+	        
     	</tr>
 	</table>

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.ridersgijon.service.PedidoService;
 import com.dawes.ridersgijon.service.UserService;
@@ -68,37 +69,24 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());	
 		return "/admin/adminRidersRiderDetail";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	@GetMapping ("/orderList")
 	public String orderList(Model model){
 		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
-    	model.addAttribute("listaPedidos", pedidoService.findAll());    	
-    	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Le pasamos una colección con todos los pedidos de la BBDD
+    	model.addAttribute("listaPedidos", pedidoService.findAll());
 		return "/admin/adminOrdersOrderList";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	@GetMapping ("/orderDetail")
-	public String orderDetail(Model model){
+	public String orderDetail(@RequestParam int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Le pasamo el id del peidod para mostrarlo
+    	model.addAttribute("id", id_pedido );
+    	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
+    	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));
 		return "/admin/adminOrdersOrderDetail";
 	}
 	
