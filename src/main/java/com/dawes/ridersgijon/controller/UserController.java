@@ -1,6 +1,9 @@
 package com.dawes.ridersgijon.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -39,6 +42,7 @@ public class UserController {
 	@Autowired
 	RolService rolService;
 	
+	
 	@GetMapping("/")
 	public String inicio() {
 		return "index";
@@ -58,16 +62,21 @@ public class UserController {
 	
 	//Mapeo definido en securityConfig tras logueo exitoso
 	@GetMapping("/loginUser")
-	public String getUserLoginPage(Model model){			
+	
+	//Pasamos un atributos HttpSession para poder personalizar a voluntas las vistas en función del usuario
+	public String getUserLoginPage(Model model, HttpSession session){			
 	    if (userService.isAuthenticated()) {
 	    	//Le pasamos el nombre de usuario
-	    	model.addAttribute("nick", userService.findUserLogged().getNick());	    
+	    	
+	    	model.addAttribute("nick", userService.findUserLogged().getNick());
+	    	session.setAttribute("nick", userService.findUserLogged().getNick());
+	    	
+	    	//Le pasamos a la sesion el tipo de usuario para personalizar los navbar en función del tipo 
+	        session.setAttribute("tipoUsuario", userService.findUserLogged().getUser_type());
 	    	//Comprobamos que tipo de usuario es para redireccionar
 	    	if (userService.findUserLogged().getUser_type().equals("ADMIN")){
 		        return "admin/adminOrdersOrderList";	    		
 	    	}
-//	    	if (userService.findUserLogged().getUser_type().equals("CLIENT")){	    	
-//		        return "redirect:clientes";
 	        if (userService.findUserLogged().getUser_type().equals("CLIENT")){	    	
 		        return "clientes/clientHistory";	    		
 	    	}
@@ -76,7 +85,7 @@ public class UserController {
 	    	}
 	    }
 	    return "login";
-	}
+	}	
 
 	@GetMapping("/contact")
 	public String contact() {
