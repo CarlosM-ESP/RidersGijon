@@ -1,7 +1,5 @@
 package com.dawes.ridersgijon.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.ridersgijon.model.UserRolVO;
 import com.dawes.ridersgijon.model.UserVO;
@@ -24,16 +23,6 @@ import com.dawes.ridersgijon.service.EmailService;
 import com.dawes.ridersgijon.service.RolService;
 import com.dawes.ridersgijon.service.UserRolService;
 import com.dawes.ridersgijon.service.UserService;
-
-/*Se pueden pasar argumentos...Tenerlo en cuenta
- * @RequestMapping(value = "/ex/foos/{fooid}/bar/{barid}", method = GET)
-@ResponseBody
-public String getFoosBySimplePathWithPathVariables
-  (@PathVariable long fooid, @PathVariable long barid) {
-    return "Get a specific Bar with id=" + barid + 
-      " from a Foo with id=" + fooid;
- * 
- * */
 
 @Controller
 public class UserController {
@@ -48,10 +37,7 @@ public class UserController {
 	UserRolService userRolService;
 	
 	@Autowired
-	RolService rolService;	
-
-//	
-	
+	RolService rolService;
 	
 	@GetMapping("/")
 	public String inicio() {
@@ -70,25 +56,27 @@ public class UserController {
 		return "login";
 	}
 	
-	
 	//Mapeo definido en securityConfig tras logueo exitoso
 	@GetMapping("/loginUser")
-	public String getUserLoginPage() {
+	public String getUserLoginPage(Model model){			
 	    if (userService.isAuthenticated()) {
-	    	if (userService.giveMeTheRole().contains("ADMIN")) {
-		        return "redirect:admin";	    		
+	    	//Le pasamos el nombre de usuario
+	    	model.addAttribute("nick", userService.findUserLogged().getNick());	    
+	    	//Comprobamos que tipo de usuario es para redireccionar
+	    	if (userService.findUserLogged().getUser_type().equals("ADMIN")){
+		        return "admin/adminOrdersOrderList";	    		
 	    	}
-	    	if (userService.giveMeTheRole().contains("CLIENT")) {
-		        return "redirect:clientes";	    		
+//	    	if (userService.findUserLogged().getUser_type().equals("CLIENT")){	    	
+//		        return "redirect:clientes";
+	        if (userService.findUserLogged().getUser_type().equals("CLIENT")){	    	
+		        return "clientes/clientHistory";	    		
 	    	}
-	    	if (userService.giveMeTheRole().contains("RIDER")) {
-		        return "redirect:riders";	    		
+	    	if (userService.findUserLogged().getUser_type().equals("RIDER")){
+		        return "riders/riderHistory";	    		
 	    	}
 	    }
 	    return "login";
 	}
-	
-	
 
 	@GetMapping("/contact")
 	public String contact() {

@@ -93,7 +93,7 @@ public interface UserService {
 	
 	List<UserVO> findRidersByCliente(UserVO cliente);
 	
-	//Spring Security
+	//Spring Security. Requerido para definir los campos de login
 	UserDetails loadUserByUsername(String email) throws UsernameNotFoundException;
 	
 	//Encoding password
@@ -101,6 +101,6 @@ public interface UserService {
 	
 	//Autenticacion
 	boolean isAuthenticated();
-	String giveMeTheRole();
+	UserVO findUserLogged();
 	
 }

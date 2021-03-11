@@ -189,35 +189,33 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 		return userRepository.findRidersByCliente(cliente);
 	}
 	
+	
+	
+	
 	//Codificador de la contraseña
 		public String encode(String password) {
 			return encoder.encode(password);
 		}
 	
 	
-	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion**************************************************
+	
 		//Verificación de autenticación. Devuleve true si existe un usuario autenticado en el contexto
 		public boolean isAuthenticated() {
 		    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
 		        return false;
-		    }	    	    
+		    }
 		    return authentication.isAuthenticated();
 		}
-		
-		//Devuelve, en formato String la colección de roles del usuario autenticado en el contexto
-		public String giveMeTheRole() {
-				String roles;		    
+				
+		//Devuelve el UserVO logueado en el sistema
+		public UserVO findUserLogged() {
+				UserVO userLogged;
 			    if (isAuthenticated()) {
-			    	roles = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();	    
-				    
+			    	userLogged = (UserVO)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			    }else {
-			    	roles = "";
+			    	userLogged = null;
 			    }
-			    return roles;
+			    return userLogged;
 			}
-	//**********************************PRUEBAS redireccionamiento usuarios y autenticacion******
-	
-	
-	
 }
