@@ -16,8 +16,6 @@
 
 <body>
   <div class="container-fluid">
-
-    
 	
 		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
 
@@ -26,23 +24,15 @@
 		
     <!-- Cuerpo Principal -->
     <section>
-        <div class="row indexBody">
-          <div class="col-12 col-md-8 bg-light">1Columna
-              <h2>Pedidos</h2>
-              <p>Tabla con todos los pedidos de la aplicación </p>
-              <p>los campos que apareceran
-                 dependerán del tamaño de la pantalla</p>
-              
-          </div>
-          <div class="col-12 col-md-4 bg-success">2Columna
-              <p>selectores de filtrado para la tabla</p>
-              <p>Se ponen debajo cuando el tamaño de pantalla es más pequeño</p>
-              
-            </div>
+        <div class="row indexBody">        	          	
+          	<div class="col-12 bg-light">
+            	<h2 class = "text-center">Pedidos</h2>              
+<!--    INSERTADA TABLA DE PEDIDOS INYECTADOS DESDE EL AdminController -->              
+              	<div th:insert="pedidos/pedidosTotales :: pedidosTotales"></div>    
+          	</div>          	
         </div>
     </section>
-     
-		
+    	
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>
 		

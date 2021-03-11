@@ -18,17 +18,11 @@ import com.dawes.ridersgijon.service.UserService;
 public class PedidoController {
 	
 	@Autowired
-	PedidoService pedido;
+	PedidoService pedidoService;
 	
 	@Autowired
 	UserService userService;
 	
-	
-	@GetMapping ("")
-	public String admin(Model model){
-		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
-		return "/pedidos/pedidosPrueba";
-	}
+
 	
 }

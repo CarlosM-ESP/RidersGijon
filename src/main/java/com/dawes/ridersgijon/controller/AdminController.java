@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dawes.ridersgijon.service.PedidoService;
 import com.dawes.ridersgijon.service.UserService;
 
 @Controller
@@ -14,7 +15,10 @@ import com.dawes.ridersgijon.service.UserService;
 public class AdminController {
 	
 	@Autowired
-	UserService userService;	
+	UserService userService;
+	
+	@Autowired
+	PedidoService pedidoService;
 	
 	@GetMapping ("")
 	public String admin(Model model){
@@ -65,12 +69,31 @@ public class AdminController {
 		return "/admin/adminRidersRiderDetail";
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping ("/orderList")
 	public String orderList(Model model){
 		//Le pasamos el nombre de usuario
     	model.addAttribute("nick", userService.findUserLogged().getNick());	
+    	model.addAttribute("listaPedidos", pedidoService.findAll());    	
+    	
 		return "/admin/adminOrdersOrderList";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping ("/orderDetail")
 	public String orderDetail(Model model){

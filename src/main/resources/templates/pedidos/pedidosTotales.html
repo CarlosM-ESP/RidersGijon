@@ -1,0 +1,20 @@
+<div th:fragment="pedidosTotales">
+
+
+<table>
+    <tr data-th-each="pedido : ${listaPedidos}">
+    	<td class="d-none" data-th-text="${pedido.id_pedido}">...</td>
+        <td data-th-text="${pedido.fechaPedido}">...</td>
+        <td data-th-text="${pedido.nombre_remitente}">...</td>
+        <td data-th-text="${pedido.dir_remitente}">...</td>
+        <td data-th-text="${pedido.telefono_remitente}">...</td>
+        <td data-th-text="${pedido.nombre_destinatario}">...</td>
+        <td data-th-text="${pedido.dir_destinatario}">...</td>
+        <td data-th-text="${pedido.telefono_destinatario}">...</td>
+        <td data-th-text="${pedido.status}">...</td>
+        <td data-th-text="${pedido.comentarios}">...</td>
+        <td data-th-text="${pedido.fecha_entregado}">...</td>        
+        <td data-th-text="${pedido.cliente.nick}">...</td>
+        <td data-th-text="${pedido.rider.nick}">...</td>
+    </tr>
+</table>
