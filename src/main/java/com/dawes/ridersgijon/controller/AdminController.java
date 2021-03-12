@@ -41,12 +41,27 @@ public class AdminController {
 		return "/admin/adminAdminsAdminList";
 	}
 	
-	@GetMapping ("/adminDetail")
-	public String adminDetail(Model model){
+	@GetMapping ("/adminDetail")		
+	public String adminDetail(@RequestParam int id_user,  Model model){		
 		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+		UserVO user = userService.findById(id_user).get(); 
+		user.setPassword(userService.encode(user.getPassword()));
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	model.addAttribute("nickUser", userService.findById(id_user).get().getNick());
+    	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
+    	model.addAttribute("detalleUser", user);
 		return "/admin/adminAdminsAdminDetail";
 	}
+	
+	//Actualizar Administrador
+		@PostMapping("/adminList")
+		public String adminUpdate(@ModelAttribute UserVO detalleUser, Model model){
+			detalleUser.setActive(true);
+			userService.save(detalleUser);		
+			return  "redirect:/admin/adminList";
+		}
+	
+	
 	
 	@GetMapping ("/clientList")
 	public String clientList(Model model){
@@ -89,15 +104,6 @@ public class AdminController {
 		return "/admin/adminOrdersOrderList";
 	}
 	
-	//Actualizar Pedido
-	@PostMapping("/orderList")
-	public String orderUpdate(@ModelAttribute PedidoVO detallePedido, Model model){		
-		pedidoService.save(detallePedido);		
-		return  "redirect:/admin/orderList";
-	}
-	
-	
-	
 	//Ver Detalles de un pedido y actualizar
 	@GetMapping ("/orderDetail")
 	public String orderDetail(@RequestParam int id_pedido,  Model model){
@@ -114,5 +120,10 @@ public class AdminController {
     	
 		return "/admin/adminOrdersOrderDetail";
 	}
-	
+	//Actualizar Pedido
+	@PostMapping("/orderList")
+	public String orderUpdate(@ModelAttribute PedidoVO detallePedido, Model model){		
+		pedidoService.save(detallePedido);		
+		return  "redirect:/admin/orderList";
+	}
 }

@@ -67,7 +67,7 @@ public class UserController {
 	public String getUserLoginPage(Model model, HttpSession session){			
 	    if (userService.isAuthenticated()) {
 	    	//Le pasamos el nombre de usuario
-	    	
+	    	//Decidir cual de los dos nos quedamos
 	    	model.addAttribute("nick", userService.findUserLogged().getNick());
 	    	session.setAttribute("nick", userService.findUserLogged().getNick());
 	    	

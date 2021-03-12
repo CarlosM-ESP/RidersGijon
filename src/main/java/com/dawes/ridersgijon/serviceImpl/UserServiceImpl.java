@@ -73,8 +73,8 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 	 * @see org.springframework.data.repository.CrudRepository#findById(java.lang.Object)
 	 */
 	@Override
-	public Optional<UserVO> findById(Integer id) {
-		return userRepository.findById(id);
+	public Optional<UserVO> findById(Integer id) {		 
+	    return userRepository.findById(id);
 	}
 
 	/**

@@ -1,89 +1,104 @@
 <!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-<!-- Custom css  -->
+  <!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
 
-<title>RidersAdminClientList</title>
+  <title>adminAdminsAdminDetail</title>
 </head>
 
-<body>
-	<div class="container-fluid">
-    
+<body class="bg-light">
+  <div class="container-fluid">
+	<!-- Header -->	
+	<div th:insert="templates/headerAdmin :: headerAdmin"></div>
 	
-		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
-
-		<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
-		
-		
+	<!-- NavBar -->
+	<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
+	
+    <!-- Cuerpo Principal -->
+	<section >
 		<div class="row">
-			<nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
-				<a class="navbar-brand">Admin</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarNavAltMarkup"
-					aria-controls="navbarNavAltMarkup" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav ml-auto">
-
-						<a class="nav-item nav-link active" th:href="@{/admin/orderList}"
-							href="#">Pedidos<span class="sr-only">(current)</span></a>
-						<a class="nav-item nav-link" th:href="@{/admin/clientList}"
-						    href="#">Clientes</a>
-						<a class="nav-item nav-link" th:href="@{/admin/riderList}"
-							href="#">Riders</a>
-						<a class="nav-item nav-link" th:href="@{/admin/adminList}"
-						    href="#">Administración</a>
-						<a class="nav-item nav-link" th:href="@{/clientes/history}"
-							href="#">Area Clientes</a>
-						<a class="nav-item nav-link" th:href="@{/riders/history}"
-							href="#">Area Riders</a>
-			<!-- AÑADIR LA ETIQUETA DE ORIGEN PARA VER DE DONDE VIENES
-            <a class="nav-item nav-link" href="../clientes/clientHistory.html?origin=admin">Area Clientes</a>                 
-            <a class="nav-item nav-link" href="../riders/riderHistory.html?origin=admin">Area Riders</a> -->
-					</div>
-				</div>
-			</nav>
-		</div>
-
-		<!-- Cuerpo Principal -->
-		<section>
-			<div class="row indexBody">
-				<div class="col-12 col-md-8 bg-light">
-					1Columna
-					<h2>Clientes</h2>
-					<p>Tabla con todos los clientes de la aplicación</p>
-					<p>los campos que apareceran dependerán del tamaño de la
-						pantalla</p>
-
-				</div>
-				<div class="col-12 col-md-4 bg-success">
-					2Columna
-					<p>selectores de filtrado para la tabla</p>
-					<p>Se ponen debajo cuando el tamaño de pantalla es más pequeño</p>
-
-				</div>
+		
+			<div class="col-12 d-sm-block bg-light text-center">
+			
+				<h5 class="text-center" th:text="'Detalle de '+ ${nickUser}">Detalle user</h5>
+									
 			</div>
+			
+		</div>			
+		<form th:action="@{/admin/adminList}" method="post" class="form-signin" th:object="${detalleUser}">
+			
+			<div class="form-row ">
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
+				
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Cambiar Contraseña</a></h5>
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Eliminar</a></h5>
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Volver</a></h5>
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Volver</a></h5>
+				
+				
+				
+				</div>			
+				<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
+										
+					<input type="hidden" name="id_user" th:field="*{id_user}">
+					<input type="hidden" name="user_type" th:field="*{user_type}">
+					<input type="hidden" name="password" th:field="*{password}">
+					<!-- <input type="hidden" name="isActive" th:field="*{isActive}"> -->
+					<label for="inputNombre">Nombre</label>
+					<input	type="text" id="inputNombre" name="nombre" class="form-control" th:field="*{nombre}" placeholder="Nombre" required autofocus>
+					
+					<label for="inputApellido1">Primer Apellido</label>
+					<input	type="text" id="inputApellido1" name="apellido1" class="form-control" th:field="*{apellido1}" placeholder="Primer Apellido" required>
+					
+					<label for="inputApellido2">Segundo Apellido</label>
+					<input	type="text" id="inputApellido2" name="apellido2" class="form-control" th:field="*{apellido2}" placeholder="Segundo Apellido" required>
+					
+					<label for="inputNIF">NIF</label>
+					<input	type="text" id="inputNIF" name="nif" class="form-control" th:field="*{nif}" placeholder="NIF" required>
+					
+					<label for="inputDireccion">Dirección</label>
+					<input	type="text" id="inputDireccion" name="direccion" class="form-control" th:field="*{direccion}" placeholder="Dirección" required>
+					
+					<label for="inputTelefono">Teléfono</label>
+					<input	type="text" id="inputTelefono" name="telefono" class="form-control" th:field="*{telefono}" placeholder="Teléfono" required>
+					
+					
+						
+					<label for="inputNick">Nick del Usuario</label>
+					<input	type="text" id="inputNick" name="nick" class="form-control" th:field="*{nick}" placeholder="Nick" required>
+					
+					<label for="inputEmail">Email address</label>
+					<input	type="email" id="inputEmail" name="email" class="form-control" th:field="*{email}" placeholder="Email address" required>
+					
+					<!-- Los roles son una lista por lo que se deben mostrar de otram manera -->
+					<!-- <label for="inputRoles">Roles</label>
+					<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles"> -->
+												
+					<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
+					
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Volver</a></h5>
+				</div>
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center"></div>
+			</div><!-- Fin form-row -->
+			</form>
+			
 		</section>
 		
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>
 		
-	</div><!-- Fin container principal -->
+  </div><!-- Fin container principal -->
 
-	<script src="../js/jquery-3.5.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-
-
+  <script src="../js/jquery-3.5.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  
 </body>
 </html>
