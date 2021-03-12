@@ -1,0 +1,39 @@
+<div th:fragment="ridersTotales">
+
+
+	<table id="tablaRidersTotales" class="dataTable display compact">
+		<thead>
+			<tr>			
+				<th>Nombre</th>
+				<th>Apellido1</th>
+				<th>Apellido2</th>
+				<th>Nick</th>
+				<th>Email</th>
+				<th></th>				
+			</tr>
+		</thead>
+ 		<tr data-th-each="rider : ${listaRiders}">
+	        <!-- <td data-th-text="${rider.id_user}">...</td> -->
+	        <!-- <td data-th-text="${rider.user_type}">...</td> -->
+	        <td data-th-text="${rider.nombre}">...</td>
+	        <td data-th-text="${rider.apellido1}">...</td>
+	        <td data-th-text="${rider.apellido2}">...</td>
+	        <!-- <td data-th-text="${rider.nif}">...</td> -->
+	        <!-- <td data-th-text="${rider.direccion}">...</td> -->
+	        <!-- <td data-th-text="${rider.telefono}">...</td> -->
+	        <td data-th-text="${rider.nick}">...</td>	                
+	        <td data-th-text="${rider.email}">...</td>
+	        <!-- <td data-th-text="${rider.password}">...</td> -->
+	        <!-- <td data-th-text="${rider.matricula}">...</td> -->
+	        <!-- <td data-th-text="${rider.vehiculo}">...</td> -->
+	        <!-- <td data-th-text="${rider.isActive}">...</td> -->
+	        
+<!-- ESTO ES UNA LISTA HAY QUE MOSTRARLO DIFERENTE -->
+	        <!-- <td data-th-text="${rider.roles}">...</td> -->
+	        	        
+	        	        	        
+	        <td><a class="nav-item nav-link" th:href="@{riderDetail(id_user=${rider.id_user})}"
+						    href="#">Perfil</a></td>	        
+    	</tr>
+	</table>
+</div>

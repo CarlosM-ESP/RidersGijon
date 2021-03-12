@@ -51,7 +51,9 @@ public class AdminController {
 	@GetMapping ("/clientList")
 	public String clientList(Model model){
 		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD
+    	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
 		return "/admin/adminClientsClientList";
 	}
 	
@@ -65,7 +67,9 @@ public class AdminController {
 	@GetMapping ("/riderList")
 	public String riderList(Model model){
 		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD
+    	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
 		return "/admin/adminRidersRiderList";
 	}
 	
