@@ -39,6 +39,7 @@
 						<label for="inputFechaPedido">Fecha Pedido</label>
 						<input	type="text" id="inputFechaPedido" name="fechaPedido" class="form-control" th:field="*{fechaPedido}" placeholder="Fecha Pedido" required autofocus>
 						
+						
 						<label for="inputNombreRemitente">Nombre Remitente</label>
 						<input	type="text" id="inputRemitente" name="nombre_remitente" class="form-control" th:field="*{nombre_remitente}" placeholder="Nombre remitente" required>
 						
@@ -61,19 +62,24 @@
 						
 						
 				</div>
-				<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light">
-						
+				<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light">						
 						
 						<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
 						<input	type="text" id="inputFechaEntrega" name="fecha_entregado" class="form-control" th:field="*{fecha_entregado}" placeholder="Fecha Entrega de Pedido" required>
-				
 						
+						<label for="inputCliente">Nick del cliente guardado</label>
+						<input	type="text" class="form-control-sm" th:field="*{cliente.nick}" placeholder="Nick del Cliente" disabled>
+						<select class="custom-select" id="inputCliente" name="cliente">							
+    						<option th:each="cliente : ${listaClientes}"  th:value="${cliente}" th:text="${cliente.nick}">
+    						</option>
+						</select>
 						
-						<label for="inputCliente">Nick del Cliente</label>
-						<input	type="text" id="inputCliente" name="cliente" class="form-control" th:field="*{cliente.nick}" placeholder="Nick del Cliente" required>
-						
-						<label for="inputRider">Nick del Rider</label>
-						<input	type="text" id="inputRider" name="rider" class="form-control" th:field="*{rider.nick}" placeholder="Nick del Rider" required>
+						<label for="inputRider">Nick del Rider guardado</label>
+						<input	type="text" id="inputRider" name="rider" class="form-control-sm" th:field="*{rider.nick}" placeholder="Nick del Rider" disabled>
+						<select class="custom-select" id="inputRider" name="rider">							
+    						<option th:each="rider : ${listaRiders}"  th:value="${rider}" th:text="${rider.nick}">
+    						</option>
+						</select>
 						
 						<label for="inputComentarios">Comentarios de Administrador</label>
 						<textarea id="inputComentarios" name="comentarios"  rows="8" class="form-control md-textarea" th:field="*{comentarios}" placeholder="Comentarios" required></textarea>
@@ -85,14 +91,13 @@
 				<div class="col-12 bg-light text-center">								
 					<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
 					
-					<h5><a class="btn btn-info text-dark text-decoration-none bg-primary m-2" th:href="@{/admin/orderList}" href="#">Volver</a></h5>
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/orderList}" href="#">Volver</a></h5>
 				</div>
 			
 			</div><!-- Fin form-row -->
 			</form>
 			
 		</section>
-     
 		
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>

@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,8 @@ public class PedidoVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_pedido;
+	
+	@DateTimeFormat (pattern="dd/MM/yyyy")
 	private LocalDate fechaPedido;
 	private String nombre_remitente;
 	private String dir_remitente;
@@ -48,6 +52,7 @@ public class PedidoVO {
 	@Column(unique=true)
 	private String comentarios;
 	
+	@DateTimeFormat (pattern="dd/MM/yyyy")
 	private LocalDate fecha_entregado;
 	
 	@ManyToOne	

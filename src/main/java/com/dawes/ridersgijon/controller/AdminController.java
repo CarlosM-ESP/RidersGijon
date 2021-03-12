@@ -86,7 +86,14 @@ public class AdminController {
     	//Le pasamos el id del pedido para mostrarlo en la cabecera del form
     	model.addAttribute("id", id_pedido );
     	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
-    	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));
+    	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));    	
+    	//Lista de Clientes para usar un select en el formulario    	
+    	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
+    	System.out.println(userService.findByUser_type("CLIENT"));    	
+    	//Lista de Riders para usar un select en el formulario 	
+    	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
+    	
+    	
 		return "/admin/adminOrdersOrderDetail";
 	}
 	
