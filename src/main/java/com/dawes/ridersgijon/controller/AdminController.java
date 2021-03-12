@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.ridersgijon.model.PedidoVO;
+import com.dawes.ridersgijon.model.UserVO;
 import com.dawes.ridersgijon.service.PedidoService;
 import com.dawes.ridersgijon.service.UserService;
 
@@ -78,7 +82,17 @@ public class AdminController {
     	model.addAttribute("listaPedidos", pedidoService.findAll());
 		return "/admin/adminOrdersOrderList";
 	}
-		
+	
+	//Actualizar Pedido
+	@PostMapping("/orderList")
+	public String orderUpdate(@ModelAttribute PedidoVO detallePedido, Model model){		
+		pedidoService.save(detallePedido);		
+		return  "redirect:/admin/orderList";
+	}
+	
+	
+	
+	//Ver Detalles de un pedido y actualizar
 	@GetMapping ("/orderDetail")
 	public String orderDetail(@RequestParam int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario
@@ -89,10 +103,8 @@ public class AdminController {
     	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));    	
     	//Lista de Clientes para usar un select en el formulario    	
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
-    	System.out.println(userService.findByUser_type("CLIENT"));    	
     	//Lista de Riders para usar un select en el formulario 	
-    	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
-    	
+    	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
     	
 		return "/admin/adminOrdersOrderDetail";
 	}

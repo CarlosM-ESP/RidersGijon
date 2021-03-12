@@ -14,8 +14,9 @@
 				
 			</tr>
 		</thead>
- 		<tr data-th-each="pedido : ${listaPedidos}">	    	
-	        <td data-th-text="${pedido.fechaPedido}">...</td>
+ 		<tr data-th-each="pedido : ${listaPedidos}">
+ 				    	
+	        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>	        
 	        <td data-th-text="${pedido.nombre_remitente}">...</td>
 	        <!-- <td data-th-text="${pedido.dir_remitente}">...</td>
 	        <td data-th-text="${pedido.telefono_remitente}">...</td> -->
@@ -24,13 +25,11 @@
 	        <td data-th-text="${pedido.telefono_destinatario}">...</td> -->
 	        <td data-th-text="${pedido.status}">...</td>
 	        <td data-th-text="${pedido.comentarios}">...</td>
-	        <!-- <td data-th-text="${pedido.fecha_entregado}">...</td>        
+	        <!-- <td data-th-text="${#temporals.format(pedido.fecha_entregado, 'dd-MM-yyyy')}">...</td>        
 	        <td data-th-text="${pedido.cliente.nick}">...</td>
 	        <td data-th-text="${pedido.rider.nick}">...</td> -->
-	        
-	        
+	        	        	        
 	        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
-						    href="#">Detalles</a></td>
-	        
+						    href="#">Detalles</a></td>	        
     	</tr>
 	</table>
