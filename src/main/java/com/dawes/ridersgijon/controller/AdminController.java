@@ -35,7 +35,9 @@ public class AdminController {
 	@GetMapping ("/adminList")
 	public String adminList(Model model){
 		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD
+    	model.addAttribute("listaAdmins", userService.findByUser_type("ADMIN"));
 		return "/admin/adminAdminsAdminList";
 	}
 	

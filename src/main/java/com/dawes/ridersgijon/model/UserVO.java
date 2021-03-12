@@ -62,6 +62,8 @@ public class UserVO implements UserDetails{
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
     List<UserRolVO> roles;
 	
+	
+	//Devuelve una lista de los privilegios que tiene uhn usuario
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {		
         List<GrantedAuthority> privilegios = new ArrayList<>();
