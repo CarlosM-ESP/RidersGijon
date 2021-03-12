@@ -23,17 +23,18 @@
 	<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
 	
     <!-- Cuerpo Principal -->
-		<section class="indexBody">
+		<section >
 			<div class="row">
 				<div class="col-12 d-sm-block bg-light text-center">
 					<h5 class="text-center" th:text="'Detalle del Pedido '+ ${id}">Detalle Pedido</h5>
 					
-					<h5><a class="text-dark text-decoration-none bg-warning" th:href="@{/admin/orderList}" href="#">Volver</a></h5>
+					
 				</div>
 			</div>
-			<div class="row ">				
-				<div class="col-12 col-sm-6 col-md-6 bg-light">					
-					<form th:action="@{/register}" method="post" class="form-signin" th:object="${detallePedido}">						 					
+			
+			<form th:action="@{/register}" method="post" class="form-signin" th:object="${detallePedido}">	
+			<div class="form-row ">				
+				<div class="col-12 col-sm-6 col-md-6 bg-light">										 					
 						
 						<label for="inputFechaPedido">Fecha Pedido</label>
 						<input	type="text" id="inputFechaPedido" name="fechaPedido" class="form-control" th:field="*{fechaPedido}" placeholder="Fecha Pedido" required autofocus>
@@ -59,8 +60,8 @@
 						
 						
 						
-						<!-- </div>
-						<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light"> -->
+				</div>
+				<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light">
 						
 						
 						<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
@@ -69,33 +70,26 @@
 						
 						
 						<label for="inputCliente">Nick del Cliente</label>
-						<input	type="text" id="inputCliente" name="cliente" class="form-control" placeholder="Nick del Cliente" required>
+						<input	type="text" id="inputCliente" name="cliente" class="form-control" th:field="*{cliente.nick}" placeholder="Nick del Cliente" required>
 						
 						<label for="inputRider">Nick del Rider</label>
-						<input	type="text" id="inputRider" name="rider" class="form-control" placeholder="Nick del Rider" required>
+						<input	type="text" id="inputRider" name="rider" class="form-control" th:field="*{rider.nick}" placeholder="Nick del Rider" required>
 						
 						<label for="inputComentarios">Comentarios de Administrador</label>
 						<textarea id="inputComentarios" name="comentarios"  rows="8" class="form-control md-textarea" th:field="*{comentarios}" placeholder="Comentarios" required></textarea>
 						
 						<label for="inputStatus">Status del Pedido</label>
 						<input	type="number" id="inputStatus" name="status" class="form-control" th:field="*{status}" placeholder="Status Pedido" required>	
-					</div>
-			</div>
-			<div class="row">
+				</div>			
+			
 				<div class="col-12 bg-light text-center">								
-					<button class="btn btn-lg btn-primary " type="submit">Actualizar</button>
-					</form>					
+					<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
+					
+					<h5><a class="btn btn-info text-dark text-decoration-none bg-primary m-2" th:href="@{/admin/orderList}" href="#">Volver</a></h5>
 				</div>
-			</div>
-			<div class="row m-2">
-				<div class="col-12 bg-light text-center">								
-			<h5><a class="text-dark text-decoration-none bg-warning" th:href="@{/admin/orderList}" href="#">Volver</a></h5>
-					</form>					
-				</div>
-			</div>
 			
-			
-			
+			</div><!-- Fin form-row -->
+			</form>
 			
 		</section>
      

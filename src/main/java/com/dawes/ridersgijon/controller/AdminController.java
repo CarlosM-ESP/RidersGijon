@@ -83,7 +83,7 @@ public class AdminController {
 	public String orderDetail(@RequestParam int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario
     	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	//Le pasamo el id del peidod para mostrarlo
+    	//Le pasamos el id del pedido para mostrarlo en la cabecera del form
     	model.addAttribute("id", id_pedido );
     	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
     	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));
