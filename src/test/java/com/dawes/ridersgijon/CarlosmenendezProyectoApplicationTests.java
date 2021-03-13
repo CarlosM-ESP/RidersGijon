@@ -246,7 +246,7 @@ class CarlosmenendezProyectoApplicationTests {
 	@Test
 	@Order(20)
 	public void t20_findUserByEmailAndPaswordSuccess() {
-		UserVO loginUser = userService.findByEmailAndPassword("carlosm@carlosm.com", "$2a$10$YysHZnWGzHDJrscNb2rkHer6GDe5XJKRxs.U.Fky3X/b5B2mU7ERm").get();
+		UserVO loginUser = userService.findByEmailAndPassword("carlosm@carlosm.com", "$2a$10$iixa48z.h72HuvjzMZHXeOCKxzvr02uvSsviN.qfIjr70dMrroMku").get();
 		System.out.println("Usuario válido encontrado: " + loginUser);
 		assertEquals("carlosm@carlosm.com", loginUser.getEmail());
 	}
@@ -258,7 +258,7 @@ class CarlosmenendezProyectoApplicationTests {
 	public void t21_findUserDetailsByEmailSuccess() {
 		UserDetails loginUser = userService.loadUserByUsername("carlosm@carlosm.com");
 		System.out.println("Usuario válido encontrado: " + loginUser);
-		assertEquals("$2a$10$YysHZnWGzHDJrscNb2rkHer6GDe5XJKRxs.U.Fky3X/b5B2mU7ERm", loginUser.getPassword());
+		assertEquals("$2a$10$iixa48z.h72HuvjzMZHXeOCKxzvr02uvSsviN.qfIjr70dMrroMku", loginUser.getPassword());
 	}
 	
 	/***************PRUEBAS ITERACIONES JSON y DEMAS LIBRERIA GSON....SuperUtil */

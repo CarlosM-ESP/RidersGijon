@@ -28,30 +28,60 @@
 		
 			<div class="col-12 d-sm-block bg-light text-center">
 			
-				<h5 class="text-center" th:text="'Detalle de '+ ${nickUser}">Detalle user</h5>
+				<h5 class="text-center" th:text="'Administrador: '+ ${detalleUser.nick}">Detalle user</h5>
 									
 			</div>
 			
-		</div>			
-		<form th:action="@{/admin/adminList}" method="post" class="form-signin" th:object="${detalleUser}">
+		</div>
+		<div class="form-row">
+		<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
+				
+					<h5><a class="btn btn-info bg-primary m-2" href="#modalPassword" data-toggle="modal">Eliminar</a></h5>
+					
+					<!-- MODAL LOGOUT -->
+					<div class="modal" id="modalPassword" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header ">
+									<h4>Eliminar Administrador</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								</div>
+								<div class="modal-body">
+									<form th:action="@{/admin/adminDelete}" method="post">
+										<h4 th:text="'¿Está seguro de querer eliminar al Administrador '+${detalleUser.nick}+'?'"></h4>
+										<input type="hidden"  name= "id_user" th:value=${detalleUser.id_user}>										
+										<input type="submit" class="btn btn-danger" value="Eliminar">
+										<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>										
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList(data=${'password'})}" href="#">Cambiar Contraseña</a></h5>
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList(data=${'otracosa'})}" href="#">Volver</a></h5>
+					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList(data=${'yotra'})}" href="#">Volver</a></h5>
+				
+				
+				
+		</div>					
+		
+		
 			
-			<div class="form-row ">
-				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
+			<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
+			<form th:action="@{/admin/adminList}" method="post" class="form-signin" th:object="${detalleUser}">		
 				
-					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Cambiar Contraseña</a></h5>
-					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Eliminar</a></h5>
-					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Volver</a></h5>
-					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Volver</a></h5>
-				
-				
-				
-				</div>			
-				<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
 										
 					<input type="hidden" name="id_user" th:field="*{id_user}">
 					<input type="hidden" name="user_type" th:field="*{user_type}">
 					<input type="hidden" name="password" th:field="*{password}">
+					
 					<!-- <input type="hidden" name="isActive" th:field="*{isActive}"> -->
+					
+					
+					
+					
 					<label for="inputNombre">Nombre</label>
 					<input	type="text" id="inputNombre" name="nombre" class="form-control" th:field="*{nombre}" placeholder="Nombre" required autofocus>
 					
@@ -85,11 +115,14 @@
 					<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
 					
 					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/adminList}" href="#">Volver</a></h5>
+					
+					</form>
 				</div>
+				
 				<div class="col-12 col-sm-2 col-md-2 bg-light text-center"></div>
-			</div><!-- Fin form-row -->
-			</form>
 			
+			
+			</div><!-- Fin form-row -->
 		</section>
 		
 		<!-- Footer -->

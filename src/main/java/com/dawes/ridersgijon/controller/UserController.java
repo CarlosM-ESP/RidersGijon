@@ -75,7 +75,7 @@ public class UserController {
 	        session.setAttribute("tipoUsuario", userService.findUserLogged().getUser_type());
 	    	//Comprobamos que tipo de usuario es para redireccionar
 	    	if (userService.findUserLogged().getUser_type().equals("ADMIN")){
-		        return "admin/adminOrdersOrderList";	    		
+		        return "redirect:admin/orderList";	    		
 	    	}
 	        if (userService.findUserLogged().getUser_type().equals("CLIENT")){	    	
 		        return "clientes/clientHistory";	    		

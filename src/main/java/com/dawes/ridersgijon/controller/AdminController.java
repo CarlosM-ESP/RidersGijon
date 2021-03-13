@@ -44,22 +44,49 @@ public class AdminController {
 	@GetMapping ("/adminDetail")		
 	public String adminDetail(@RequestParam int id_user,  Model model){		
 		//Le pasamos el nombre de usuario
-		UserVO user = userService.findById(id_user).get(); 
-		user.setPassword(userService.encode(user.getPassword()));
-    	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	model.addAttribute("nickUser", userService.findById(id_user).get().getNick());
+		UserVO user = userService.findById(id_user).get();
+		//Nick del usuario autenticado
+    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
     	model.addAttribute("detalleUser", user);
+    	
+    	System.out.println(model);
+    	
+    	
 		return "/admin/adminAdminsAdminDetail";
 	}
 	
 	//Actualizar Administrador
 		@PostMapping("/adminList")
-		public String adminUpdate(@ModelAttribute UserVO detalleUser, Model model){
+		public String adminUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){
 			detalleUser.setActive(true);
 			userService.save(detalleUser);		
 			return  "redirect:/admin/adminList";
 		}
+		
+		
+	//Eliminar Administrador
+		@PostMapping("/adminDelete")
+		public String adminDelete(@ModelAttribute("id_user") int id_user, Model model) {			
+//			UserVO user2 = new UserVO(0, "ADMIN", "Luis", "Suarez", "Alonso", "09555888N", "C/ Pelota, nº 12 3º izda",
+//					"777555444", "JuanM", "luis@luis.com", userService.encode("1234"), "", "", true, null);
+//			userService.save(user2);
+//			UserVO user1 = new UserVO(0, "ADMIN", "Carlos", "Menendez", "Martinez", "09444888N", "C/ Luna, nº 23, 3º izda",
+//					"666555444", "CarlosM", "carlos@carlos.com", userService.encode("1234"), "", "", true,null );
+//			userService.save(user1);
+			
+			if(userService.findByUser_type("ADMIN").size() == 1) {				
+				return "/errorEliminarAdmin";				
+			}else if(userService.findUserLogged().getId_user() == id_user){
+				return "/errorEliminarAutenticado";	
+			}else {
+				
+				userService.delete(userService.findById(id_user).get());
+				return "redirect:/admin/adminList";
+				
+			}
+		}
+		
 	
 	
 	
@@ -122,7 +149,7 @@ public class AdminController {
 	}
 	//Actualizar Pedido
 	@PostMapping("/orderList")
-	public String orderUpdate(@ModelAttribute PedidoVO detallePedido, Model model){		
+	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){		
 		pedidoService.save(detallePedido);		
 		return  "redirect:/admin/orderList";
 	}
