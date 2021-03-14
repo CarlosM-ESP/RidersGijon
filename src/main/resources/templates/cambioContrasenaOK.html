@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es" xmlns:th="thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<!-- Custom css  -->
+<link rel="stylesheet" href="./css/styles.css">
+
+<title>ERROR</title>
+</head>
+<body class="bg-light">
+	<div class="container-fluid">	
+		
+		<section class="indexBody">
+			<div class="row h-50"></div>			
+			<div class="row h-50">			
+				<div class="col-12 col-md-6 col-lg-4 bg-light"></div>
+				<div class="col-12 col-md-6 col-lg-4 bg-light">
+					<h5 class="bg-success text-center">Contraseña Cambiada.Deberá usar la nueva Contraseña la próxima vez que acceda a la aplicación</h5>
+					<div class="text-center">					
+						<a href="#"	th:href="@{admin/adminDetail(id_user=${id_user})}">
+							<button class="btn btn-primary">VOLVER</button>
+						</a>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4 d-none d-lg-block bg-light"></div>
+			</div>
+			<!-- Fin row -->
+		</section>
+
+		<!-- Footer -->
+		 <div th:replace="templates/footer::footer"></div>
+		 
+		
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</div><!-- Fin container fluid -->
+</body>
+</html>

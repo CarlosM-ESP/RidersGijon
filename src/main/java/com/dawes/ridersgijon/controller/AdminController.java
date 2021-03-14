@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.ridersgijon.model.PedidoVO;
+import com.dawes.ridersgijon.model.UserRolVO;
 import com.dawes.ridersgijon.model.UserVO;
 import com.dawes.ridersgijon.service.PedidoService;
+import com.dawes.ridersgijon.service.RolService;
+import com.dawes.ridersgijon.service.UserRolService;
 import com.dawes.ridersgijon.service.UserService;
 
 @Controller
@@ -24,6 +27,14 @@ public class AdminController {
 	
 	@Autowired
 	PedidoService pedidoService;
+	
+	@Autowired
+	RolService rolService;
+	
+	@Autowired
+	UserRolService userRolService;
+	
+	
 	
 	@GetMapping ("")
 	public String admin(Model model){
@@ -48,11 +59,7 @@ public class AdminController {
 		//Nick del usuario autenticado
     	model.addAttribute("nick", userService.findUserLogged().getNick());    	
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
-    	model.addAttribute("detalleUser", user);
-    	
-    	System.out.println(model);
-    	
-    	
+    	model.addAttribute("detalleUser", user);    	
 		return "/admin/adminAdminsAdminDetail";
 	}
 	
@@ -74,13 +81,23 @@ public class AdminController {
 //			UserVO user1 = new UserVO(0, "ADMIN", "Carlos", "Menendez", "Martinez", "09444888N", "C/ Luna, nº 23, 3º izda",
 //					"666555444", "CarlosM", "carlos@carlos.com", userService.encode("1234"), "", "", true,null );
 //			userService.save(user1);
+//			
+//			UserVO user3 = new UserVO(0, "ADMIN", "1234", "Menendez", "Martinez", "09444888N", "C/ Luna, nº 23, 3º izda",
+//			"666555444", "1234", "1234", userService.encode("1234"), "", "", true,null );
+//			userService.save(user3);			
+//			UserRolVO userrol1 = new UserRolVO(0, userService.findById(user2.getId_user()).get(), rolService.findById(1).get());
+//			UserRolVO userrol2 = new UserRolVO(0, userService.findById(user1.getId_user()).get(), rolService.findById(1).get());
+//			userRolService.save(userrol1);
+//			UserRolVO userrol3 = new UserRolVO(0, userService.findById(user3.getId_user()).get(), rolService.findById(1).get());
+//			userRolService.save(userrol3);			
+//			userRolService.save(userrol2);
+			
 			
 			if(userService.findByUser_type("ADMIN").size() == 1) {				
 				return "/errorEliminarAdmin";				
 			}else if(userService.findUserLogged().getId_user() == id_user){
 				return "/errorEliminarAutenticado";	
-			}else {
-				
+			}else {				
 				userService.delete(userService.findById(id_user).get());
 				return "redirect:/admin/adminList";
 				
