@@ -53,11 +53,12 @@ public class AdminController {
 	}
 	
 	@GetMapping ("/adminDetail")		
-	public String adminDetail(@RequestParam int id_user,  Model model){		
-		//Le pasamos el nombre de usuario
+	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){		
+		//Recuperamos el usuario
 		UserVO user = userService.findById(id_user).get();
 		//Nick del usuario autenticado
     	model.addAttribute("nick", userService.findUserLogged().getNick());    	
+    	
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
     	model.addAttribute("detalleUser", user);    	
 		return "/admin/adminAdminsAdminDetail";
@@ -71,40 +72,40 @@ public class AdminController {
 			return  "redirect:/admin/adminList";
 		}
 		
-		
 	//Eliminar Administrador
 		@PostMapping("/adminDelete")
-		public String adminDelete(@ModelAttribute("id_user") int id_user, Model model) {			
-//			UserVO user2 = new UserVO(0, "ADMIN", "Luis", "Suarez", "Alonso", "09555888N", "C/ Pelota, nº 12 3º izda",
-//					"777555444", "JuanM", "luis@luis.com", userService.encode("1234"), "", "", true, null);
-//			userService.save(user2);
-//			UserVO user1 = new UserVO(0, "ADMIN", "Carlos", "Menendez", "Martinez", "09444888N", "C/ Luna, nº 23, 3º izda",
-//					"666555444", "CarlosM", "carlos@carlos.com", userService.encode("1234"), "", "", true,null );
-//			userService.save(user1);
-//			
-//			UserVO user3 = new UserVO(0, "ADMIN", "1234", "Menendez", "Martinez", "09444888N", "C/ Luna, nº 23, 3º izda",
-//			"666555444", "1234", "1234", userService.encode("1234"), "", "", true,null );
-//			userService.save(user3);			
-//			UserRolVO userrol1 = new UserRolVO(0, userService.findById(user2.getId_user()).get(), rolService.findById(1).get());
-//			UserRolVO userrol2 = new UserRolVO(0, userService.findById(user1.getId_user()).get(), rolService.findById(1).get());
-//			userRolService.save(userrol1);
-//			UserRolVO userrol3 = new UserRolVO(0, userService.findById(user3.getId_user()).get(), rolService.findById(1).get());
-//			userRolService.save(userrol3);			
-//			userRolService.save(userrol2);
-			
-			
+		public String adminDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {			
 			if(userService.findByUser_type("ADMIN").size() == 1) {				
 				return "/errorEliminarAdmin";				
-			}else if(userService.findUserLogged().getId_user() == id_user){
+			}else if(userService.findUserLogged().getId_user() == user.getId_user()){
 				return "/errorEliminarAutenticado";	
 			}else {				
-				userService.delete(userService.findById(id_user).get());
-				return "redirect:/admin/adminList";
-				
+				UserRolVO userRol = userRolService.findByUser(user).get();				
+				userRolService.delete(userRol);				
+				userService.delete(userService.findById(user.getId_user()).get());				
+				return "redirect:/admin/adminList";				
 			}
 		}
 		
-	
+		//Formulario Registro nuevo Administrador
+		@GetMapping("/registerAdmin")
+		public String registerAdmin(Model model) {
+			model.addAttribute("user", new UserVO());			
+			return "admin/registerAdmin";
+			}
+		
+		// Guardar en BBDD los datos de nuevo administrador
+				@PostMapping("/registerAdmin")
+				public String registerSuccess(@ModelAttribute UserVO user, Model model){			
+					//Falta Validación Datos Formulario	
+					user.setActive(true);
+					user.setUser_type("ADMIN");
+					user.setPassword(userService.encode(user.getPassword()));				
+					userService.save(user);
+						UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
+						userRolService.save(userRol);			
+					return "admin/signingAdminSuccess";
+			}
 	
 	
 	@GetMapping ("/clientList")

@@ -3,12 +3,14 @@
  */
 package com.dawes.ridersgijon.serviceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dawes.ridersgijon.model.UserRolVO;
+import com.dawes.ridersgijon.model.UserVO;
 import com.dawes.ridersgijon.repository.UserRolRepository;
 import com.dawes.ridersgijon.service.UserRolService;
 
@@ -127,6 +129,17 @@ public class UserRolServiceImpl implements UserRolService {
 	public void deleteAll() {
 		userRolRepository.deleteAll();
 	}
+
+	/**
+	 * @param user
+	 * @return
+	 * @see com.dawes.ridersgijon.repository.UserRolRepository#findByUser(com.dawes.ridersgijon.model.UserVO)
+	 */
+	public Optional<UserRolVO> findByUser(UserVO user) {
+		return userRolRepository.findByUser(user);
+	}
+
+	
 	
 	
 

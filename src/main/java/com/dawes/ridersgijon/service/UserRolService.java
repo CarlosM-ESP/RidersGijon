@@ -1,8 +1,10 @@
 package com.dawes.ridersgijon.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.dawes.ridersgijon.model.UserRolVO;
+import com.dawes.ridersgijon.model.UserVO;
 
 public interface UserRolService {
 
@@ -79,4 +81,5 @@ public interface UserRolService {
 	 */
 	void deleteAll();
 
+	Optional<UserRolVO> findByUser(UserVO user);
 }

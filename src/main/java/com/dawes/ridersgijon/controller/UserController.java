@@ -116,9 +116,11 @@ public class UserController {
 	//Se añade un modelo vacío donde se guardaran los datos del formulario
 		@GetMapping("/register")
 		public String register(Model model) {
-			model.addAttribute("user", new UserVO());
-			return "register";
-		}	
+			model.addAttribute("user", new UserVO());			
+			return "registerAdmin";
+			}
+		
+		
 	
 	// Guardar en BBDD los datos de nuevo usuario
 	@PostMapping("/register")
