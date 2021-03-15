@@ -117,10 +117,8 @@ public class UserController {
 		@GetMapping("/register")
 		public String register(Model model) {
 			model.addAttribute("user", new UserVO());			
-			return "registerAdmin";
+			return "register";
 			}
-		
-		
 	
 	// Guardar en BBDD los datos de nuevo usuario
 	@PostMapping("/register")
@@ -131,7 +129,7 @@ public class UserController {
 		
 		
 		//*******************************
-		user.setActive(true);
+		user.setIsActive(true);
 		user.setPassword(userService.encode(user.getPassword()));				
 		userService.save(user);		
 		
@@ -156,50 +154,26 @@ public class UserController {
 				String oldPassword = "";
 				String newPassword1 = "";
 				String newPassword2 = "";
-//				ArrayList<String> passwords = null;
-//				passwords.add(oldPassword);
-//				passwords.add(newPassword1);
-//				passwords.add(newPassword2);
-				
-//				System.out.println(passwords);
-				
-				//Necesito pasarle algo donde guardar la contraseñas viejas y nuevas
-//				model.addAttribute("passwords", passwords);
+
 				model.addAttribute("oldpassword", oldPassword);
 				model.addAttribute("newPassword1", newPassword1);
 				model.addAttribute("newPassword2", newPassword2);
 				model.addAttribute("id_user", id_user);
 				return "passwordChange";
 			}
+			
 			@PostMapping("/passwordChange")
-			public String PasswordChangeProccessing(@ModelAttribute("id_user") int id_user, @ModelAttribute("oldPassword") String oldPassword, @ModelAttribute("newPassword1") String newPassword1, @ModelAttribute("newPassword2") String newPassword2, Model model) {
-//				System.out.println(oldPassword);
-//				System.out.println(newPassword1);
-//				System.out.println(newPassword2);
-				model.addAttribute(id_user);
-				
-				
-				
-				System.out.println(userService.encode(oldPassword));
-				System.out.println(userService.findById(id_user).get().getPassword());
-				
-				
+			public String PasswordChangeProccessing(@ModelAttribute("id_user") int id_user, @ModelAttribute("oldPassword") String oldPassword, @ModelAttribute("newPassword1") String newPassword1, @ModelAttribute("newPassword2") String newPassword2, Model model) {;
+				model.addAttribute(id_user);				
 				if(userService.findUserLogged().getId_user() != id_user) {				
 					return "/errorCambioContrasena";				
 				}else if(!newPassword1.equals(newPassword2)){
 					return "/errorCambioContrasena2";				
-				}
-//				else if(!userService.encode(oldPassword).equals(userService.findById(id_user).get().getPassword())){
-//					return "/errorCambioContrasena3";	
-//				}
-				
-				else {				
+				}else{				
 					UserVO user = userService.findById(id_user).get();
 					user.setPassword(userService.encode(newPassword1));
 					userService.save(user);
-				return "cambioContrasenaOK";
+					return "cambioContrasenaOK";
 				}
-			}
-
-	
+			}	
 }

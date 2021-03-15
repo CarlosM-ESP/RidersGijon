@@ -34,13 +34,11 @@ public class AdminController {
 	@Autowired
 	UserRolService userRolService;
 	
-	
-	
 	@GetMapping ("")
 	public String admin(Model model){
 		//Le pasamos el nombre de usuario
     	model.addAttribute("nick", userService.findUserLogged().getNick());	
-		return "/admin/adminOrdersOrderList";
+		return "redirect:/admin/adminList";
 	}
 	
 	@GetMapping ("/adminList")
@@ -52,7 +50,15 @@ public class AdminController {
 		return "/admin/adminAdminsAdminList";
 	}
 	
-	@GetMapping ("/adminDetail")		
+	//Actualizar Administrador
+		@PostMapping("/adminList")
+		public String adminUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){
+			detalleUser.setIsActive(true);
+			userService.save(detalleUser);		
+			return  "redirect:/admin/adminList";
+		}
+	
+		@GetMapping ("/adminDetail")		
 	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){		
 		//Recuperamos el usuario
 		UserVO user = userService.findById(id_user).get();
@@ -64,13 +70,7 @@ public class AdminController {
 		return "/admin/adminAdminsAdminDetail";
 	}
 	
-	//Actualizar Administrador
-		@PostMapping("/adminList")
-		public String adminUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){
-			detalleUser.setActive(true);
-			userService.save(detalleUser);		
-			return  "redirect:/admin/adminList";
-		}
+	
 		
 	//Eliminar Administrador
 		@PostMapping("/adminDelete")
@@ -98,16 +98,20 @@ public class AdminController {
 				@PostMapping("/registerAdmin")
 				public String registerSuccess(@ModelAttribute UserVO user, Model model){			
 					//Falta Validación Datos Formulario	
-					user.setActive(true);
+					user.setIsActive(true);
 					user.setUser_type("ADMIN");
 					user.setPassword(userService.encode(user.getPassword()));				
 					userService.save(user);
-						UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
-						userRolService.save(userRol);			
+					UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
+					userRolService.save(userRol);			
 					return "admin/signingAdminSuccess";
 			}
 	
 	
+				
+				
+				
+				
 	@GetMapping ("/clientList")
 	public String clientList(Model model){
 		//Le pasamos el nombre de usuario
@@ -117,12 +121,43 @@ public class AdminController {
 		return "/admin/adminClientsClientList";
 	}
 	
-	@GetMapping ("/clientDetail")
-	public String clientDetail(Model model){
-		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
-		return "/admin/adminClientsClientDetail";
-	}
+	//Actualizar Cliente
+			@PostMapping("/clientList")
+			public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
+				System.out.println("status="+detalleUser.getIsActive());
+				
+//				@RequestParam(name="active" ,required = false) int cambiaStatus, 
+//				if(cambiaStatus == 1347) {
+//					detalleUser.setIsActive(true);
+//				}else{
+//					detalleUser.setIsActive(false);
+//				}
+				
+				//detalleUser.setIsActive(true);
+				System.out.println("status="+detalleUser.getIsActive());
+				
+				
+				
+				if(detalleUser.getIsActive()){
+				System.out.println("OK es activo");
+				}else {System.out.println("No aparece Activo");}
+				
+				
+				userService.save(detalleUser);		
+				return  "redirect:/admin/clientList";
+			}
+	
+			@GetMapping ("/clientDetail")		
+			public String clientDetail(@RequestParam(name="id_user") int id_user,  Model model){		
+				//Recuperamos el usuario
+				UserVO user = userService.findById(id_user).get();
+				//Nick del usuario autenticado
+		    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
+		    	
+		    	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
+		    	model.addAttribute("detalleUser", user);    	
+				return "/admin/adminClientsClientDetail";
+			}
 	
 	@GetMapping ("/riderList")
 	public String riderList(Model model){
@@ -139,7 +174,9 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());	
 		return "/admin/adminRidersRiderDetail";
 	}
-		
+	
+	
+	
 	@GetMapping ("/orderList")
 	public String orderList(Model model){
 		//Le pasamos el nombre de usuario

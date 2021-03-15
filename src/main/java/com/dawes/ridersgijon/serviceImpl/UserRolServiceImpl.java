@@ -138,8 +138,6 @@ public class UserRolServiceImpl implements UserRolService {
 	public Optional<UserRolVO> findByUser(UserVO user) {
 		return userRolRepository.findByUser(user);
 	}
-
-	
 	
 	
 

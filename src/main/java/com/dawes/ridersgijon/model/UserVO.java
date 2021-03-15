@@ -29,7 +29,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -56,6 +55,11 @@ public class UserVO implements UserDetails{
 	private String matricula;
 	private String vehiculo;
 	private boolean isActive;
+	
+	
+	
+	
+	
 	
 	//Requerido para poder recoger los roles del usuario
 	//Se utiliza el fetch EAGER para que los incluya automáticamente al generar un objeto UserVO
@@ -104,6 +108,20 @@ public class UserVO implements UserDetails{
 				+ apellido1 + ", apellido2=" + apellido2 + ", nif=" + nif + ", direccion=" + direccion + ", telefono="
 				+ telefono + ", nick=" + nick + ", email=" + email + ", password=" + password + ", matricula="
 				+ matricula + ", vehiculo=" + vehiculo + ", isActive=" + isActive + "]";
+	}
+
+	/**
+	 * @return the isActive
+	 */
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+	/**
+	 * @param isActive the isActive to set
+	 */
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 	
 }
