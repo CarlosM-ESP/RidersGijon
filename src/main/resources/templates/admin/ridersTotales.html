@@ -9,6 +9,7 @@
 				<th>Apellido2</th>
 				<th>Nick</th>
 				<th>Email</th>
+				<th></th>
 				<th></th>				
 			</tr>
 		</thead>
@@ -27,7 +28,12 @@
 	        <!-- <td data-th-text="${rider.matricula}">...</td> -->
 	        <!-- <td data-th-text="${rider.vehiculo}">...</td> -->
 	        <!-- <td data-th-text="${rider.isActive}">...</td> -->
-	        
+	        <td>
+	        <div class="form-check">
+  					<input class="form-check-input" type="checkbox" name="isActive"  th:value="${rider.isActive}" th:checked="${rider.isActive}" id="inputActive" disabled >
+  					<label class="form-check-label" for="inputActive">Activo</label>
+				</div>
+	        </td>
 <!-- ESTO ES UNA LISTA HAY QUE MOSTRARLO DIFERENTE -->
 	        <!-- <td data-th-text="${rider.roles}">...</td> -->
 	        	        

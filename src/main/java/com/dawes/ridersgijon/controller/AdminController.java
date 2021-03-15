@@ -87,6 +87,7 @@ public class AdminController {
 			}
 		}
 		
+		
 		//Formulario Registro nuevo Administrador
 		@GetMapping("/registerAdmin")
 		public String registerAdmin(Model model) {
@@ -124,24 +125,9 @@ public class AdminController {
 	//Actualizar Cliente
 			@PostMapping("/clientList")
 			public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
-				System.out.println("status="+detalleUser.getIsActive());
-				
-//				@RequestParam(name="active" ,required = false) int cambiaStatus, 
-//				if(cambiaStatus == 1347) {
-//					detalleUser.setIsActive(true);
-//				}else{
-//					detalleUser.setIsActive(false);
-//				}
-				
-				//detalleUser.setIsActive(true);
-				System.out.println("status="+detalleUser.getIsActive());
-				
-				
-				
-				if(detalleUser.getIsActive()){
-				System.out.println("OK es activo");
-				}else {System.out.println("No aparece Activo");}
-				
+//				if(detalleUser.getIsActive()){
+//				System.out.println("OK es activo");
+//				}else {System.out.println("No aparece Activo");}				
 				
 				userService.save(detalleUser);		
 				return  "redirect:/admin/clientList";
@@ -158,6 +144,20 @@ public class AdminController {
 		    	model.addAttribute("detalleUser", user);    	
 				return "/admin/adminClientsClientDetail";
 			}
+			
+			//Eliminar Cliente
+			@PostMapping("/clientDelete")
+			public String clientDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
+				if(userService.findUserLogged().getId_user() == user.getId_user()){
+					return "/errorEliminarAutenticado";	
+				}else {				
+					UserRolVO userRol = userRolService.findByUser(user).get();				
+					userRolService.delete(userRol);				
+					userService.delete(userService.findById(user.getId_user()).get());				
+					return "redirect:/admin/clientList";				
+				}
+			}
+
 	
 	@GetMapping ("/riderList")
 	public String riderList(Model model){
@@ -168,12 +168,44 @@ public class AdminController {
 		return "/admin/adminRidersRiderList";
 	}
 	
+	
+	//Actualizar Rider
+	@PostMapping("/riderList")
+	public String riderUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
+//		if(detalleUser.getIsActive()){
+//		System.out.println("OK es activo");
+//		}else {System.out.println("No aparece Activo");}				
+		
+		userService.save(detalleUser);		
+		return  "redirect:/admin/riderList";
+	}
+	
 	@GetMapping ("/riderDetail")
-	public String riderDetail(Model model){
-		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+	public String riderDetail(@RequestParam(name="id_user") int id_user,  Model model){
+		//Recuperamos el usuario
+		UserVO user = userService.findById(id_user).get();
+		//Nick del usuario autenticado
+    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
+    	
+    	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
+    	model.addAttribute("detalleUser", user);    	
 		return "/admin/adminRidersRiderDetail";
 	}
+	
+	
+	//Eliminar Cliente
+	@PostMapping("/riderDelete")
+	public String riderDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
+		if(userService.findUserLogged().getId_user() == user.getId_user()){
+			return "/errorEliminarAutenticado";	
+		}else {				
+			UserRolVO userRol = userRolService.findByUser(user).get();				
+			userRolService.delete(userRol);				
+			userService.delete(userService.findById(user.getId_user()).get());				
+			return "redirect:/admin/riderList";				
+		}
+	}
+
 	
 	
 	

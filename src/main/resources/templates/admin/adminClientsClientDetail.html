@@ -47,8 +47,13 @@
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						</div>
 						<div class="modal-body">
-							<form th:action="@{/admin/adminDelete}" method="post">
-								<h4 th:text="'¿Está seguro de querer eliminar al Administrador '+${detalleUser.nick}+'?'"></h4>
+							<form th:action="@{/admin/clientDelete}" method="post">
+								<h4 th:utext="'
+								<p>¿Está seguro de querer eliminar al Cliente:
+								<p> '+${detalleUser.nick}+'?</p>
+								<p>Todos los pedidos asociados a este cliente serán eliminados y las asociaciones a sus Riders también.</p>
+								<p>La acción puede provocar desajustes en los asientos contables existentes.</p>
+								<p> Se recomienda deshabilitar el Cliente en vez de eliminarlo</p>'"></h4>
 								<input type="hidden"  name= "id_user" th:value=${detalleUser.id_user}>										
 								<input type="submit" class="btn btn-danger" value="Eliminar">
 								<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>										

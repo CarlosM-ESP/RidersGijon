@@ -122,13 +122,8 @@ public class UserController {
 	
 	// Guardar en BBDD los datos de nuevo usuario
 	@PostMapping("/register")
-	public String registerSuccess(@ModelAttribute UserVO user, Model model){
-		
+	public String registerSuccess(@ModelAttribute UserVO user, Model model){		
 		//Falta Validación Datos Formulario	
-		
-		
-		
-		//*******************************
 		user.setIsActive(true);
 		user.setPassword(userService.encode(user.getPassword()));				
 		userService.save(user);		
