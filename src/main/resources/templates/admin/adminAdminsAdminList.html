@@ -25,8 +25,9 @@
     <!-- Cuerpo Principal -->
     <section>
         <div class="row indexBody">        	          	
-          	<div class="col-12 bg-light">
-            	<h2 class = "text-center">Administradores</h2>
+          	<div class="col-12 bg-light text-center">
+            	<h2>Administradores</h2>
+            	<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/registerAdmin}" href="#">Nuevo Administrador</a></h5>
             	            	              
 				<!--Tabla Todos los Administradores-->
 	  			<div th:insert="admin/adminTotales :: adminTotales"></div>    

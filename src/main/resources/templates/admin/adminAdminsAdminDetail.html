@@ -24,21 +24,16 @@
 	
     <!-- Cuerpo Principal -->
 	<section >
-		<div class="row">
-		
-			<div class="col-12 d-sm-block bg-light text-center">
-			
-				<h5 class="text-center" th:text="'Administrador: '+ ${detalleUser.nick}">Detalle user</h5>
-									
+		<div class="row">		
+			<div class="col-12 d-sm-block bg-light text-center">			
+				<h5 class="text-center" th:text="'Administrador: '+ ${detalleUser.nick}">Detalle user</h5>									
 			</div>
 			
 		</div>
 		<div class="form-row">
-		<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
-				
-			<h5><a class="btn btn-info bg-primary m-2" href="#modalPassword" data-toggle="modal">Eliminar</a></h5>
+		<div class="col-12 col-sm-2 col-md-2 bg-light text-center">				
+			<h5><a class="btn btn-info bg-primary m-2" href="#modalPassword" data-toggle="modal">Eliminar</a></h5>			
 			
-			<!-- MODAL LOGOUT -->
 			<div class="modal" id="modalPassword" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -58,8 +53,6 @@
 				</div>
 			</div>
 			<h5><a class="btn btn-info bg-primary m-2" th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" href="#">Cambiar Contraseña</a></h5>
-			
-			<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/registerAdmin}" href="#">Nuevo Administrador</a></h5>					
 		</div>	
 		
 		<div class="col-12 col-sm-8 col-md-8 bg-light text-center">

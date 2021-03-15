@@ -20,210 +20,234 @@ import com.dawes.ridersgijon.service.UserService;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController {
-	
+public class AdminController {	
 	@Autowired
-	UserService userService;
-	
+	UserService userService;	
 	@Autowired
-	PedidoService pedidoService;
-	
+	PedidoService pedidoService;	
 	@Autowired
-	RolService rolService;
-	
+	RolService rolService;	
 	@Autowired
 	UserRolService userRolService;
 	
+//ADMINISTRACION*************************************************************************
+	
+	/**
+	 * Pantalla de Inicio de Administradro tras autenticación
+	 */
 	@GetMapping ("")
 	public String admin(Model model){
-		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());	
+		//Le pasamos el nombre de usuario logueado para mostrarlos en el header de la vista
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Con redirect recargamos la página para mostrar loa lista actualizda
 		return "redirect:/admin/adminList";
 	}
-	
+	/**
+	 * Listado de usuarios administradores
+	 */
 	@GetMapping ("/adminList")
 	public String adminList(Model model){
-		//Le pasamos el nombre de usuario
+		//Le pasamos el nombre de usuario logueado para mostrarlos en el header de la vista
     	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD
+    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD para mostrarlos en la vista
     	model.addAttribute("listaAdmins", userService.findByUser_type("ADMIN"));
 		return "/admin/adminAdminsAdminList";
 	}
 	
-	//Actualizar Administrador
-		@PostMapping("/adminList")
-		public String adminUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){
-			detalleUser.setIsActive(true);
-			userService.save(detalleUser);		
-			return  "redirect:/admin/adminList";
-		}
-	
-		@GetMapping ("/adminDetail")		
+	/**
+	 * Actualizacion de usuario Administrador
+	 */
+	@PostMapping("/adminList")
+	//Recogemos el UserVO con los datos del formulario
+	public String adminUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){
+		//Administradores siempre activos
+		detalleUser.setIsActive(true);		
+		userService.save(detalleUser);		
+		return  "redirect:/admin/adminList";
+	}
+	/**
+	 * Vista de detalle de datos de un Administrador. Se pasa el id por url
+	 */
+	@GetMapping ("/adminDetail")
+	//Recoge el id pasado como parámetro para recuperar el el UserVO
 	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){		
-		//Recuperamos el usuario
-		UserVO user = userService.findById(id_user).get();
-		//Nick del usuario autenticado
-    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
-    	
-    	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
-    	model.addAttribute("detalleUser", user);    	
-		return "/admin/adminAdminsAdminDetail";
+	
+	//Nick del usuario autenticado
+	model.addAttribute("nick", userService.findUserLogged().getNick());    	
+	
+	//Le pasamos el UserVO para mostrar los datos en el formulario de la vista    	
+	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
+	return "/admin/adminAdminsAdminDetail";
 	}
 	
-	
-		
-	//Eliminar Administrador
-		@PostMapping("/adminDelete")
-		public String adminDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {			
-			if(userService.findByUser_type("ADMIN").size() == 1) {				
-				return "/errorEliminarAdmin";				
-			}else if(userService.findUserLogged().getId_user() == user.getId_user()){
-				return "/errorEliminarAutenticado";	
-			}else {				
-				UserRolVO userRol = userRolService.findByUser(user).get();				
-				userRolService.delete(userRol);				
-				userService.delete(userService.findById(user.getId_user()).get());				
-				return "redirect:/admin/adminList";				
-			}
+	/**
+	 * Borrar Administrador. Desde Vista de Detalle de Administrador
+	 */
+	@PostMapping("/adminDelete")
+	public String adminDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
+		//No se puede eliminar si solo hay un administrador
+		if(userService.findByUser_type("ADMIN").size() == 1) {				
+			return "/errorEliminarAdmin";
+		//No se puede Eliminar si es el que está logueado
+		}else if(userService.findUserLogged().getId_user() == user.getId_user()){
+			return "/errorEliminarAutenticado";	
+		}else {				
+			//Debemos borrar primero el objeto UserRol relacionado
+			UserRolVO userRol = userRolService.findByUser(user).get();				
+			userRolService.delete(userRol);				
+			userService.delete(user);				
+			return "redirect:/admin/adminList";				
 		}
-		
-		
-		//Formulario Registro nuevo Administrador
-		@GetMapping("/registerAdmin")
-		public String registerAdmin(Model model) {
-			model.addAttribute("user", new UserVO());			
-			return "admin/registerAdmin";
-			}
-		
-		// Guardar en BBDD los datos de nuevo administrador
-				@PostMapping("/registerAdmin")
-				public String registerSuccess(@ModelAttribute UserVO user, Model model){			
-					//Falta Validación Datos Formulario	
-					user.setIsActive(true);
-					user.setUser_type("ADMIN");
-					user.setPassword(userService.encode(user.getPassword()));				
-					userService.save(user);
-					UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
-					userRolService.save(userRol);			
-					return "admin/signingAdminSuccess";
-			}
+	}
 	
+	/**
+	 * Vista Registro nuevo Administrador.Desde Vista de Detalle de Administrador.
+	 */
+	@GetMapping("/registerAdmin")
+	public String registerAdmin(Model model) {
+		model.addAttribute("user", new UserVO());			
+		return "admin/registerAdmin";
+	}
 	
-				
-				
-				
-				
+	/**
+	 * Guardar nuevo Administrador en BBDD.Desde Vista de Detalle de Administrador. Llamada a vista.
+	 */
+	@PostMapping("/registerAdmin")
+	public String registerSuccess(@ModelAttribute UserVO user, Model model){			
+		//Falta Validación Datos Formulario...............................	
+		user.setIsActive(true);
+		user.setUser_type("ADMIN");
+		user.setPassword(userService.encode(user.getPassword()));				
+		userService.save(user);
+		//Crear Objeto UserRolVO asociado
+		UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
+		userRolService.save(userRol);			
+		return "admin/signingAdminSuccess";
+	}
+		
+//CLIENTES*************************************************************************
+		
+	/**
+	 * Vista de listado de clientes del area de administracion.
+	 */			
 	@GetMapping ("/clientList")
 	public String clientList(Model model){
-		//Le pasamos el nombre de usuario
-    	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD
-    	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
+		//Le pasamos el nombre de usuario autenticado
+		model.addAttribute("nick", userService.findUserLogged().getNick());
+		//Le pasamos una colección con todos los usuarios Clientes de la BBDD
+		model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
 		return "/admin/adminClientsClientList";
 	}
 	
-	//Actualizar Cliente
-			@PostMapping("/clientList")
-			public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
-//				if(detalleUser.getIsActive()){
-//				System.out.println("OK es activo");
-//				}else {System.out.println("No aparece Activo");}				
-				
-				userService.save(detalleUser);		
-				return  "redirect:/admin/clientList";
-			}
+	/**
+	 * Actualización de datos de un Cliente
+	 */
+	@PostMapping("/clientList")
+	public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
+		userService.save(detalleUser);		
+		return  "redirect:/admin/clientList";
+	}
 	
-			@GetMapping ("/clientDetail")		
-			public String clientDetail(@RequestParam(name="id_user") int id_user,  Model model){		
-				//Recuperamos el usuario
-				UserVO user = userService.findById(id_user).get();
-				//Nick del usuario autenticado
-		    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
-		    	
-		    	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
-		    	model.addAttribute("detalleUser", user);    	
-				return "/admin/adminClientsClientDetail";
-			}
-			
-			//Eliminar Cliente
-			@PostMapping("/clientDelete")
-			public String clientDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
-				if(userService.findUserLogged().getId_user() == user.getId_user()){
-					return "/errorEliminarAutenticado";	
-				}else {				
-					UserRolVO userRol = userRolService.findByUser(user).get();				
-					userRolService.delete(userRol);				
-					userService.delete(userService.findById(user.getId_user()).get());				
-					return "redirect:/admin/clientList";				
-				}
-			}
-
+	/**
+	 * Vista de Detalles de Cliente 
+	 */
+	@GetMapping ("/clientDetail")		
+	public String clientDetail(@RequestParam(name="id_user") int id_user,  Model model){
+		//Nick del usuario autenticado
+    	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
+    	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
+		return "/admin/adminClientsClientDetail";
+	}
 	
+	/**
+	 * Borrar Cliente. Desde Vista de Detalle de Cliente
+	 */
+	@PostMapping("/clientDelete")
+	public String clientDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
+			//Eliminamos el UserRolVO asociado
+			UserRolVO userRol = userRolService.findByUser(user).get();				
+			userRolService.delete(userRol);				
+			userService.delete(user);				
+			return "redirect:/admin/clientList";				
+		}
+	
+//RIDERS*************************************************************************
+	/**
+	 * Vista de listado de riders del area de administracion.
+	 */		
 	@GetMapping ("/riderList")
 	public String riderList(Model model){
 		//Le pasamos el nombre de usuario
     	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	//Le pasamos una colección con todos los usuarios Administradores de la BBDD
+    	//Le pasamos una colección con todos los usuarios Riders de la BBDD
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
 		return "/admin/adminRidersRiderList";
 	}
 	
 	
-	//Actualizar Rider
+	/**
+	 * Actualización de datos de un Rider
+	 */
 	@PostMapping("/riderList")
 	public String riderUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
-//		if(detalleUser.getIsActive()){
-//		System.out.println("OK es activo");
-//		}else {System.out.println("No aparece Activo");}				
-		
+
 		userService.save(detalleUser);		
 		return  "redirect:/admin/riderList";
 	}
-	
+	/**
+	 * Vista de Detalles de Rider 
+	 */
 	@GetMapping ("/riderDetail")
-	public String riderDetail(@RequestParam(name="id_user") int id_user,  Model model){
-		//Recuperamos el usuario
-		UserVO user = userService.findById(id_user).get();
+	public String riderDetail(@RequestParam(name="id_user") int id_user,  Model model){		
 		//Nick del usuario autenticado
     	model.addAttribute("nick", userService.findUserLogged().getNick());    	
-    	
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
-    	model.addAttribute("detalleUser", user);    	
+    	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
 		return "/admin/adminRidersRiderDetail";
 	}
 	
-	
-	//Eliminar Cliente
+	/**
+	 * Borrar Rider. Desde Vista de Detalle de Rider
+	 */
 	@PostMapping("/riderDelete")
 	public String riderDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
-		if(userService.findUserLogged().getId_user() == user.getId_user()){
-			return "/errorEliminarAutenticado";	
-		}else {				
+			//Eliminar UserRolVO asociado al Rider
 			UserRolVO userRol = userRolService.findByUser(user).get();				
 			userRolService.delete(userRol);				
 			userService.delete(userService.findById(user.getId_user()).get());				
 			return "redirect:/admin/riderList";				
 		}
-	}
-
 	
-	
-	
+//PEDIDOS*************************************************************************
+	/**
+	 * Vista de listado de Pedidos del area de administracion.
+	 */		
 	@GetMapping ("/orderList")
 	public String orderList(Model model){
-		//Le pasamos el nombre de usuario
+		//Le pasamos el nombre de usuario autenticado para mostrar en  el Header
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos una colección con todos los pedidos de la BBDD
     	model.addAttribute("listaPedidos", pedidoService.findAll());
 		return "/admin/adminOrdersOrderList";
 	}
 	
-	//Ver Detalles de un pedido y actualizar
+	/**
+	 * Actualización de datos de un Pedido
+	 */
+	@PostMapping("/orderList")
+	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){		
+		pedidoService.save(detallePedido);		
+		return  "redirect:/admin/orderList";
+	}
+	/**
+	 * Vista de Detalles de un Pedido 
+	 */
 	@GetMapping ("/orderDetail")
 	public String orderDetail(@RequestParam int id_pedido,  Model model){
-		//Le pasamos el nombre de usuario
+		//Le pasamos el nombre de usuario autenticado
     	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	//Le pasamos el id del pedido para mostrarlo en la cabecera del form
+    	//Le pasamos el id del pedido para mostrarlo en la cabecera del formulario
     	model.addAttribute("id", id_pedido );
     	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
     	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));    	
@@ -231,13 +255,15 @@ public class AdminController {
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
     	//Lista de Riders para usar un select en el formulario 	
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
-    	
 		return "/admin/adminOrdersOrderDetail";
 	}
-	//Actualizar Pedido
-	@PostMapping("/orderList")
-	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){		
-		pedidoService.save(detallePedido);		
-		return  "redirect:/admin/orderList";
-	}
+	/**
+	 * Borrar Pedido. Desde Vista de Detalle de Pedido
+	 */
+	@PostMapping("/orderDelete")
+	public String orderDelete(@ModelAttribute("detallePedido") PedidoVO pedido, Model model) {
+			pedidoService.delete(pedido);				
+			return "redirect:/admin/orderList";				
+		}
+	
 }

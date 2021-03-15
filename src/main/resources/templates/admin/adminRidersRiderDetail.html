@@ -28,7 +28,7 @@
 		
 			<div class="col-12 d-sm-block bg-light text-center">
 			
-				<h5 class="text-center" th:text="'Cliente: '+ ${detalleUser.nick}">Detalle user</h5>
+				<h5 class="text-center" th:text="'Rider: '+ ${detalleUser.nick}">Detalle user</h5>
 									
 			</div>
 			
@@ -62,7 +62,7 @@
 					</div>
 				</div>
 			</div>
-			<h5><a class="btn btn-info bg-primary m-2" th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" href="#">Cambiar Contraseña</a></h5>			
+			<h5><a class="btn btn-info bg-primary m-2 disabled" th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" href="#">Cambiar Contraseña</a></h5>			
 		</div>
 		
 		<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
@@ -72,14 +72,25 @@
 				<input type="hidden" name="user_type" th:field="*{user_type}">
 				<input type="hidden" name="password" th:field="*{password}">
 				
-				<label for="inputNombre">Nombre</label>
-				<input	type="text" id="inputNombre" name="nombre" class="form-control" th:field="*{nombre}" placeholder="Nombre" required autofocus>
 				
-				<label for="inputApellido1">Primer Apellido</label>
-				<input	type="text" id="inputApellido1" name="apellido1" class="form-control" th:field="*{apellido1}" placeholder="Primer Apellido" required>
+				<div class="form-row">
+					<div class="col">
+					<label for="inputNombre">Nombre</label>
+					<input	type="text" id="inputNombre" name="nombre" class="form-control" th:field="*{nombre}" placeholder="Nombre" required autofocus>
+					</div>
+					
+					<div class="col">
+					<label for="inputApellido1">Primer Apellido</label>
+					<input	type="text" id="inputApellido1" name="apellido1" class="form-control" th:field="*{apellido1}" placeholder="Primer Apellido" required>
+					</div>
+					
+					<div class="col">
+					<label for="inputApellido2">Segundo Apellido</label>
+					<input	type="text" id="inputApellido2" name="apellido2" class="form-control" th:field="*{apellido2}" placeholder="Segundo Apellido" required>
+				</div>
 				
-				<label for="inputApellido2">Segundo Apellido</label>
-				<input	type="text" id="inputApellido2" name="apellido2" class="form-control" th:field="*{apellido2}" placeholder="Segundo Apellido" required>
+				</div>
+				
 				
 				<label for="inputNIF">NIF</label>
 				<input	type="text" id="inputNIF" name="nif" class="form-control" th:field="*{nif}" placeholder="NIF" required>

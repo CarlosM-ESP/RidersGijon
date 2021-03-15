@@ -11,7 +11,7 @@
   <!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
 
-  <title>RidersAdminOrderList</title>
+  <title>adminOrdersOrderList</title>
 </head>
 
 <body class="bg-light">
@@ -23,18 +23,39 @@
 	<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
 	
     <!-- Cuerpo Principal -->
-		<section >
+		<section>
+		
 			<div class="row">
 				<div class="col-12 d-sm-block bg-light text-center">
 					<h5 class="text-center" th:text="'Detalle del Pedido '+ ${id}">Detalle Pedido</h5>
-					
-					
-				</div>
+				</div>					
 			</div>
-			
 			<form th:action="@{/admin/orderList}" method="post" class="form-signin" th:object="${detallePedido}">	
-			<div class="form-row ">				
-				<div class="col-12 col-sm-6 col-md-6 bg-light">										 					
+			<div class="form-row ">			
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">									
+					<h5><a class="btn btn-info bg-danger m-2" data-target="#modal" data-toggle="modal">Eliminar</a></h5>
+				<!-- <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4>Eliminar Pedido</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						</div>
+						<div class="modal-body">
+							<form th:action="@{/admin/orderDelete}" method="post">
+								<h4 th:utext="'<p>¿Está seguro de querer eliminar al Cliente:
+								<p>'+${detallePedido.id_pedido}+'?</p>'"></h4>
+								<input type="hidden"  name= "id_user" th:value=${detallePedido.id_pedido}>										
+								<input type="submit" class="btn btn-danger" value="Eliminar">
+								<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>										
+							</form>
+						</div>
+					</div>
+				</div>
+				</div>	 -->			
+				</div>
+											
+				<div class="col-12 col-sm-5 d-sm-block col-md-5 bg-light">										 					
 						
 						<input	type="hidden" name="id_pedido" th:field="*{id_pedido}">
 						
@@ -59,26 +80,20 @@
 						
 						<label for="inputTelDestinatario">Teléfono Remitente</label>
 						<input	type="text" id="inputTelDestinatario" name="telefono_destinatario" class="form-control" th:field="*{telefono_destinatario}" placeholder="Teléfono destinatario" required>
-						
-						
-						
-						
-				</div>
-				<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light">						
+				</div>				
+				<div class="col-12 col-sm-5 d-sm-block col-md-5 bg-light">						
 						
 						<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
 						<input	type="text" id="inputFechaEntrega" name="fecha_entregado" class="form-control" th:field="*{fecha_entregado}" placeholder="Fecha Entrega de Pedido" required>
 						
-						<label for="inputCliente">Nick del cliente guardado</label>
-						<input	type="text" class="form-control-sm" th:field="*{cliente.nick}" placeholder="Nick del Cliente" disabled>
-						<select class="custom-select" id="inputCliente" name="cliente">							
-    						<option th:each="cliente : ${listaClientes}"  th:value="${cliente.id_user}" th:text="${cliente.nick}">
+						<label for="inputCliente">Cliente</label>
+						<select class="custom-select" id="inputCliente" th:field="*{cliente.id_user}">
+    						<option th:each="cliente : ${listaClientes}"  th:value="${cliente.id_user}" th:text="${cliente.nick}" >
     						</option>
 						</select>
 						
-						<label for="inputRider">Nick del Rider guardado</label>
-						<input	type="text" id="inputRider" name="rider" class="form-control-sm" th:field="*{rider.nick}" placeholder="Nick del Rider" disabled>
-						<select class="custom-select" id="inputRider" name="rider">							
+						<label for="inputRider">Rider</label>						
+						<select class="custom-select" id="inputRider" th:field="*{rider.id_user}">							
     						<option th:each="rider : ${listaRiders}"  th:value="${rider.id_user}" th:text="${rider.nick}">
     						</option>
 						</select>
@@ -99,6 +114,7 @@
 			</div><!-- Fin form-row -->
 			</form>
 			
+					
 		</section>
 		
 		<!-- Footer -->
