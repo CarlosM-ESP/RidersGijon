@@ -269,6 +269,7 @@ public class AdminController {
 	public String orderDetail(@RequestParam(name="id_pedido") int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario autenticado
     	model.addAttribute("nick", userService.findUserLogged().getNick());
+    	
     	//Le pasamos el id del pedido para mostrarlo en la cabecera del formulario
     	model.addAttribute("id", id_pedido );
     	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
