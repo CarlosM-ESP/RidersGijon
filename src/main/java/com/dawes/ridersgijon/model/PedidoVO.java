@@ -49,7 +49,7 @@ public class PedidoVO {
 	private int status;
 	
 	//Provisional...TEST
-	@Column(unique=true)
+	//@Column(unique=true)
 	private String comentarios;
 	
 	@DateTimeFormat (pattern="dd/MM/yyyy")
