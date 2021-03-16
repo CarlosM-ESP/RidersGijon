@@ -1,5 +1,7 @@
 package com.dawes.ridersgijon.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -166,8 +168,18 @@ public class AdminController {
 	@PostMapping("/clientDelete")
 	public String clientDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
 			//Eliminamos el UserRolVO asociado
-			UserRolVO userRol = userRolService.findByUser(user).get();				
-			userRolService.delete(userRol);				
+			UserRolVO userRol = userRolService.findByUser(user).get();
+			userRolService.delete(userRol);
+			
+			//Recogemos en una lista todos los pedidos de ese cliente
+			List<PedidoVO> pedidosCliente = pedidoService.findByCliente(user);
+			//Recorremos y vamos eliminando cada pedido
+			for (PedidoVO pedido : pedidosCliente) {				
+				System.out.println("Pedido: " +pedido);				
+				pedidoService.delete(pedido);				
+			}
+			
+			//Eliminamos el usuario							
 			userService.delete(user);				
 			return "redirect:/admin/clientList";				
 		}
@@ -213,9 +225,19 @@ public class AdminController {
 	@PostMapping("/riderDelete")
 	public String riderDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
 			//Eliminar UserRolVO asociado al Rider
-			UserRolVO userRol = userRolService.findByUser(user).get();				
-			userRolService.delete(userRol);				
-			userService.delete(userService.findById(user.getId_user()).get());				
+			UserRolVO userRol = userRolService.findByUser(user).get();	
+			userRolService.delete(userRol);
+			
+			//Recogemos en una lista todos los pedidos de ese Rider
+			List<PedidoVO> pedidosRider = pedidoService.findByRider(user);
+			//Recorremos y vamos eliminando cada pedido
+			for (PedidoVO pedido : pedidosRider) {				
+				System.out.println("Pedido: " +pedido);				
+				pedidoService.delete(pedido);		
+			}			
+			//Eliminamos el Rider							
+			userService.delete(userService.findById(user.getId_user()).get());
+			
 			return "redirect:/admin/riderList";				
 		}
 	

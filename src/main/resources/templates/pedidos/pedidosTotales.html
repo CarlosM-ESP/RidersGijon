@@ -4,7 +4,7 @@
 	<table id="tablaPedidosTotales" class="dataTable display compact">
 		<thead>
 			<tr>
-				
+				<td>Id Pedido</td>
 				<th>Fecha Pedido</th>
 				<th>Remitente</th>
 				<th>Destinatario</th>
@@ -18,7 +18,7 @@
 			</tr>
 		</thead>
  		<tr data-th-each="pedido : ${listaPedidos}">
- 				    	
+ 			<td data-th-text="${pedido.id_pedido}">...</td>	    	
 	        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>	        
 	        <td data-th-text="${pedido.nombre_remitente}">...</td>
 	        <!-- <td data-th-text="${pedido.dir_remitente}">...</td>

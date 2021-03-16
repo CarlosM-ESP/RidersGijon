@@ -54,8 +54,19 @@
 	<script>
 		$(document).ready(function(){
     		$('#tablaPedidosTotales').DataTable({
-    			"pageLength": 5
+    			"pageLength": 5,
     			/* ,"dom" : 'lfrtip' */
+    			"columns": [
+    				{ "width": "5%" },
+    				null,
+    				null,
+    				null,
+    				null,
+    				null,
+    				{ "width": "5%" },
+    				null
+    				
+  				]
     		});
 		});  
 	</script>  
