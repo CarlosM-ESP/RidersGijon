@@ -508,13 +508,13 @@ class CarlosmenendezProyectoApplicationTests {
 	
 	
 	//Autenticacion UserDetails
-	@Test
-	@Order(21)
-	public void t21_findUserDetailsByEmailSuccess() {
-		UserDetails loginUser = userService.loadUserByUsername("carlosm1@carlosm.com");
-		System.out.println("Usuario válido encontrado: " + loginUser);
-		assertEquals("carlosm1@carlosm.com", loginUser.getUsername());
-	}
+//	@Test
+//	@Order(21)
+//	public void t21_findUserDetailsByEmailSuccess() {
+//		UserDetails loginUser = userService.loadUserByUsername("carlosm1@carlosm.com");
+//		System.out.println("Usuario válido encontrado: " + loginUser);
+//		assertEquals("carlosm1@carlosm.com", loginUser.getUsername());
+//	}
 	
 	/***************PRUEBAS ITERACIONES JSON y DEMAS LIBRERIA GSON....SuperUtil */
 	@Test

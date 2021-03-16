@@ -266,7 +266,7 @@ public class AdminController {
 	 * Vista de Detalles de un Pedido 
 	 */
 	@GetMapping ("/orderDetail")
-	public String orderDetail(@RequestParam int id_pedido,  Model model){
+	public String orderDetail(@RequestParam(name="id_pedido") int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario autenticado
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos el id del pedido para mostrarlo en la cabecera del formulario

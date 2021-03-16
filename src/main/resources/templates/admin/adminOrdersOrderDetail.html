@@ -1,129 +1,189 @@
 <!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
-  <!-- Custom css  -->
+<!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
 
-  <title>adminOrdersOrderList</title>
+<title>adminOrdersOrderList</title>
 </head>
 
 <body class="bg-light">
-  <div class="container-fluid">
-	<!-- Header -->	
-	<div th:insert="templates/headerAdmin :: headerAdmin"></div>
-	
-	<!-- NavBar -->
-	<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
-	
-    <!-- Cuerpo Principal -->
+	<div class="container-fluid">
+		<!-- Header -->
+		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
+
+		<!-- NavBar -->
+		<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
+
+<!-- Cuerpo Principal -->
 		<section>
-		
 			<div class="row">
 				<div class="col-12 d-sm-block bg-light text-center">
-					<h5 class="text-center" th:text="'Detalle del Pedido '+ ${id}">Detalle Pedido</h5>
-				</div>					
+					<h5 class="text-center" th:text="'Rider: '+ ${id}">Detalle Pedido</h5>
+				</div>
 			</div>
-			<form th:action="@{/admin/orderList}" method="post" class="form-signin" th:object="${detallePedido}">	
-			<div class="form-row ">			
-				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">									
-					<h5><a class="btn btn-info bg-danger m-2" data-target="#modal" data-toggle="modal">Eliminar</a></h5>
-				<!-- <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4>Eliminar Pedido</h4>
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<div class="row">
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
+					<h5>
+						<a class="btn btn-info bg-danger m-2" href="#modal"	data-toggle="modal">Eliminar</a>
+					</h5>
+					<div class="modal" id="modal" tabindex="-1" role="dialog"
+						aria-labellebdy="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4>Eliminar Pedido</h4>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">&times;</button>
+								</div>
+								<div class="modal-body">
+									<form th:action="@{/admin/orderDelete}" method="post">
+ 										<h4
+											th:utext="'	<p>¿Está seguro de querer eliminar el </p>
+								<p>Pedido '+${id}+'?</p>'"></h4>
+										<input type="hidden" name="id_pedido"
+											th:value=${id}> <input type="submit"
+											class="btn btn-danger" value="Eliminar">
+										<button type="button" class="btn btn-info"
+											data-dismiss="modal">Cancelar</button>
+									</form>
+								</div>
+							</div>
 						</div>
-						<div class="modal-body">
-							<form th:action="@{/admin/orderDelete}" method="post">
-								<h4 th:utext="'<p>¿Está seguro de querer eliminar al Cliente:
-								<p>'+${detallePedido.id_pedido}+'?</p>'"></h4>
-								<input type="hidden"  name= "id_user" th:value=${detallePedido.id_pedido}>										
-								<input type="submit" class="btn btn-danger" value="Eliminar">
-								<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>										
-							</form>
+					</div>					
+				</div>
+
+				<div class="col-12 col-sm-8 col-md-8 bg-light">				
+<!-- COMIENZO FORMULARIO -->
+					<form th:action="@{/admin/orderList}" method="post"
+						class="form-signin" th:object="${detallePedido}">
+
+						<input type="hidden" name="id_pedido" th:field="*{id_pedido}">
+						
+						<div class="form-row">
+							<div class="col">
+								<label for="inputFechaPedido">Fecha Pedido</label>
+								<input type="text" id="inputFechaPedido" name="fechaPedido"
+									class="form-control" th:field="*{fechaPedido}"
+									placeholder="Fecha Pedido" required autofocus>
+							</div>
+							<div class="col">
+								<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
+								<input type="text" id="inputFechaEntrega" name="fecha_entregado"
+								class="form-control" th:field="*{fecha_entregado}"
+								placeholder="Fecha Entrega de Pedido" required>
+							</div>
+						</div>						
+						
+						<div class="form-row">
+							<div class="col">
+								<label for="inputNombreRemitente">Nombre Remitente</label>
+								<input type="text" id="inputRemitente" name="nombre_remitente"
+									class="form-control" th:field="*{nombre_remitente}"
+									placeholder="Nombre remitente" required>
+							</div>
+							<div class="col">
+								<label for="inputDireccionRemitente">Direccion Remitente</label>
+								<input type="text" id="inputDireccionRemitente" name="dir_remitente"
+									class="form-control" th:field="*{dir_remitente}"
+									placeholder="Dirección remitente" required>
+							</div>
+							<div class="col">
+								<label for="inputTelRemitente">Teléfono Remitente</label>
+								<input type="text" id="inputTelRemitente" name="telefono_remitente"
+									class="form-control" th:field="*{telefono_remitente}"
+									placeholder="Teléfono remitente" required>
+							</div>
+						</div>						
+						
+						<div class="form-row">
+							<div class="col">
+								<label for="inputNombreDestinatario">Nombre Destinatario</label>
+								<input type="text" id="inputNombreDestinatario"
+									name="nombre_destinatario" class="form-control"
+									th:field="*{nombre_destinatario}"
+									placeholder="Nombre destinatario" required>
+							</div>
+							<div class="col">
+								<label for="inputDireccionDestinatario">Direccion Destinatario</label>
+								<input type="text" id="inputDireccionDestinatario"
+									name="dir_destinatario" class="form-control"
+									th:field="*{dir_destinatario}"
+									placeholder="Dirección destinatario" required>
+							</div>
+								<div class="col">
+									<label for="inputTelDestinatario">Teléfono Remitente</label>
+									<input type="text" id="inputTelDestinatario"
+									name="telefono_destinatario" class="form-control"
+									th:field="*{telefono_destinatario}"
+									placeholder="Teléfono destinatario" required>
+								</div>
 						</div>
-					</div>
-				</div>
-				</div>	 -->			
-				</div>
 											
-				<div class="col-12 col-sm-5 d-sm-block col-md-5 bg-light">										 					
+						<div class="form-row">
+							<div class="col">						
+								<label for="inputCliente">Cliente</label>
+								<select	class="custom-select" id="inputCliente"	th:field="*{cliente.id_user}">
+									<option th:each="cliente : ${listaClientes}"
+										th:value="${cliente.id_user}" th:text="${cliente.nick}">
+									</option>
+								</select>
+							</div>
+							<div class="col">
+								<label for="inputRider">Rider</label>
+								<select class="custom-select" id="inputRider" th:field="*{rider.id_user}">
+									<option th:each="rider : ${listaRiders}"
+										th:value="${rider.id_user}" th:text="${rider.nick}"></option>
+								</select>
+							</div>
+						</div>
 						
-						<input	type="hidden" name="id_pedido" th:field="*{id_pedido}">
+						<div class="form-row">
+							<div class="col">	
+								<label for="inputComentarios">Comentarios de Administrador</label>
+								<textarea id="inputComentarios" name="comentarios" rows="8"
+									class="form-control md-textarea" th:field="*{comentarios}"
+									placeholder="Comentarios" required></textarea>
+							</div>
+							<div class="col  text-center">
+								<label for="inputStatus">Status del Pedido</label>
+								<input type="number" id="inputStatus" name="status" class="form-control"
+									th:field="*{status}" placeholder="Status Pedido" required>
+							<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
+
+						<h5>
+							<a class="btn btn-info bg-primary m-2"
+								th:href="@{/admin/orderList}" href="#">Volver</a>
+						</h5>
+						</div>
+						</div>
+
 						
-						<label for="inputFechaPedido">Fecha Pedido</label>
-						<input	type="text" id="inputFechaPedido" name="fechaPedido" class="form-control" th:field="*{fechaPedido}" placeholder="Fecha Pedido" required autofocus>
-						
-						
-						<label for="inputNombreRemitente">Nombre Remitente</label>
-						<input	type="text" id="inputRemitente" name="nombre_remitente" class="form-control" th:field="*{nombre_remitente}" placeholder="Nombre remitente" required>
-						
-						<label for="inputDireccionRemitente">Direccion Remitente</label>
-						<input	type="text" id="inputDireccionRemitente" name="dir_remitente" class="form-control" th:field="*{dir_remitente}" placeholder="Dirección remitente" required>
-						
-						<label for="inputTelRemitente">Teléfono Remitente</label>
-						<input	type="text" id="inputTelRemitente" name="telefono_remitente" class="form-control" th:field="*{telefono_remitente}" placeholder="Teléfono remitente" required>
-						
-						<label for="inputNombreDestinatario">Nombre Destinatario</label>
-						<input	type="text" id="inputNombreDestinatario" name="nombre_destinatario" class="form-control" th:field="*{nombre_destinatario}" placeholder="Nombre destinatario" required>
-						
-						<label for="inputDireccionDestinatario">Direccion Destinatario</label>
-						<input	type="text" id="inputDireccionDestinatario" name="dir_destinatario" class="form-control" th:field="*{dir_destinatario}" placeholder="Dirección destinatario" required>
-						
-						<label for="inputTelDestinatario">Teléfono Remitente</label>
-						<input	type="text" id="inputTelDestinatario" name="telefono_destinatario" class="form-control" th:field="*{telefono_destinatario}" placeholder="Teléfono destinatario" required>
-				</div>				
-				<div class="col-12 col-sm-5 d-sm-block col-md-5 bg-light">						
-						
-						<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
-						<input	type="text" id="inputFechaEntrega" name="fecha_entregado" class="form-control" th:field="*{fecha_entregado}" placeholder="Fecha Entrega de Pedido" required>
-						
-						<label for="inputCliente">Cliente</label>
-						<select class="custom-select" id="inputCliente" th:field="*{cliente.id_user}">
-    						<option th:each="cliente : ${listaClientes}"  th:value="${cliente.id_user}" th:text="${cliente.nick}" >
-    						</option>
-						</select>
-						
-						<label for="inputRider">Rider</label>						
-						<select class="custom-select" id="inputRider" th:field="*{rider.id_user}">							
-    						<option th:each="rider : ${listaRiders}"  th:value="${rider.id_user}" th:text="${rider.nick}">
-    						</option>
-						</select>
-						
-						<label for="inputComentarios">Comentarios de Administrador</label>
-						<textarea id="inputComentarios" name="comentarios"  rows="8" class="form-control md-textarea" th:field="*{comentarios}" placeholder="Comentarios" required></textarea>
-						
-						<label for="inputStatus">Status del Pedido</label>
-						<input	type="number" id="inputStatus" name="status" class="form-control" th:field="*{status}" placeholder="Status Pedido" required>	
-				</div>			
-			
-				<div class="col-12 bg-light text-center">								
-					<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-					
-					<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/orderList}" href="#">Volver</a></h5>
+					</form>
+<!-- FIN FORMULARIO -->
 				</div>
-			
-			</div><!-- Fin form-row -->
-			</form>
-			
-					
+				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>
+
+
+			</div><!-- Fin row -->
 		</section>
-		
+
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>
-		
-  </div><!-- Fin container principal -->
 
-  <script src="../js/jquery-3.5.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  
+	</div>
+	<!-- Fin container principal -->
+
+	<script src="../js/jquery-3.5.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>

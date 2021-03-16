@@ -1,126 +1,149 @@
-<!doctype html>
-<html lang="es"><html lang="es" xmlns:th="thymeleaf.org">
+<!doctype html>>
+<html lang="es" xmlns:th="thymeleaf.org">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
-   <!-- Custom css  -->
+<!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
 
-  <title>AdminClientsClientDetail</title>
+<title>AdminClientsClientDetail</title>
 </head>
 
 <body class="bg-light">
-  <div class="container-fluid">
-	<!-- Header -->	
-	<div th:insert="templates/headerAdmin :: headerAdmin"></div>
-	
-	<!-- NavBar -->
-	<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
-	
-    <!-- Cuerpo Principal -->
-	<section >
-		<div class="row">		
-			<div class="col-12 d-sm-block bg-light text-center">			
-				<h5 class="text-center" th:text="'Cliente: '+ ${detalleUser.nick}">Detalle user</h5>									
-			</div>			
-		</div>
+	<div class="container-fluid">
+		<!-- Header -->
+		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
+
+		<!-- NavBar -->
+		<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
+
+		<!-- Cuerpo Principal -->
+		<section>
 		
-		<div class="form-row">
-			<div class="col-12 col-sm-2 col-md-2 bg-light text-center">				
-				<h5><a class="btn btn-info bg-danger m-2" href="#modalPassword" data-toggle="modal">Eliminar</a></h5>			
-				
-			<div class="modal" id="modalPassword" tabindex="-1" role="dialog" aria-labellebdy="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4>Eliminar Cliente</h4>
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						</div>
-						<div class="modal-body">
-							<form th:action="@{/admin/clientDelete}" method="post">
-								<h4 th:utext="'
+			 <div class="row">
+				<div class="col-12 d-sm-block bg-light text-center">
+					<h5 class="text-center" th:text="'Cliente: '+ ${detalleUser.nick}">Detalle
+						user</h5>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
+					<h5>
+						<a class="btn btn-info bg-danger m-2" href="#modal"
+							data-toggle="modal">Eliminar</a>
+					</h5>
+					<div class="modal" id="modal" tabindex="-1" role="dialog"
+						aria-labellebdy="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4>Eliminar Cliente</h4>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">&times;</button>
+								</div>
+								<div class="modal-body">
+									<form th:action="@{/admin/clientDelete}" method="post">
+										<h4
+											th:utext="'
 								<p>¿Está seguro de querer eliminar al Cliente:
 								<p> '+${detalleUser.nick}+'?</p>
 								<p>Todos los pedidos asociados a este cliente serán eliminados y las asociaciones a sus Riders también.</p>
 								<p>La acción puede provocar desajustes en los asientos contables existentes.</p>
 								<p> Se recomienda deshabilitar el Cliente en vez de eliminarlo</p>'"></h4>
-								<input type="hidden"  name= "id_user" th:value=${detalleUser.id_user}>										
-								<input type="submit" class="btn btn-danger" value="Eliminar">
-								<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>										
-							</form>
+										<input type="hidden" name="id_user"
+											th:value=${detalleUser.id_user}> <input type="submit"
+											class="btn btn-danger" value="Eliminar">
+										<button type="button" class="btn btn-info"
+											data-dismiss="modal">Cancelar</button>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
+					<h5>
+						<a class="btn btn-info bg-primary m-2 disabled"
+							th:href="@{../passwordChange(id_user=${detalleUser.id_user})}"
+							href="#">Cambiar Contraseña</a>
+					</h5>
 				</div>
-			</div>
-				<h5><a class="btn btn-info bg-primary m-2 disabled" th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" href="#">Cambiar Contraseña</a></h5>
-			</div>	
-		
-		<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
-			<form th:action="@{/admin/clientList}" method="post" class="form-signin" th:object="${detalleUser}">
-										
-				<input type="hidden" name="id_user" th:field="*{id_user}">
-				<input type="hidden" name="user_type" th:field="*{user_type}">
-				<input type="hidden" name="password" th:field="*{password}">
-				
-				<label for="inputNombre">Nombre</label>
-				<input	type="text" id="inputNombre" name="nombre" class="form-control" th:field="*{nombre}" placeholder="Nombre" required autofocus>
-				
-				<label for="inputApellido1">Primer Apellido</label>
-				<input	type="text" id="inputApellido1" name="apellido1" class="form-control" th:field="*{apellido1}" placeholder="Primer Apellido" required>
-				
-				<label for="inputApellido2">Segundo Apellido</label>
-				<input	type="text" id="inputApellido2" name="apellido2" class="form-control" th:field="*{apellido2}" placeholder="Segundo Apellido" required>
-				
-				<label for="inputNIF">NIF</label>
-				<input	type="text" id="inputNIF" name="nif" class="form-control" th:field="*{nif}" placeholder="NIF" required>
-				
-				<label for="inputDireccion">Dirección</label>
-				<input	type="text" id="inputDireccion" name="direccion" class="form-control" th:field="*{direccion}" placeholder="Dirección" required>
-				
-				<label for="inputTelefono">Teléfono</label>
-				<input	type="text" id="inputTelefono" name="telefono" class="form-control" th:field="*{telefono}" placeholder="Teléfono" required>
-				
-				
-					
-				<label for="inputNick">Nick del Usuario</label>
-				<input	type="text" id="inputNick" name="nick" class="form-control" th:field="*{nick}" placeholder="Nick" required>
-				
-				<label for="inputEmail">Email address</label>
-				<input	type="email" id="inputEmail" name="email" class="form-control" th:field="*{email}" placeholder="Email address" required>
-				
-				<!-- Los roles son una lista por lo que se deben mostrar de otra manera -->
-				<!-- 
+
+				<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
+					<form th:action="@{/admin/clientList}" method="post"
+						class="form-signin" th:object="${detalleUser}">
+
+						<input type="hidden" name="id_user" th:field="*{id_user}">
+						<input type="hidden" name="user_type" th:field="*{user_type}">
+						<input type="hidden" name="password" th:field="*{password}">
+
+						<label for="inputNombre">Nombre</label> <input type="text"
+							id="inputNombre" name="nombre" class="form-control"
+							th:field="*{nombre}" placeholder="Nombre" required autofocus>
+
+						<label for="inputApellido1">Primer Apellido</label> <input
+							type="text" id="inputApellido1" name="apellido1"
+							class="form-control" th:field="*{apellido1}"
+							placeholder="Primer Apellido" required> <label
+							for="inputApellido2">Segundo Apellido</label> <input type="text"
+							id="inputApellido2" name="apellido2" class="form-control"
+							th:field="*{apellido2}" placeholder="Segundo Apellido" required>
+
+						<label for="inputNIF">NIF</label> <input type="text" id="inputNIF"
+							name="nif" class="form-control" th:field="*{nif}"
+							placeholder="NIF" required> <label for="inputDireccion">Dirección</label>
+						<input type="text" id="inputDireccion" name="direccion"
+							class="form-control" th:field="*{direccion}"
+							placeholder="Dirección" required> <label
+							for="inputTelefono">Teléfono</label> <input type="text"
+							id="inputTelefono" name="telefono" class="form-control"
+							th:field="*{telefono}" placeholder="Teléfono" required> <label
+							for="inputNick">Nick del Usuario</label> <input type="text"
+							id="inputNick" name="nick" class="form-control"
+							th:field="*{nick}" placeholder="Nick" required> <label
+							for="inputEmail">Email address</label> <input type="email"
+							id="inputEmail" name="email" class="form-control"
+							th:field="*{email}" placeholder="Email address" required>
+
+						<!-- Los roles son una lista por lo que se deben mostrar de otra manera -->
+						<!-- 
 				<label for="inputRoles">Roles</label>
 				<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles">
-				 -->											
-				 <div class="form-check">
-  					<input class="form-check-input" type="checkbox" name="isActive"  th:field="*{isActive}" th:value="*{isActive}"  id="inputActive">
-  					<label class="form-check-label" for="inputActive">Activo?</label>
-				</div>
-				
-				<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-				
-				<h5><a class="btn btn-info bg-primary m-2" th:href="@{/admin/clientList}" href="#">Volver</a></h5>
-					
-				
-			</form>
-		</div>
-		<div class="col-12 col-sm-2 col-md-2 bg-light text-center"></div>
-		</div><!-- Fin form-row -->
-	</section>
-		
-		<!-- Footer -->
-	<div th:insert="templates/footer :: footer"></div>
-		
-  </div><!-- Fin container principal -->
+				 -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="isActive"
+								th:field="*{isActive}" th:value="*{isActive}" id="inputActive">
+							<label class="form-check-label" for="inputActive">Activo?</label>
+						</div>
 
-  <script src="../js/jquery-3.5.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  
+						<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
+
+						<h5>
+							<a class="btn btn-info bg-primary m-2"
+								th:href="@{/admin/clientList}" href="#">Volver</a>
+						</h5>
+
+
+					</form>
+				</div>
+				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>
+			</div>
+			<!-- Fin form-row -->
+		</section>
+
+		<!-- Footer -->
+		<div th:insert="templates/footer :: footer"></div>
+
+	</div>
+	<!-- Fin container principal -->
+
+	<script src="../js/jquery-3.5.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>
