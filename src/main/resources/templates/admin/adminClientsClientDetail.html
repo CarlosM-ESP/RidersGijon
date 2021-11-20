@@ -1,4 +1,4 @@
-<!doctype html>>
+<!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
 <!-- Required meta tags -->
@@ -16,6 +16,7 @@
 </head>
 
 <body class="bg-light">
+
 	<div class="container-fluid">
 		<!-- Header -->
 		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
@@ -67,11 +68,7 @@
 							</div>
 						</div>
 					</div>
-					<h5>
-						<a class="btn btn-info bg-primary m-2 disabled"
-							th:href="@{../passwordChange(id_user=${detalleUser.id_user})}"
-							href="#">Cambiar Contraseña</a>
-					</h5>
+					
 				</div>
 
 				<div class="col-12 col-sm-8 col-md-8 bg-light text-center">

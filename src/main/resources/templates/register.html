@@ -59,7 +59,10 @@
 						 <select class="form-control" name="user_type" id="user_type">
 							<option th:value="CLIENT">CLIENTE</option>
 							<option th:value="RIDER">RIDER</option>
+							
+							<!-- todo QUITAR EN PRODUCCION -->
 							<option th:value="ADMIN">Prueba De falseo De ROL</option>
+							
 						</select>		
 						
 						<label for="inputNick">Nick del Usuario</label>
@@ -72,14 +75,12 @@
 						<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 						
 						
-						<!-- HIDDEN SI SE SELECCIONA CLIENTE  -->
+						<!-- todo siguiente fase de la aplicación
 						<label for="inputVehiculo">Tipo de Vehículo</label>
-						<input	type="text" id="inputVehiculo" name="vehiculo" class="form-control" placeholder="Vehículo">						
-						
+						<input	type="text" id="inputVehiculo" name="vehiculo" class="form-control" placeholder="Vehículo">
 						<label for="inputMatricula">Matrícula</label>
 						<input	type="text" id="inputMatricula" name="matricula" class="form-control" placeholder="Matrícula">
-						<!-- FIN HIDDEN -->
-							
+						  -->
 					</div>
 			</div>
 			<div class="row">

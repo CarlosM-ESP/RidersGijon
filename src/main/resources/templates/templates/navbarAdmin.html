@@ -1,35 +1,31 @@
 <div th:fragment="navbarAdmin">
 <meta charset="utf-8">
 <!-- navbar -->
-
-
 <div class="row">
-			<nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
-				<a class="navbar-brand">Admin</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarNavAltMarkup"
-					aria-controls="navbarNavAltMarkup" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav ml-auto">
-
-						<a class="nav-item nav-link active" th:href="@{/admin/orderList}"
-							href="#">Pedidos</a>
-						<a class="nav-item nav-link" th:href="@{/admin/clientList}"
-						    href="#">Clientes</a>
-						<a class="nav-item nav-link" th:href="@{/admin/riderList}"
-							href="#">Riders</a>
-						<a class="nav-item nav-link" th:href="@{/admin/adminList}"
-						    href="#">Administración<span class="sr-only">(current)</span></a>						
-						
-						<a class="nav-item nav-link" th:href="@{/clientes/history}"
-							href="#">Area Clientes</a>
-						<a class="nav-item nav-link" th:href="@{/riders/history}"
-							href="#">Area Riders</a>
-					</div>
-				</div>
-			</nav>
+	<nav class=" col-12 navbar navbar-expand-md navbar-light bg-light p0">
+		<a class="navbar-brand">Admin</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav ml-auto">
+				<a class="nav-item nav-link active" th:href="@{/admin/orderList}"
+					href="#">Pedidos</a>
+				<a class="nav-item nav-link" th:href="@{/admin/clientList}"
+				    href="#">Clientes</a>
+				<a class="nav-item nav-link" th:href="@{/admin/riderList}"
+					href="#">Riders</a>
+				<a class="nav-item nav-link" th:href="@{/admin/adminList}"
+				    href="#">Administración<span class="sr-only">(current)</span></a>				
+				<a class="nav-item nav-link" th:href="@{/clientes/history}"
+					href="#">Area Clientes</a>
+				<a class="nav-item nav-link" th:href="@{/riders/history}"
+					href="#">Area Riders</a>
+			</div>
 		</div>
+	</nav>
+</div>
 </div>

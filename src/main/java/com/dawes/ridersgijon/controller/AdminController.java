@@ -35,13 +35,13 @@ public class AdminController {
 //ADMINISTRACION*************************************************************************
 	
 	/**
-	 * Pantalla de Inicio de Administradro tras autenticación
+	 * Pantalla de Inicio de Administrador tras autenticación
 	 */
 	@GetMapping ("")
 	public String admin(Model model){
 		//Le pasamos el nombre de usuario logueado para mostrarlos en el header de la vista
     	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	//Con redirect recargamos la página para mostrar loa lista actualizda
+    	//Con redirect recargamos la página para mostrar la lista actualizda
 		return "redirect:/admin/adminList";
 	}
 	/**
@@ -49,7 +49,7 @@ public class AdminController {
 	 */
 	@GetMapping ("/adminList")
 	public String adminList(Model model){
-		//Le pasamos el nombre de usuario logueado para mostrarlos en el header de la vista
+		//Le pasamos el nombre de usuario logueado para mostrarlos en el header de la vista		
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos una colección con todos los usuarios Administradores de la BBDD para mostrarlos en la vista
     	model.addAttribute("listaAdmins", userService.findByUser_type("ADMIN"));
@@ -68,15 +68,14 @@ public class AdminController {
 		return  "redirect:/admin/adminList";
 	}
 	/**
-	 * Vista de detalle de datos de un Administrador. Se pasa el id por url
+	 * Vista de detalle de datos de un Administrador. Se pasa el id por parámetro en la url
 	 */
 	@GetMapping ("/adminDetail")
 	//Recoge el id pasado como parámetro para recuperar el el UserVO
-	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){		
+	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){	
 	
 	//Nick del usuario autenticado
-	model.addAttribute("nick", userService.findUserLogged().getNick());    	
-	
+	model.addAttribute("nick", userService.findUserLogged().getNick());
 	//Le pasamos el UserVO para mostrar los datos en el formulario de la vista    	
 	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
 	return "/admin/adminAdminsAdminDetail";
@@ -185,6 +184,7 @@ public class AdminController {
 		}
 	
 //RIDERS*************************************************************************
+	
 	/**
 	 * Vista de listado de riders del area de administracion.
 	 */		
@@ -195,8 +195,7 @@ public class AdminController {
     	//Le pasamos una colección con todos los usuarios Riders de la BBDD
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
 		return "/admin/adminRidersRiderList";
-	}
-	
+	}	
 	
 	/**
 	 * Actualización de datos de un Rider
@@ -250,7 +249,7 @@ public class AdminController {
 		//Le pasamos el nombre de usuario autenticado para mostrar en  el Header
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos una colección con todos los pedidos de la BBDD
-    	model.addAttribute("listaPedidos", pedidoService.findAll());
+    	model.addAttribute("listaPedidos", pedidoService.findAll());    	
 		return "/admin/adminOrdersOrderList";
 	}
 	
@@ -258,7 +257,7 @@ public class AdminController {
 	 * Actualización de datos de un Pedido
 	 */
 	@PostMapping("/orderList")
-	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){		
+	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){
 		pedidoService.save(detallePedido);		
 		return  "redirect:/admin/orderList";
 	}
@@ -268,8 +267,7 @@ public class AdminController {
 	@GetMapping ("/orderDetail")
 	public String orderDetail(@RequestParam(name="id_pedido") int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario autenticado
-    	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
     	//Le pasamos el id del pedido para mostrarlo en la cabecera del formulario
     	model.addAttribute("id", id_pedido );
     	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
@@ -287,6 +285,5 @@ public class AdminController {
 	public String orderDelete(@ModelAttribute("detallePedido") PedidoVO pedido, Model model) {
 			pedidoService.delete(pedido);				
 			return "redirect:/admin/orderList";				
-		}
-	
+	}	
 }

@@ -7,9 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-
-  <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="../css/bootstrap.min.css">
  
  <!-- Custom css  -->
@@ -25,30 +22,94 @@
 
 		<div th:insert="templates/navbarClientes :: navbarClientes"></div>
 		
-	<!-- Cuerpo Principal -->
-    <section>
-        <div class="row indexBody">
-          <div class="col-12 col-md-4 bg-light">1Columna
-              <h2>Perfil</h2>
-              <p>formulario con todos los datos del cliente y marcados los no actualizables</p>
-              <p>boton de actualizar perfil</p>
-          </div>
-          <div class="col-12 col-md-8 d-none d-md-block bg-success">
-              <p>Tabla ultimos pedidos</p>
-              <p>se mostrarán solo los campos que quepan en el contenedor, pero típicamente
-                  id, fecha, status y el campo de editar pedido
-              </p>
-              <p>Desaparece en modo tablet y movil</p>
-            </div>
-        </div>
-    </section>
-   <!-- Footer -->
-		<div th:insert="templates/footer :: footer"></div>
-  
-  </div><!-- Fin container principal -->
+			<!-- Cuerpo Principal -->
+		<section>
+		
+			 <div class="row">
+				<div class="col-12 d-sm-block bg-light text-center">
+					<h5 class="text-center" th:text="'Cliente: '+ ${detalleUser.nick}">Detalle
+						user</h5>
+				</div>
+			</div>
 
-  <script src="../js/jquery-3.5.1.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  
+			<div class="row">
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
+					<h5>
+						<a 
+						class="btn btn-info bg-primary m-2" 
+						th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" 
+						href="#">
+						Cambiar Contraseña
+						</a>
+					</h5>					
+				</div>
+
+				<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
+					<form th:action="@{/clientes/profile}" method="post"
+						class="form-signin" th:object="${detalleUser}">
+
+						<input type="hidden" name="id_user" th:field="*{id_user}">
+						<input type="hidden" name="user_type" th:field="*{user_type}">
+						<input type="hidden" name="password" th:field="*{password}">
+						<input type="hidden" name="isActive" th:field="*{isActive}">
+
+						<label for="inputNombre">Nombre</label> <input type="text"
+							id="inputNombre" name="nombre" class="form-control"
+							th:field="*{nombre}" placeholder="Nombre" required autofocus>
+
+						<label for="inputApellido1">Primer Apellido</label> <input
+							type="text" id="inputApellido1" name="apellido1"
+							class="form-control" th:field="*{apellido1}"
+							placeholder="Primer Apellido" required> <label
+							for="inputApellido2">Segundo Apellido</label> <input type="text"
+							id="inputApellido2" name="apellido2" class="form-control"
+							th:field="*{apellido2}" placeholder="Segundo Apellido" required>
+
+						<label for="inputNIF">NIF</label> <input type="text" id="inputNIF"
+							name="nif" class="form-control" th:field="*{nif}"
+							placeholder="NIF" required> <label for="inputDireccion">Dirección</label>
+						<input type="text" id="inputDireccion" name="direccion"
+							class="form-control" th:field="*{direccion}"
+							placeholder="Dirección" required> <label
+							for="inputTelefono">Teléfono</label> <input type="text"
+							id="inputTelefono" name="telefono" class="form-control"
+							th:field="*{telefono}" placeholder="Teléfono" required> <label
+							for="inputNick">Nick del Usuario</label> <input type="text"
+							id="inputNick" name="nick" class="form-control"
+							th:field="*{nick}" placeholder="Nick" required> <label
+							for="inputEmail">Email address</label> <input type="email"
+							id="inputEmail" name="email" class="form-control"
+							th:field="*{email}" placeholder="Email address" required>
+
+						<!-- Los roles son una lista por lo que se deben mostrar de otra manera -->
+						<!-- 
+				<label for="inputRoles">Roles</label>
+				<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles">
+				 -->						
+
+						<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
+
+						<h5>
+							<a class="btn btn-info bg-primary m-2"
+								th:href="@{/clientes/history}" href="#">Volver</a>
+						</h5>
+
+
+					</form>
+				</div>
+				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>
+			</div>
+			<!-- Fin form-row -->
+		</section>
+
+		<!-- Footer -->
+		<div th:insert="templates/footer :: footer"></div>
+
+	</div>
+	<!-- Fin container principal -->
+
+	<script src="../js/jquery-3.5.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>

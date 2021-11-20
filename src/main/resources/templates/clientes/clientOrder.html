@@ -14,7 +14,7 @@
  
  <!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
-  <title>RidersClientOrder</title>
+  <title>ClientNewOrder</title>
 </head>
 
 <body>
@@ -24,30 +24,105 @@
 
 		<div th:insert="templates/navbarClientes :: navbarClientes"></div>
 		
-    <!-- Cuerpo Principal -->
-    <section>
-        <div class="row indexBody">
-          <div class="col-12 col-sm-6 col-md-4 bg-light">1Columna
-              <h2>Pedido</h2>
-              <p>formulario de pedido</p>
-              <p>boton de lanzar pedido</p>
-          </div>
-          <div class="col-12 col-sm-6 d-none d-sm-block  col-md-4 bg-info">
-            <h5>Origen</h5>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27520.434383255746!2d-5.694626084361345!3d43.52883681334418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c66cbf494bf%3A0xbd06d207048d3536!2sGij%C3%B3n%2C%20Asturias!5e0!3m2!1ses!2ses!4v1604647933150!5m2!1ses!2ses" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                      
-            <h5>Destino</h5>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27520.434383255746!2d-5.694626084361345!3d43.52883681334418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c66cbf494bf%3A0xbd06d207048d3536!2sGij%C3%B3n%2C%20Asturias!5e0!3m2!1ses!2ses!4v1604647933150!5m2!1ses!2ses" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                      
-          </div>
-          <div class="col-12 col-md-4 d-none d-md-block bg-success">3Columna
-            <img src="../img/amazon.PNG" alt="">
-            <img src="../img/seur.PNG" alt="">
-              
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-		<div th:insert="templates/footer :: footer"></div>
-  
+   <!-- Cuerpo Principal -->
+		<section>
+			<div class="row">
+				<div class="col-12 d-sm-block bg-light text-center">
+					<h5 class="text-center">Nuevo Pedido</h5>
+				</div>
+			</div>
+			<div class="row">							
+				<div class="col-12 col-sm-6 col-md-6 bg-light">				
+<!-- COMIENZO FORMULARIO -->
+					<form th:action="@{/clientes/orders}" method="post"
+						class="form-signin">
+						
+						<!-- Usuario cliente logueado que está en esta página -->
+						<input type = "hidden" name = "id_user" value="">
+												 
+							
+							
+						<!-- Inicializar status del pedido a 0 [NUEVO] -->	
+						<input type="hidden" id="status" name="status" value = 0>
+						
+							
+						<!-- No rider -->
+						<!-- No fecha entrega -->
+						
+						
+						<div class="form-row">
+							<div class="col">
+								<label for="inputNombreRemitente">Nombre Remitente</label>
+								<input type="text" id="inputRemitente" name="nombre_remitente"
+									class="form-control"
+									placeholder="Nombre remitente" required>
+							</div>
+							<div class="col">
+								<label for="inputDireccionRemitente">Direccion Remitente</label>
+								<input type="text" id="inputDireccionRemitente" name="dir_remitente"
+									class="form-control"
+									placeholder="Dirección remitente" required>
+							</div>
+							<div class="col">
+								<label for="inputTelRemitente">Teléfono Remitente</label>
+								<input type="text" id="inputTelRemitente" name="telefono_remitente"
+									class="form-control"
+									placeholder="Teléfono remitente" required>
+							</div>
+						</div>						
+						<div class="form-row">
+							<div class="col">
+								<label for="inputNombreDestinatario">Nombre Destinatario</label>
+								<input type="text" id="inputNombreDestinatario"
+									name="nombre_destinatario" class="form-control"									
+									placeholder="Nombre destinatario" required>
+							</div>
+							<div class="col">
+								<label for="inputDireccionDestinatario">Direccion Destinatario</label>
+								<input type="text" id="inputDireccionDestinatario"
+									name="dir_destinatario" class="form-control"									
+									placeholder="Dirección destinatario" required>
+							</div>
+								<div class="col">
+									<label for="inputTelDestinatario">Teléfono Remitente</label>
+									<input type="text" id="inputTelDestinatario"
+									name="telefono_destinatario" class="form-control"									
+									placeholder="Teléfono destinatario" required>
+								</div>								
+						</div>	
+						<div class="form-row">
+						<div class="col">	
+								<label for="inputComentarios">Comentarios</label>
+								<textarea id="inputComentarios" name="comentarios" rows="8"
+									class="form-control md-textarea"
+									placeholder="Comentarios"></textarea>
+							</div>
+							</div>
+							<div class="form-row">					
+								<div class="col  text-center">								
+									<button class="btn btn-lg btn-primary" type="submit">Crear Pedido</button>
+									<h5>
+										<a class="btn btn-info bg-primary m-2"
+										th:href="@{/clientes/history}" href="#">Volver atrás</a>
+									</h5>
+								</div>
+							</div>
+								
+						
+					</form>
+<!-- FIN FORMULARIO -->
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 bg-light embed-responsive">				
+				<iframe class="embed-responsive-item"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27520.434383255746!2d-5.694626084361345!3d43.52883681334418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c66cbf494bf%3A0xbd06d207048d3536!2sGij%C3%B3n%2C%20Asturias!5e0!3m2!1ses!2ses!4v1604647933150!5m2!1ses!2ses"
+						frameborder="0" style="border: 0;" allowfullscreen=""
+						aria-hidden="false" tabindex="0">
+					</iframe>	
+				</div>
+			</div><!-- Fin row -->
+		</section>
+<!-- Footer -->
+		<div th:insert="templates/footer :: footer"></div>  
   </div><!-- Fin container principal -->
 
   <script src="../js/jquery-3.5.1.min.js"></script>

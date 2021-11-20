@@ -168,6 +168,16 @@ public class PedidoServiceImpl implements PedidoService{
 		return pedidoRepository.findByStatus(status);
 	}
 	
+	/**
+	 * 
+	 * @param status
+	 * @param user
+	 * @return
+	 */
+	public List<PedidoVO> findByRiderAndStatus(UserVO rider, int status){
+		return pedidoRepository.findByRiderAndStatus(rider, status);				
+	}
+	
 }
 
 	

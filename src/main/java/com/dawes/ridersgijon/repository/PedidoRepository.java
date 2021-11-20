@@ -28,6 +28,8 @@ public interface PedidoRepository extends CrudRepository<PedidoVO, Integer>{
 	
 	List<PedidoVO> findByStatus(int status);
 	
+	List<PedidoVO> findByRiderAndStatus(UserVO rider, int status);
+	
 	
 }
 	

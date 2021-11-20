@@ -7,9 +7,10 @@
 
   <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="../css/bootstrap.min.css"> 
- <!-- Libreria w3.js -->
- <script src="https://www.w3schools.com/lib/w3.js"></script>
-
+ 
+ <!-- DataTables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
    <!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
   <title>RidersRiderHistory</title>
@@ -19,23 +20,29 @@
  <div class="container-fluid">
  
     	<div th:insert="templates/headerRiders :: headerRiders"></div>
-
 		<div th:insert="templates/navbarRiders :: navbarRiders"></div>
 		
     <!-- Cuerpo Principal -->
-    <section>
-        <div class="row indexBody">
-          <div class="col-12 col-md-8 bg-light">1Columna
-              <h2>Histórico Trabajos</h2>
-              <p>Tabla con el histórico de trabajos del rider </p>
-              <p>los campos que apareceran
-                 dependerán del tamaño de la pantalla</p>              
-          </div>
-          <div class="col-12 col-md-4 bg-success">
-              <p>selectores de filtrado para la tabla</p>
-              <p>Se ponen debajo cuando el tamaño de pantalla es más pequeño</p>
-              
-            </div>
+   <section>
+        <div class="row indexBody">        	          	
+          	<div class="col-12 bg-light">
+            	<h2 class = "text-center">Pedidos</h2>            	              
+				
+				
+				
+				
+				
+				<!--Definir tabla de los peidod de este cliente
+				
+				HACER EL FILTRO POR RIDER PARA GENERAR EL LISTADO
+				
+				Si no tiviera pedidos mostrar emnsaje perosnalizado---Tabla Pedidos Totales-->
+	  			<div th:insert="pedidos/pedidosTotales :: pedidosRider"></div>    
+       		
+       		
+       		
+       		
+       		</div>          	
         </div>
     </section>
     <!-- Footer -->
@@ -45,6 +52,32 @@
   </div><!-- Fin container principal -->
 
   <script src="../js/jquery-3.5.1.min.js"></script>
+  
+  <!-- Plugin Jquery DataTable -->
+  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  
+   <!-- Configuración DataTable -->
+	<script>
+		$(document).ready(function(){
+    		$('#tablaPedidosRiders').DataTable({
+    			stateSave: false,
+    			/* ,"dom" : 'lfrtip' */
+    			"columns": [
+    				{ "width": "10%" },
+    				{ "width": "25%" },
+    				{ "width": "25%" },    				
+    				{ "width": "15%" },
+    				{ "width": "10%" },
+    				{ "width": "10%" }
+  				],
+    			"order": [
+    				[ 1, "desc" ],
+    				[ 4, 'asc' ]
+    			]
+    		});
+		});  
+	</script>
+  
   <script src="../js/bootstrap.min.js"></script>
   
 </body>

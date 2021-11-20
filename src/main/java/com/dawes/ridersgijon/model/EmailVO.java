@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.dawes.ridersgijon.model;
 
 import java.time.LocalDate;
@@ -20,10 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author CarlosM
- *
- */
 
 //Anotaciones Lombock
 //Getters, Setters, Constructores con y sin argumentos
@@ -32,28 +25,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="pedido")
-public class PedidoVO {	
+@Table(name="email")
+public class EmailVO {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_pedido;
-	
+	private int id_email;	
 	@DateTimeFormat (pattern="dd/MM/yyyy")
-	private LocalDate fechaPedido;
-	private String nombre_remitente;
-	private String dir_remitente;
-	private String telefono_remitente;
-	private String nombre_destinatario;
-	private String dir_destinatario;
-	private String telefono_destinatario;
-	private int status;
-	private String comentarios;
+	private LocalDate fechaEmail;
+	private String name;
+	private String email;
+	private String subject;	
+	private String message;	
 	
-	@DateTimeFormat (pattern="dd/MM/yyyy")
-	private LocalDate fecha_entregado;
-	
-	@ManyToOne	
-	private UserVO cliente;	
-	@ManyToOne	
-	private UserVO rider;
+	//Solo si se integra con la aplicacion usando datos de clientes y Rider y Admins
+	//@ManyToOne	
+	//private UserVO cliente;	
+	//@ManyToOne	
+	//private UserVO rider;
 }

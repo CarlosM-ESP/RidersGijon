@@ -1,75 +1,72 @@
 <!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
- <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
+<!-- Required meta tags -->
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../css/bootstrap.min.css">
 <!-- DataTables -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
-   <!-- Custom css  -->
-<link rel="stylesheet" href="../css/styles.css">
-
-  <title>AdminOrdersOrderList</title>
+<!-- Custom css  -->
+	<link rel="stylesheet" href="../css/styles.css">
+  	<title>AdminOrdersOrderList</title>
 </head>
 
 <body>
-  <div class="container-fluid">
-	<!-- Header -->
-	<div th:insert="templates/headerAdmin :: headerAdmin"></div>
-	<!-- NavBar -->
-	<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
-    <!-- Cuerpo Principal -->
-    <section>
-        <div class="row indexBody">        	          	
-          	<div class="col-12 bg-light">
-            	<h2 class = "text-center">Pedidos</h2>            	              
-				<!--Tabla Pedidos Totales-->
-	  			<div th:insert="pedidos/pedidosTotales :: pedidosTotales"></div>    
-       		</div>          	
-        </div>
-    </section>
-    <!-- Footer -->
-	<div th:insert="templates/footer :: footer"></div>
-		
-  </div><!-- Fin container principal -->
+	<div class="container-fluid">
+<!-- Header -->
+		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
+<!-- NavBar -->
+		<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
+<!-- Cuerpo Principal -->
+    	<section>
+        	<div class="row indexBody">        	          	
+          		<div class="col-12 bg-light">
+            		<h2 class = "text-center">Pedidos</h2>            	              
+<!--Tabla Pedidos Totales-->
+	  				<div th:insert="pedidos/pedidosTotales :: pedidosTotales"></div>    
+       			</div>          	
+			</div>
+    	</section>
+<!-- Footer -->
+		<div th:insert="templates/footer :: footer"></div>		
+<!-- Fin container principal -->
+	</div>
   
-  	<!-- JQuery -->
+<!-- JQuery -->
 	<script
   		src="https://code.jquery.com/jquery-3.6.0.min.js"
   		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   		crossorigin="anonymous">
-	</script>
-	
-	<!-- Plugin Jquery DataTable -->
-  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-  	
-  	<!-- BootStrap -->
-	<script src="../js/bootstrap.min.js"></script>
-   
-   <!-- Configuración DataTable -->
+	</script>	
+<!-- Plugin Jquery DataTable -->
+  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>  	
+<!-- BootStrap -->
+	<script src="../js/bootstrap.min.js"></script>   
+<!-- Configuración DataTable -->
 	<script>
 		$(document).ready(function(){
     		$('#tablaPedidosTotales').DataTable({
-    			"pageLength": 5,
-    			/* ,"dom" : 'lfrtip' */
+    			stateSave: false,
+    			"dom" : 'lfrtip',
     			"columns": [
-    				{ "width": "5%" },
-    				null,
-    				null,
-    				null,
-    				null,
-    				null,
-    				{ "width": "5%" },
-    				null
-    				
-  				]
+    				{ "width": "1%" },
+    				{ "width": "10%" },
+    				{ "width": "25%" },
+    				{ "width": "25%" },
+    				{ "width": "10%" },
+    				{ "width": "10%" },
+    				{ "width": "10%" },
+    				{ "width": "9%" }    				
+  				],
+  				"order": [
+    				[ 0, "desc" ],
+    				[ 5, 'asc' ]
+    			]
     		});
 		});  
-	</script>  
-
+	</script>
 </body>
 </html>

@@ -189,33 +189,36 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 		return userRepository.findRidersByCliente(cliente);
 	}
 	
+	/**
+	 * Codificador de la contraseña 
+	 */
+	public String encode(String password) {
+		return encoder.encode(password);
+	}
 	
 	
 	
-	//Codificador de la contraseña
-		public String encode(String password) {
-			return encoder.encode(password);
-		}
-	
-	
-	
-		//Verificación de autenticación. Devuleve true si existe un usuario autenticado en el contexto
-		public boolean isAuthenticated() {
-		    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
-		        return false;
+	/**
+	 * Verificación de autenticación. Devuelve true si existe un usuario autenticado en el contexto
+	 */
+	public boolean isAuthenticated() {
+	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
+	        return false;
+	    }
+	    return authentication.isAuthenticated();
+	}
+			
+	/**
+	 * Devuelve el UserVO logueado en el sistema
+	 */
+	public UserVO findUserLogged() {
+			UserVO userLogged;
+		    if (isAuthenticated()) {
+		    	userLogged = (UserVO)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		    }else {
+		    	userLogged = null;
 		    }
-		    return authentication.isAuthenticated();
+		    return userLogged;
 		}
-				
-		//Devuelve el UserVO logueado en el sistema
-		public UserVO findUserLogged() {
-				UserVO userLogged;
-			    if (isAuthenticated()) {
-			    	userLogged = (UserVO)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			    }else {
-			    	userLogged = null;
-			    }
-			    return userLogged;
-			}
 }

@@ -1,28 +1,26 @@
 <!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+  <!-- Bootstrap CSS -->
+ 	<link rel="stylesheet" href="../css/bootstrap.min.css"> 
+ 
+ <!-- DataTables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 
-<!-- Custom css  -->
-<link rel="stylesheet" href="../css/styles.css">
-
-<title>adminOrdersOrderList</title>
+   <!-- Custom css  -->
+	<link rel="stylesheet" href="../css/styles.css">
+  	<title>RidersRiderAssignment</title>
 </head>
 
 <body class="bg-light">
-	<div class="container-fluid">
-		<!-- Header -->
-		<div th:insert="templates/headerAdmin :: headerAdmin"></div>
-
-		<!-- NavBar -->
-		<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
-
+ <div class="container-fluid"> 
+    	<div th:insert="templates/headerRiders :: headerRiders"></div>
+		<div th:insert="templates/navbarRiders :: navbarRiders"></div>
 <!-- Cuerpo Principal -->
 		<section>
 			<div class="row">
@@ -31,138 +29,110 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
-					<h5>
-						<a class="btn btn-info bg-danger m-2" href="#modal"	data-toggle="modal">Eliminar</a>
-					</h5>
-					<div class="modal" id="modal" tabindex="-1" role="dialog"
-						aria-labellebdy="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4>Eliminar Pedido</h4>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-hidden="true">&times;</button>
-								</div>
-								<div class="modal-body">
-									<form th:action="@{/admin/orderDelete}" method="post">
- 										<h4
-											th:utext="'	<p>¿Está seguro de querer eliminar el </p>
-											<p>Pedido '+${id}+'?</p>'">
-										</h4>
-										<input type="hidden" name="id_pedido"
-											th:value=${id}>
-										<input type="submit" class="btn btn-danger" value="Eliminar">
-										<button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>					
-				</div>
-
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center"></div>
 				<div class="col-12 col-sm-8 col-md-8 bg-light">				
 <!-- COMIENZO FORMULARIO -->
-					<form th:action="@{/admin/orderList}" method="post"
+					<form th:action="@{/riders/orderDetailAvailable}" method="post"
 						class="form-signin" th:object="${detallePedido}">
 
-						<input type="hidden" name="id_pedido" th:field="*{id_pedido}">
+						<input type ="hidden" name="id_pedido" th:field="*{id_pedido}">
+						<input type ="hidden" name="status" th:field="*{status}">
+						
+						<input type ="hidden" name="rider" th:field="*{rider.id_user}">
+						
+						<input type ="hidden" name="fechaPedido" th:field="*{fechaPedido}">
+						
+						<input type ="hidden" name="cliente" th:field="*{cliente.id_user}">
+						
+						<input type ="hidden" name="*nombre_remitente" th:field="*{nombre_remitente}">
+						<input type ="hidden" name="dir_remitente" th:field="*{dir_remitente}">
+						<input type ="hidden" name="telefono_remitente" th:field="*{telefono_remitente}">
+						
+						<input type ="hidden" name="nombre_destinatario" th:field="*{nombre_destinatario}">
+						<input type ="hidden" name="dir_destinatario" th:field="*{dir_destinatario}">
+						<input type ="hidden" name="telefono_destinatario" th:field="*{telefono_destinatario}">
+						
+						<input type ="hidden" name="comentarios" th:field="*{comentarios}">
+						
 						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputFechaPedido">Fecha Pedido</label>
 								<input type="text" id="inputFechaPedido" name="fechaPedido"
 									class="form-control" th:field="*{fechaPedido}"
-									placeholder="Fecha Pedido" required autofocus>
+									placeholder="Fecha Pedido" disabled autofocus>
 							</div>
 							<div class="col">
 								<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
 								<input type="text" id="inputFechaEntrega" name="fecha_entregado"
 								class="form-control" th:field="*{fecha_entregado}"
-								placeholder="Fecha Entrega de Pedido">
+								placeholder="--SIN ASIGNAR--">
 							</div>
 						</div>						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreRemitente">Nombre Remitente</label>
 								<input type="text" id="inputRemitente" name="nombre_remitente"
 									class="form-control" th:field="*{nombre_remitente}"
-									placeholder="Nombre remitente" required>
+									placeholder="Nombre remitente" disabled>
 							</div>
 							<div class="col">
 								<label for="inputDireccionRemitente">Direccion Remitente</label>
 								<input type="text" id="inputDireccionRemitente" name="dir_remitente"
 									class="form-control" th:field="*{dir_remitente}"
-									placeholder="Dirección remitente" required>
+									placeholder="Dirección remitente" disabled>
 							</div>
 							<div class="col">
 								<label for="inputTelRemitente">Teléfono Remitente</label>
 								<input type="text" id="inputTelRemitente" name="telefono_remitente"
 									class="form-control" th:field="*{telefono_remitente}"
-									placeholder="Teléfono remitente" required>
+									placeholder="Teléfono remitente" disabled>
 							</div>
 						</div>						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreDestinatario">Nombre Destinatario</label>
 								<input type="text" id="inputNombreDestinatario"
 									name="nombre_destinatario" class="form-control"
 									th:field="*{nombre_destinatario}"
-									placeholder="Nombre destinatario" required>
+									placeholder="Nombre destinatario" disabled>
 							</div>
 							<div class="col">
 								<label for="inputDireccionDestinatario">Direccion Destinatario</label>
 								<input type="text" id="inputDireccionDestinatario"
 									name="dir_destinatario" class="form-control"
 									th:field="*{dir_destinatario}"
-									placeholder="Dirección destinatario" required>
+									placeholder="Dirección destinatario" disabled>
 							</div>
 								<div class="col">
 									<label for="inputTelDestinatario">Teléfono Destinatario</label>
 									<input type="text" id="inputTelDestinatario"
 									name="telefono_destinatario" class="form-control"
 									th:field="*{telefono_destinatario}"
-									placeholder="Teléfono destinatario" required>
+									placeholder="Teléfono destinatario" disabled>
 								</div>
-						</div>
-											
+						</div>			
 						<div class="form-row">
 							<div class="col">						
 								<label for="inputCliente">Cliente</label>
-								<select	class="custom-select" id="inputCliente"	th:field="*{cliente.id_user}">
-									<option th:each="cliente : ${listaClientes}"
-										th:value="${cliente.id_user}" th:text="${cliente.nick}">
-									</option>
-								</select>
-							</div>
-							<div class="col">
-								<label for="inputRider">Rider</label>
-								<select class="custom-select" id="inputRider" th:field="*{rider.id_user}">									
-									<option th:each="rider : ${listaRiders}"
-										th:value="${rider.id_user}" th:text="${rider.nick}"></option>										
-								</select>
-							</div>
-						</div>
-						
+								<input type="text" id="inputCliente"
+									name="nombre_cliente" class="form-control"
+									th:field="*{cliente.nick}"
+									placeholder="Nombre Rider" disabled>
+							</div>							
+						</div>						
 						<div class="form-row">
 							<div class="col">	
 								<label for="inputComentarios">Comentarios</label>
 								<textarea id="inputComentarios" name="comentarios" rows="8"
 									class="form-control md-textarea" th:field="*{comentarios}"
-									placeholder="Comentarios" required></textarea>
-							</div>
-							<div class="col  text-center">
-								<label for="inputStatus">Status del Pedido</label>
-								<input type="number" id="inputStatus" name="status" class="form-control"
-									th:field="*{status}" placeholder="Status Pedido" required>
-							
-								<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-
+									placeholder="Comentarios" required disabled></textarea>
+							</div> 
+							<div class="col text-center">
+								<button class="btn btn-lg btn-primary" type="submit">ASIGNAR PEDIDO</button>
 								<h5>
 									<a class="btn btn-info bg-primary m-2"
-										th:href="@{/admin/orderList}" href="#">Volver</a>
+										th:href="@{available}" href="#">Volver</a>
 								</h5>
 							</div>
 						</div>						
@@ -172,15 +142,11 @@
 				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>
 			</div><!-- Fin row -->
 		</section>
-
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>
-
 	</div>
 	<!-- Fin container principal -->
-
 	<script src="../js/jquery-3.5.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-
 </body>
 </html>

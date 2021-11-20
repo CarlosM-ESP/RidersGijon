@@ -84,23 +84,63 @@ public interface UserService {
 	void deleteAll();
 	
 	//********************************************* NO CRUD REPOSITORY **************************************
-	
+	/**
+	 * 
+	 * @param email
+	 * @param password
+	 * @return
+	 */
 	Optional<UserVO> findByEmailAndPassword(String email, String password);
 	
+	/**
+	 * 
+	 * @param activo
+	 * @return
+	 */
 	List<UserVO> findByIsActive(Boolean activo);
 	
+	/**
+	 * 
+	 * @param type
+	 * @return
+	 */
 	List<UserVO> findByUser_type(String type);
 	
+	/**
+	 * 
+	 * @param cliente
+	 * @return
+	 */
 	List<UserVO> findRidersByCliente(UserVO cliente);
 	
-	//Spring Security. Requerido para definir los campos de login
+
+	/**
+	 * Spring Security. Requerido para definir los campos de login
+	 * 
+	 * @param email
+	 * @return
+	 * @throws UsernameNotFoundException
+	 */
 	UserDetails loadUserByUsername(String email) throws UsernameNotFoundException;
 	
-	//Encoding password
+	
+	/**
+	 * Encoding password 
+	 * @param password
+	 * @return
+	 */
 	String encode(String password);
 	
-	//Autenticacion
+	/**
+	 * Autenticacion
+	 * @return
+	 */
 	boolean isAuthenticated();
+	
+	/**
+	 * 
+	 * @return
+	 */
 	UserVO findUserLogged();
 	
 }

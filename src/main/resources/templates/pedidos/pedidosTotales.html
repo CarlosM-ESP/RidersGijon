@@ -1,38 +1,154 @@
 <div th:fragment="pedidosTotales">
-
-
 	<table id="tablaPedidosTotales" class="dataTable display compact">
 		<thead>
 			<tr>
-				<td>Id Pedido</td>
+				<td>Id</td>
 				<th>Fecha Pedido</th>
 				<th>Remitente</th>
-				<th>Destinatario</th>
-				
+				<th>Destinatario</th>				
 				<th>Cliente</th>
 				<th>Rider</th>
-				<th>Status Pedido</th>
+				<th>Status</th>
 				<th></th>
-				
+			</tr>
+		</thead>
+ 		<tbody>
+	 		<tr data-th-each="pedido : ${listaPedidos}">
+	 			<td data-th-text="${pedido.id_pedido}">...</td>	    	
+		        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>	        
+		        <td data-th-text="${pedido.nombre_remitente}">...</td>		        
+		        <td data-th-text="${pedido.nombre_destinatario}">...</td>
+		        <td data-th-text="${pedido.cliente.nick}">...</td>
+		        <td data-th-text="${pedido?.rider?.nick}">...</td>		        		        
+		        <td th:switch="${pedido.status}">
+    				<span th:case="'0'">Nuevo</span>
+    				<span th:case="'1'">Asignado</span>
+    				<span th:case="'2'">Entregado</span>
+    				<span th:case="'3'">Cancelado</span>
+    				<span th:case="'4'">OnHold</span>
+				</td>		        	        
+		        <td>
+		        <a class="nav-item nav-link" 
+		           th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
+				   href="#">
+			    	 Detalles
+			    </a>
+			    </td>	        
+	    	</tr>
+    	</tbody>
+	</table>
+</div>
+<div th:fragment="pedidosRider">
+	<table id="tablaPedidosRiders" class="dataTable display compact">
+		<thead>
+			<tr>
+				<th>Fecha Pedido</th>
+				<th>Remitente</th>
+				<th>Destinatario</th>				
+				<th>Cliente</th>				
+				<th>Status</th>
+				<th></th>
 				
 			</tr>
 		</thead>
- 		<tr data-th-each="pedido : ${listaPedidos}">
- 			<td data-th-text="${pedido.id_pedido}">...</td>	    	
-	        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>	        
-	        <td data-th-text="${pedido.nombre_remitente}">...</td>
-	        <!-- <td data-th-text="${pedido.dir_remitente}">...</td>
-	        <td data-th-text="${pedido.telefono_remitente}">...</td> -->
-	        <td data-th-text="${pedido.nombre_destinatario}">...</td>
-	        <!-- <td data-th-text="${pedido.dir_destinatario}">...</td>
-	        <td data-th-text="${pedido.telefono_destinatario}">...</td> -->	       	        
-	        <!-- <td data-th-text="${#temporals.format(pedido.fecha_entregado, 'dd-MM-yyyy')}">...</td> -->        
-	        <td data-th-text="${pedido.cliente.nick}">...</td>
-	        <td data-th-text="${pedido.rider.nick}">...</td>
-	        <!-- <td data-th-text="${pedido.comentarios}">...</td> -->
-	         <td data-th-text="${pedido.status}">...</td>	        	        
-	        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
-						    href="#">Detalles</a></td>	        
-    	</tr>
+ 		<tbody>
+	 		<tr data-th-each="pedido : ${listaPedidos}">    	
+		        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>	        
+		        <td data-th-text="${pedido.nombre_remitente}">...</td>		        
+		        <td data-th-text="${pedido.nombre_destinatario}">...</td>
+		        <td data-th-text="${pedido.cliente.nick}">...</td>
+		        <td th:switch="${pedido.status}">
+    				<span th:case="'0'">Nuevo</span>
+    				<span th:case="'1'">Asignado</span>
+    				<span th:case="'2'">Entregado</span>
+    				<span th:case="'3'">Cancelado</span>
+    				<span th:case="'4'">OnHold</span>
+				</td>		      	        
+		        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
+							    href="#">Detalles</a></td>	        
+	    	</tr>
+    	</tbody>
+	</table>
+</div>
+<div th:fragment="pedidosCliente">
+	<table id="tablaPedidosClientes" class="dataTable display compact">
+		<thead>
+			<tr>
+				<th>Fecha Pedido</th>
+				<th>Remitente</th>
+				<th>Destinatario</th>
+				<th>Rider</th>
+				<th>status</th>
+				<th></th>
+				
+			</tr>
+		</thead>
+ 		<tbody>
+	 		<tr data-th-each="pedido : ${listaPedidos}">	 				    	
+		        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>	        
+		        <td data-th-text="${pedido.nombre_remitente}">...</td>		       
+		        <td data-th-text="${pedido.nombre_destinatario}">...</td>		        
+		        <td data-th-text="${pedido?.rider?.nick}">...</td>
+		       	<td th:switch="${pedido.status}">
+    				<span th:case="'0'">Nuevo</span>
+    				<span th:case="'1'">Asignado</span>
+    				<span th:case="'2'">Entregado</span>
+    				<span th:case="'3'">Cancelado</span>
+    				<span th:case="'4'">OnHold</span>
+				</td>		   	        
+		        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
+							    href="#">Detalles</a></td>	        							    	        
+	    	</tr>
+    	</tbody>
+	</table>
+</div>
+
+<div th:fragment="pedidosDisponibles">
+	<table id="tablaPedidosDisponibles" class="dataTable display compact">
+		<thead>
+			<tr>
+				<th>Fecha Pedido</th>
+				<th>Remitente</th>
+				<th>Destinatario</th>				
+				<th>Cliente</th>
+				<th></th>
+				<th></th>				
+			</tr>
+		</thead>
+		<tbody>
+	 		<tr data-th-each="pedido : ${listaPedidos}">	    	
+		        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>
+		        <td data-th-text="${pedido.dir_remitente}">...</td>
+		        <td data-th-text="${pedido.dir_destinatario}">...</td>
+		        <td data-th-text="${pedido.cliente.nick}">...</td>	
+				<td><a class="nav-item nav-link" th:href="@{orderDetailAvailable(id_pedido=${pedido.id_pedido})}"
+							    href="#">Asignar</a></td>
+	    	</tr>
+    	</tbody> 		
+	</table>
+</div>
+
+<div th:fragment="pedidosEntregas">
+	<table id="tablaPedidosEntregables" class="dataTable display compact">
+		<thead>
+			<tr>
+				<th>Fecha Pedido</th>
+				<th>Remitente</th>
+				<th>Destinatario</th>				
+				<th>Cliente</th>				
+				<th></th>
+				<th></th>				
+			</tr>
+		</thead>
+		<tbody>
+	 		<tr data-th-each="pedido : ${listaPedidos}">	    	
+		        <td data-th-text="${#temporals.format(pedido.fechaPedido, 'dd-MM-yyyy')}">...</td>
+		        <td data-th-text="${pedido.dir_remitente}">...</td>
+		        <td data-th-text="${pedido.dir_destinatario}">...</td>
+		        <td data-th-text="${pedido.cliente.nick}">...</td>
+				<td><a class="nav-item nav-link" th:href="@{orderDetailEntrega(id_pedido=${pedido.id_pedido})}"
+							    href="#">Confirmar entrega</a></td>
+	    	</tr>
+    	</tbody> 		
 	</table>
 </div>

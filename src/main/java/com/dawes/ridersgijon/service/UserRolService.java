@@ -81,5 +81,10 @@ public interface UserRolService {
 	 */
 	void deleteAll();
 
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	Optional<UserRolVO> findByUser(UserVO user);
 }

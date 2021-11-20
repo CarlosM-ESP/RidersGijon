@@ -46,7 +46,7 @@ model.addAttribute("listaPedidos", pedidoService.findAll());
  -->				
 				
 				
-	  			<div th:insert="pedidos/pedidosTotales :: pedidosDisponibles"></div>    
+	  			<div th:insert="pedidos/pedidosTotales :: pedidosEntregas"></div>    
        		
        		
        		
@@ -68,7 +68,7 @@ model.addAttribute("listaPedidos", pedidoService.findAll());
    <!-- Configuración DataTable -->
 	<script>
 		$(document).ready(function(){
-    		$('#tablaPedidosDisponibles').DataTable({
+    		$('#tablaPedidosEntregables').DataTable({
     			stateSave: true,
     			/* ,"dom" : 'lfrtip' */
     			"columns": [    				
@@ -76,7 +76,8 @@ model.addAttribute("listaPedidos", pedidoService.findAll());
     				null,    				
     				null,
     				null,
-    				{ "width": "10%" }    				
+    				{ "width": "10%" }
+    				
   				],
   				"order": [
     				[ 1, "desc" ],

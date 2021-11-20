@@ -82,12 +82,41 @@ public interface PedidoService {
 	void deleteAll();
 	
 	//*****************************METODOS AJENOS AL CRUD REPOSITORY**************************
-		
+	/**
+	 * 	
+	 * @param user
+	 * @return
+	 */
 	List<PedidoVO> findByCliente(UserVO user);		
-	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	List<PedidoVO> findByRider(UserVO user);
 	
+	/**
+	 * 
+	 * @param cliente
+	 * @param rider
+	 * @return
+	 */
 	List<PedidoVO> findByClienteAndRider(UserVO cliente, UserVO rider);
 	
+	/**
+	 * 
+	 * @param status
+	 * @return
+	 */
 	List<PedidoVO> findByStatus(int status);
+	
+	/**
+	 * 
+	 * @param status
+	 * @param user
+	 * @return
+	 */
+	List<PedidoVO> findByRiderAndStatus(UserVO rider, int status);
+	
+	
 }

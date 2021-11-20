@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_9dD0UEPgEeymmLoUMfoSFg">
+  <modelElement href="carlosmenendez_PROYECTO.uml#_9ubRIEPgEeymmLoUMfoSFg"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-U6CUEPgEeymmLoUMfoSFg" source="_-U6pYEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_92nj0EPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-U6CUUPgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92scUEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-U6CUkPgEeymmLoUMfoSFg" text=""/>
+    <sourceRole xmi:id="_-U6CU0PgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92nj0UPgEeymmLoUMfoSFg"/>
+      <visibility xmi:id="_-U6CVEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-U6CVUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-U6CVkPgEeymmLoUMfoSFg" aggregationKind="NONE" name="fechaEmail" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92FYUkPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvKPEEPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92FYU0PgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvKPEUPiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92F_YEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-U6CV0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6CWEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_-VpCIUPgEeymmLoUMfoSFg" targetItem="_-VuhuUPgEeymmLoUMfoSFg" sourceItem="_-VpCIEPgEeymmLoUMfoSFg"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-VppMEPgEeymmLoUMfoSFg" source="_-VuhuUPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_92scUUPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-VreY0PgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92wGsEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-VreYEPgEeymmLoUMfoSFg" text=""/>
+    <sourceRole xmi:id="_-VreYUPgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92scUkPgEeymmLoUMfoSFg"/>
+      <visibility xmi:id="_-VsFdEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-VsFc0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-VreYkPgEeymmLoUMfoSFg" aggregationKind="NONE" name="fechaPedido" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92H0lUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvKPEkPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92IboEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvKPE0PiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92IboUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VsFdkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VsFdUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-VppMUPgEeymmLoUMfoSFg" source="_-VuhuUPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_92wGsUPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-VsFckPgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92zxEEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-VreZEPgEeymmLoUMfoSFg" text=""/>
+    <sourceRole xmi:id="_-VsFcEPgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92wGskPgEeymmLoUMfoSFg"/>
+      <visibility xmi:id="_-Vssg0PgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-VssgkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-VsFcUPgEeymmLoUMfoSFg" aggregationKind="NONE" name="fecha_entregado" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92K340PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvK2IEPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Le8EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvK2IUPiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Le8UPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VsshUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VsshEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-Vt6oEPgEeymmLoUMfoSFg" sourceAnchor="97.0,0.0" targetAnchor="137.0,458.0" target="_-WWz0EPgEeymmLoUMfoSFg" source="_-VuhuUPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_92zxEUPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-Vt6oUPgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9220YEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-Vt6okPgEeymmLoUMfoSFg" text="">
+      <visualProperties xmi:id="_-cOLQEPgEeymmLoUMfoSFg" position="-39.0,-7.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_-Vt6o0PgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92zxEkPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cM9I0PgEeymmLoUMfoSFg" position="2.0,-38.0"/>
+      <visibility xmi:id="_-Vt6pEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-Vt6pUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-Vt6pkPgEeymmLoUMfoSFg" aggregationKind="NONE" name="cliente" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Le9EPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cOLQUPgEeymmLoUMfoSFg" position="-91.0,-8.0"/>
+      <stereotypes xmi:id="_DvK2IkPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92MGAEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvK2I0PiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92MGAUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-Vt6p0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-Vt6qEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-VuhsEPgEeymmLoUMfoSFg" sourceAnchor="127.0,0.0" targetAnchor="167.0,458.0" target="_-WWz0EPgEeymmLoUMfoSFg" source="_-VuhuUPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_923bcEPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-VuhsUPgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_926ewEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-VuhskPgEeymmLoUMfoSFg" text="">
+      <visualProperties xmi:id="_-cPZYEPgEeymmLoUMfoSFg" position="2.0,-11.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_-Vuhs0PgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_923bcUPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cOyUEPgEeymmLoUMfoSFg" position="-7.0,-38.0"/>
+      <visibility xmi:id="_-VuhtEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-VuhtUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-VuhtkPgEeymmLoUMfoSFg" aggregationKind="NONE" name="rider" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92MGA0PgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cQAcEPgEeymmLoUMfoSFg" position="46.0,-3.0"/>
+      <stereotypes xmi:id="_DvLdMEPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92MGBEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvLdMUPiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92MGBUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-Vuht0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VuhuEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-V79EEPgEeymmLoUMfoSFg" sourceAnchor="86.0,71.0" targetAnchor="80.0,0.0" target="_-V45wEPgEeymmLoUMfoSFg" source="_-WA1kEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_92-JIEPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-V9LM0PgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_93BMcEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-V9LMEPgEeymmLoUMfoSFg" text="">
+      <visualProperties xmi:id="_-cQngUPgEeymmLoUMfoSFg" position="-39.0,15.833333333333314"/>
+    </nameVisual>
+    <sourceRole xmi:id="_-V9LMUPgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92-JIUPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cQngEPgEeymmLoUMfoSFg" position="-17.0,16.0"/>
+      <visibility xmi:id="_-V-ZWEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-V-ZV0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-V9LMkPgEeymmLoUMfoSFg" aggregationKind="NONE" name="rol" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92PwZEPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cQngkPgEeymmLoUMfoSFg" position="2.0,-61.0"/>
+      <stereotypes xmi:id="_DvLdMkPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92PwZUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvLdM0PiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92PwZkPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-V-ZWkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-V-ZWUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-V8kIEPgEeymmLoUMfoSFg" sourceAnchor="0.0,329.0" targetAnchor="148.0,34.0" target="_-WA1kEPgEeymmLoUMfoSFg" source="_-WWz0EPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_93BMcUPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-V-ZUkPgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_93E20EPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-V9yQEPgEeymmLoUMfoSFg" text="">
+      <visualProperties xmi:id="_-cTDwEPgEeymmLoUMfoSFg" position="-32.0,-19.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_-V-ZUEPgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_93BMckPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cScsEPgEeymmLoUMfoSFg" position="-28.0,2.0"/>
+      <visibility xmi:id="_-V_AY0PgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-V_AYkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-V-ZUUPgEeymmLoUMfoSFg" aggregationKind="NONE" name="roles" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92V3AEPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cTq0EPgEeymmLoUMfoSFg" position="1.0,-85.99999999999994"/>
+      <stereotypes xmi:id="_-V_ncUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92V3AkPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-V_nckPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92V3A0PgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-V_ncEPgEeymmLoUMfoSFg" label="~"/>
+      <cardinality xmi:id="_-V_AZEPgEeymmLoUMfoSFg" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_-V8kIUPgEeymmLoUMfoSFg" sourceAnchor="148.0,62.0" targetAnchor="0.0,357.0" target="_-WWz0EPgEeymmLoUMfoSFg" source="_-WA1kEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_926ewUPgEeymmLoUMfoSFg"/>
+    <stereotypes xmi:id="_-V-ZVkPgEeymmLoUMfoSFg" name="Reference">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_929iEEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <nameVisual xmi:id="_-V-ZU0PgEeymmLoUMfoSFg" text="">
+      <visualProperties xmi:id="_-cR1oEPgEeymmLoUMfoSFg" position="-30.0,-19.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_-V-ZVEPgEeymmLoUMfoSFg" aggregationKind="NONE" name="">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_926ewkPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cROkEPgEeymmLoUMfoSFg" position="12.0,2.0"/>
+      <visibility xmi:id="_-V_ndEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-V_nc0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_-V-ZVUPgEeymmLoUMfoSFg" aggregationKind="NONE" name="user" navigable="true">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92PJVUPgEeymmLoUMfoSFg"/>
+      <visualProperties xmi:id="_-cR1oUPgEeymmLoUMfoSFg" position="-38.0,-86.0"/>
+      <stereotypes xmi:id="_DvMEQEPiEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92PJVkPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_DvMEQUPiEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92PwYEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-V_ndkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-V_ndUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_-VpCIEPgEeymmLoUMfoSFg" sourceConnectionVisual="_-VpCIUPgEeymmLoUMfoSFg" text="@author CarlosM&#xD;&#xA; *" item="_-VuhuUPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_92g2IkPgEeymmLoUMfoSFg"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_-WWz0EPgEeymmLoUMfoSFg" name="UserVO" associationsIn="_-Vt6oEPgEeymmLoUMfoSFg _-VuhsEPgEeymmLoUMfoSFg _-V8kIUPgEeymmLoUMfoSFg" associationsOut="_-V8kIEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_9voLAEPgEeymmLoUMfoSFg"/>
+    <visualProperties xmi:id="_-WWz0UPgEeymmLoUMfoSFg" position="1003.0,-17.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_-WWz0kPgEeymmLoUMfoSFg" name="Table">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vuRoEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-WWz00PgEeymmLoUMfoSFg" name="JPA1StyledElement">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vu4sEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-WWz1EPgEeymmLoUMfoSFg" name="Annotations">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v87IUPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <visibility xmi:id="_-WWz1UPgEeymmLoUMfoSFg" label="+"/>
+    <attributes xmi:id="_-WXa4EPgEeymmLoUMfoSFg" name="id_user">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92QXckPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXa4UPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92QXc0PgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXa4kPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Q-gEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXa40PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXa5EPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXa5UPgEeymmLoUMfoSFg" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXa5kPgEeymmLoUMfoSFg" name="user_type">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Q-hEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXa50PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Q-hUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXa6EPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXa6UPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXa6kPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXa60PgEeymmLoUMfoSFg" name="nombre">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92RlkEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXa7EPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92RlkUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXa7UPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXa7kPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXa70PgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXa8EPgEeymmLoUMfoSFg" name="apellido1">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92RlkkPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXa8UPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92SMoEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXa8kPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXa80PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXa9EPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXa9UPgEeymmLoUMfoSFg" name="apellido2">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92SMoUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXa9kPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92SMokPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXa90PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXa-EPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXa-UPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXa-kPgEeymmLoUMfoSFg" name="nif">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92SMo0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXa-0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92SzsEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXa_EPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXa_UPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXa_kPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXa_0PgEeymmLoUMfoSFg" name="direccion">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92SzsUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbAEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92SzskPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbAUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbAkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbA0PgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbBEPgEeymmLoUMfoSFg" name="telefono">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Szs0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbBUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92SztEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbBkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbB0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbCEPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbCUPgEeymmLoUMfoSFg" name="nick">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92TawEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbCkPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92TawUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbC0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbDEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbDUPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbDkPgEeymmLoUMfoSFg" name="email">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92TawkPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbD0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Taw0PgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbEEPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92UB0EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbEUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbEkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbE0PgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbFEPgEeymmLoUMfoSFg" name="password">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92UB00PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbFUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92UB1EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbFkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbF0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbGEPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbGUPgEeymmLoUMfoSFg" name="matricula">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92UB1UPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbGkPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Uo4EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbG0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbHEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbHUPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbHkPgEeymmLoUMfoSFg" name="vehiculo">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Uo4UPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbH0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Uo4kPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbIEPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WXbIUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbIkPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbI0PgEeymmLoUMfoSFg" name="isActive">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Uo40PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbJEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Uo5EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbJUPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbJkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WXbJ0PgEeymmLoUMfoSFg" name="boolean">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WXbKEPgEeymmLoUMfoSFg" name="roles">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92V3AEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvYRgkPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvY4kEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvY4kUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvY4kkPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvatwEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvatwUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFmsQEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFnTUEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFnTUUPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFn6YEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFrkwEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFsL0EPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-WXbKUPgEeymmLoUMfoSFg" label="~"/>
+      <cardinality xmi:id="_-WXbKkPgEeymmLoUMfoSFg" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_-WXbK0PgEeymmLoUMfoSFg" name="UserRolVO">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9vdy8EPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_-WXbLEPgEeymmLoUMfoSFg" name="getAuthorities">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vwt4EPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbLUPgEeymmLoUMfoSFg" name="Generics">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v2NcEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbLkPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v20gEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbL0PgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v3bkEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbMEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbMUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbMkPgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92BG4EPgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbM0PgEeymmLoUMfoSFg" name="Collection">
+          <modelElement href="carlosmenendez_PROYECTO.uml#_91pTcUPgEeymmLoUMfoSFg"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_-WXbNEPgEeymmLoUMfoSFg" name="getUsername">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v3bkkPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbNUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v4CoUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbNkPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v4psEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbN0PgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbOEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbOUPgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v4CoEPgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbOkPgEeymmLoUMfoSFg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_-WXbO0PgEeymmLoUMfoSFg" name="isAccountNonExpired">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v4pskPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbPEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v5QwEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbPUPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v5QwUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbPkPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbP0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbQEPgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v4ps0PgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbQUPgEeymmLoUMfoSFg" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_-WXbQkPgEeymmLoUMfoSFg" name="isAccountNonLocked">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v5Qw0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbQ0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v530EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbREPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v530UPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbRUPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbRkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbR0PgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v5QxEPgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbSEPgEeymmLoUMfoSFg" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_-WXbSUPgEeymmLoUMfoSFg" name="isCredentialsNonExpired">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v5300PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbSkPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v6e4EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbS0PgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v6e4UPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbTEPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbTUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbTkPgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v531EPgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbT0PgEeymmLoUMfoSFg" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_-WXbUEPgEeymmLoUMfoSFg" name="isEnabled">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v6e40PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbUUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v7tAEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbUkPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v7tAUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbU0PgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbVEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbVUPgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v7F8EPgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbVkPgEeymmLoUMfoSFg" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_-WXbV0PgEeymmLoUMfoSFg" name="toString">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9v7tA0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WXbWEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v8UEUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WXbWUPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v8UEkPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WXbWkPgEeymmLoUMfoSFg" label="+"/>
+      <cardinality xmi:id="_-WXbW0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_-WXbXEPgEeymmLoUMfoSFg">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9v8UEEPgEeymmLoUMfoSFg"/>
+        <type xmi:id="_-WXbXUPgEeymmLoUMfoSFg" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_-U6pYEPgEeymmLoUMfoSFg" name="EmailVO" associationsOut="_-U6CUEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_9u6ZUEPgEeymmLoUMfoSFg"/>
+    <visualProperties xmi:id="_-U6pYUPgEeymmLoUMfoSFg" position="748.0,-8.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_-U6pYkPgEeymmLoUMfoSFg" name="Table">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9u9coEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-U6pY0PgEeymmLoUMfoSFg" name="JPA1StyledElement">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9u-qwEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-U6pZEPgEeymmLoUMfoSFg" name="Annotations">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vCVIEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <visibility xmi:id="_-U6pZUPgEeymmLoUMfoSFg" label="+"/>
+    <attributes xmi:id="_-U6pZkPgEeymmLoUMfoSFg" name="id_email">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92DjIEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-U6pZ0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92ExQEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-U6paEPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92ExQUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-U6paUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6pakPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-U6pa0PgEeymmLoUMfoSFg" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-U6pbEPgEeymmLoUMfoSFg" name="fechaEmail">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92FYUkPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvSx8EPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvSx8UPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvSx8kPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvTZAEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvbU0EPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvbU0UPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFU_cEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFWNkEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFW0oEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFXbsEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFtZ8EPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFtZ8UPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-U6pb0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6pcEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-U6pcUPgEeymmLoUMfoSFg" name="LocalDate">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_90F0QEPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-U6pckPgEeymmLoUMfoSFg" name="name">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92F_Y0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-U6pc0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92GmcEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-U6pdEPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6pdUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-U6pdkPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-U6pd0PgEeymmLoUMfoSFg" name="email">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92GmcUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-U6peEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92GmckPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-U6peUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6pekPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-U6pe0PgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-U6pfEPgEeymmLoUMfoSFg" name="subject">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Gmc0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-U6pfUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92HNgEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-U6pfkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6pf0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-U6pgEPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-U6pgUPgEeymmLoUMfoSFg" name="message">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92HNgUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-U6pgkPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92HNgkPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-U6pg0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-U6phEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-U6phUPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_-WA1kEPgEeymmLoUMfoSFg" name="UserRolVO" associationsIn="_-V8kIEPgEeymmLoUMfoSFg" associationsOut="_-V79EEPgEeymmLoUMfoSFg _-V8kIUPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_9vdy8EPgEeymmLoUMfoSFg"/>
+    <visualProperties xmi:id="_-WA1kUPgEeymmLoUMfoSFg" position="748.0,278.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_-WA1kkPgEeymmLoUMfoSFg" name="Table">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vlHsEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-WA1k0PgEeymmLoUMfoSFg" name="JPA1StyledElement">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vluwEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-WA1lEPgEeymmLoUMfoSFg" name="Annotations">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vmV0EPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <visibility xmi:id="_-WA1lUPgEeymmLoUMfoSFg" label="+"/>
+    <attributes xmi:id="_-WA1lkPgEeymmLoUMfoSFg" name="iduserrol">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92N7M0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-WA1l0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92OiQEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-WA1mEPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92OiQUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-WA1mUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WA1mkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WA1m0PgEeymmLoUMfoSFg" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WA1nEPgEeymmLoUMfoSFg" name="user">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92PJVUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvY4k0PiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvZfoEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvZfoUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvZfokPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_Dvb74EPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_Dvci8EPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFohcEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFohcUPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFpIgEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFpIgUPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFvPIEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFvPIUPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-WA1n0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WA1oEPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WA1oUPgEeymmLoUMfoSFg" name="UserVO">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9voLAEPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-WA1okPgEeymmLoUMfoSFg" name="rol">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92PwZEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvXqcEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvXqcUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvYRgEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvYRgUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_Dvci8UPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_Dvci8kPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFkQAEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFk3EEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFmFMEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFmFMUPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFv2MEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFwdQEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-WA1pUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-WA1pkPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-WA1p0PgEeymmLoUMfoSFg" name="RolVO">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9vUB8EPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_-VuhuUPgEeymmLoUMfoSFg" comments="_-VpCIEPgEeymmLoUMfoSFg" targetConnectionVisual="_-VpCIUPgEeymmLoUMfoSFg" name="PedidoVO" associationsOut="_-VppMEPgEeymmLoUMfoSFg _-VppMUPgEeymmLoUMfoSFg _-Vt6oEPgEeymmLoUMfoSFg _-VuhsEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_9vEKUEPgEeymmLoUMfoSFg"/>
+    <visualProperties xmi:id="_-VuhukPgEeymmLoUMfoSFg" position="1043.0,471.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_-Vuhu0PgEeymmLoUMfoSFg" name="Table">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vOiYEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-VuhvEPgEeymmLoUMfoSFg" name="JPA1StyledElement">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vPJcEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-VuhvUPgEeymmLoUMfoSFg" name="Annotations">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vQXkEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <visibility xmi:id="_-VuhvkPgEeymmLoUMfoSFg" label="+"/>
+    <attributes xmi:id="_-Vuhv0PgEeymmLoUMfoSFg" name="id_pedido">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92HNg0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VuhwEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92H0kEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-VuhwUPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92H0kUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VuhwkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-Vuhw0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvIwEPgEeymmLoUMfoSFg" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvIwUPgEeymmLoUMfoSFg" name="fechaPedido">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92H0lUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvTZAUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvUAEEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvUAEUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvUnIEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvdKAEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvdKAUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFYCwEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFYp0EPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFZQ4EPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFZQ4UPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFyScEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFyScUPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-VvIxEPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvIxUPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvIxkPgEeymmLoUMfoSFg" name="LocalDate">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_90F0QEPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvIx0PgEeymmLoUMfoSFg" name="nombre_remitente">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92IbpEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvIyEPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92JCsEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvIyUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvIykPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvIy0PgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvIzEPgEeymmLoUMfoSFg" name="dir_remitente">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92JCsUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvIzUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92JCskPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvIzkPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvIz0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI0EPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI0UPgEeymmLoUMfoSFg" name="telefono_remitente">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92JpwEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvI0kPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92JpwUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvI00PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI1EPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI1UPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI1kPgEeymmLoUMfoSFg" name="nombre_destinatario">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92JpwkPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvI10PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92Jpw0PgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvI2EPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI2UPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI2kPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI20PgEeymmLoUMfoSFg" name="dir_destinatario">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92KQ0EPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvI3EPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92KQ0UPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvI3UPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI3kPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI30PgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI4EPgEeymmLoUMfoSFg" name="telefono_destinatario">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92KQ0kPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvI4UPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92KQ00PgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvI4kPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI40PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI5EPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI5UPgEeymmLoUMfoSFg" name="status">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92KQ1EPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvI5kPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92K34EPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvI50PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI6EPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI6UPgEeymmLoUMfoSFg" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI6kPgEeymmLoUMfoSFg" name="comentarios">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92K34UPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-VvI60PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92K34kPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-VvI7EPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI7UPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI7kPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI70PgEeymmLoUMfoSFg" name="fecha_entregado">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92K340PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvUnIUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvVOMEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvVOMUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvVOMkPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DveYIEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DveYIUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFbGEEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFbGEUPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFcUMEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFc7QEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iF0usEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iF180EPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-VvI8kPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI80PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI9EPgEeymmLoUMfoSFg" name="LocalDate">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_90F0QEPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI9UPgEeymmLoUMfoSFg" name="cliente">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92Le9EPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvV1QEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvV1QUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvWcUEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvWcUUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_Dve_MEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_Dve_MUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFdiUEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFeJYEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFewcEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFfXgEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iF3K8EPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iF3K8UPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-VvI-EPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI-UPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvI-kPgEeymmLoUMfoSFg" name="UserVO">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9voLAEPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-VvI-0PgEeymmLoUMfoSFg" name="rider">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92MGA0PgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_DvWcUkPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvXDYEPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvXDYUPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvXDYkPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_DvfmQEPiEeymmLoUMfoSFg" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_DvfmQUPiEeymmLoUMfoSFg" name="Annotations"/>
+      <stereotypes xmi:id="_iFgloEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFia0EPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iFjo8EPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iFjo8UPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <stereotypes xmi:id="_iF3yAEPmEeyy4K5sGGVGZQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_iF4ZEEPmEeyy4K5sGGVGZQ" name="Annotations"/>
+      <visibility xmi:id="_-VvI_kPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-VvI_0PgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-VvJAEPgEeymmLoUMfoSFg" name="UserVO">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_9voLAEPgEeymmLoUMfoSFg"/>
+      </type>
+    </attributes>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_-V45wEPgEeymmLoUMfoSFg" name="RolVO" associationsIn="_-V79EEPgEeymmLoUMfoSFg">
+    <modelElement href="carlosmenendez_PROYECTO.uml#_9vUB8EPgEeymmLoUMfoSFg"/>
+    <visualProperties xmi:id="_-V45wUPgEeymmLoUMfoSFg" position="754.0,441.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_-V45wkPgEeymmLoUMfoSFg" name="Table">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vbWsEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-V45w0PgEeymmLoUMfoSFg" name="JPA1StyledElement">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vb9wEPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <stereotypes xmi:id="_-V45xEPgEeymmLoUMfoSFg" name="Annotations">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_9vck0EPgEeymmLoUMfoSFg"/>
+    </stereotypes>
+    <visibility xmi:id="_-V45xUPgEeymmLoUMfoSFg" label="+"/>
+    <attributes xmi:id="_-V45xkPgEeymmLoUMfoSFg" name="idrol">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92MtEUPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-V45x0PgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92MtEkPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-V45yEPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92NUIEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-V45yUPgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-V45ykPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-V45y0PgEeymmLoUMfoSFg" name="int">
+        <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_-V45zEPgEeymmLoUMfoSFg" name="nombre">
+      <modelElement href="carlosmenendez_PROYECTO.uml#_92NUJEPgEeymmLoUMfoSFg"/>
+      <stereotypes xmi:id="_-V45zUPgEeymmLoUMfoSFg" name="LegacyStyledElement">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92NUJUPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <stereotypes xmi:id="_-V45zkPgEeymmLoUMfoSFg" name="Annotations">
+        <modelElement href="carlosmenendez_PROYECTO.uml#_92N7MEPgEeymmLoUMfoSFg"/>
+      </stereotypes>
+      <visibility xmi:id="_-V45z0PgEeymmLoUMfoSFg" label="-"/>
+      <cardinality xmi:id="_-V450EPgEeymmLoUMfoSFg" label="1" max="1" min="1"/>
+      <type xmi:id="_-V450UPgEeymmLoUMfoSFg" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

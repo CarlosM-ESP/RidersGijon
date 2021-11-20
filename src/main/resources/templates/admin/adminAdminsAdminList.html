@@ -55,9 +55,17 @@
    <!-- Configuración DataTable -->
 	<script>
 		$(document).ready(function(){
-    		$('#tablaAdminTotales').DataTable({
-    			"pageLength": 5
-    			/* ,"dom" : 'lfrtip' */
+    		$('#tablaAdminTotales').DataTable({    		
+    			stateSave: true,
+    			"dom" : 'lfrtip',
+    			"columns": [
+    				{ "width": "10%" },
+    				{ "width": "10%" },
+    				{ "width": "10%" },
+    				{ "width": "10%" },
+    				{ "width": "25%" },
+    				{ "width": "5%" }    				  
+    			]
     		});
 		});  
 	</script>  

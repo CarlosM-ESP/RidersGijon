@@ -56,18 +56,12 @@ public class UserVO implements UserDetails{
 	private String vehiculo;
 	private boolean isActive;
 	
-	
-	
-	
-	
-	
 	//Requerido para poder recoger los roles del usuario
 	//Se utiliza el fetch EAGER para que los incluya automáticamente al generar un objeto UserVO
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
-    List<UserRolVO> roles;
+    List<UserRolVO> roles;	
 	
-	
-	//Devuelve una lista de los privilegios que tiene uhn usuario
+	//Devuelve una lista de los privilegios que tiene un usuario
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {		
         List<GrantedAuthority> privilegios = new ArrayList<>();
@@ -77,28 +71,23 @@ public class UserVO implements UserDetails{
 	}
 	
 	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
+	public String getUsername() {	
 		return null;
 	}
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
+	public boolean isEnabled() {	
 		return true;
 	}
 
@@ -122,6 +111,5 @@ public class UserVO implements UserDetails{
 	 */
 	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
-	}
-	
+	}	
 }
