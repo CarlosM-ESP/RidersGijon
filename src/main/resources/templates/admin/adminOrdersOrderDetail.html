@@ -73,7 +73,7 @@
 								<label for="inputFechaPedido">Fecha Pedido</label>
 								<input type="text" id="inputFechaPedido" name="fechaPedido"
 									class="form-control" th:field="*{fechaPedido}"
-									placeholder="Fecha Pedido" required autofocus>
+									placeholder="Fecha Pedido" required>
 							</div>
 							<div class="col">
 								<label for="inputFechaEntrega">Fecha Entrega del Pedido</label>
@@ -161,7 +161,7 @@
 								<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
 
 								<h5>
-									<a class="btn btn-info bg-primary m-2"
+									<a class="btn btn-info bg-primary m-2" autofocus
 										th:href="@{/admin/orderList}" href="#">Volver</a>
 								</h5>
 							</div>

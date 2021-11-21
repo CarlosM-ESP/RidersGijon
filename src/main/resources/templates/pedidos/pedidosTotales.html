@@ -24,8 +24,10 @@
     				<span th:case="'0'">Nuevo</span>
     				<span th:case="'1'">Asignado</span>
     				<span th:case="'2'">Entregado</span>
+    				<!-- 
     				<span th:case="'3'">Cancelado</span>
     				<span th:case="'4'">OnHold</span>
+    				-->
 				</td>		        	        
 		        <td>
 		        <a class="nav-item nav-link" 
@@ -61,8 +63,6 @@
     				<span th:case="'0'">Nuevo</span>
     				<span th:case="'1'">Asignado</span>
     				<span th:case="'2'">Entregado</span>
-    				<span th:case="'3'">Cancelado</span>
-    				<span th:case="'4'">OnHold</span>
 				</td>		      	        
 		        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
 							    href="#">Detalles</a></td>	        
@@ -93,8 +93,6 @@
     				<span th:case="'0'">Nuevo</span>
     				<span th:case="'1'">Asignado</span>
     				<span th:case="'2'">Entregado</span>
-    				<span th:case="'3'">Cancelado</span>
-    				<span th:case="'4'">OnHold</span>
 				</td>		   	        
 		        <td><a class="nav-item nav-link" th:href="@{orderDetail(id_pedido=${pedido.id_pedido})}"
 							    href="#">Detalles</a></td>	        							    	        
