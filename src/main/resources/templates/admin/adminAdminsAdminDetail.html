@@ -52,7 +52,10 @@
 					</div>
 				</div>
 			</div>
+			
+			<div th:if="${adminLogueado} == ${detalleUser.id_user}">
 			<h5><a class="btn btn-info bg-primary m-2" th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" href="#">Cambiar Contraseña</a></h5>
+			</div>
 		</div>	
 		
 		<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
@@ -79,8 +82,6 @@
 				
 				<label for="inputTelefono">Teléfono</label>
 				<input	type="text" id="inputTelefono" name="telefono" class="form-control" th:field="*{telefono}" placeholder="Teléfono" required>
-				
-				
 					
 				<label for="inputNick">Nick del Usuario</label>
 				<input	type="text" id="inputNick" name="nick" class="form-control" th:field="*{nick}" placeholder="Nick" required>
@@ -88,12 +89,8 @@
 				<label for="inputEmail">Email address</label>
 				<input	type="email" id="inputEmail" name="email" class="form-control" th:field="*{email}" placeholder="Email address" required>
 				
-				<!-- Los roles son una lista por lo que se deben mostrar de otram manera -->
-				<!-- <label for="inputRoles">Roles</label>
-				<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles"> -->
 											
-				<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-				
+				<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>				
 				<h5><a class="btn btn-info bg-primary m-2" autofocus th:href="@{/admin/adminList}" href="#">Volver</a></h5>
 					
 			</form>

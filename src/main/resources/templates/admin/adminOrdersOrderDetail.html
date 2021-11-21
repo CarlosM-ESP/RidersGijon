@@ -82,7 +82,6 @@
 								placeholder="Fecha Entrega de Pedido">
 							</div>
 						</div>						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreRemitente">Nombre Remitente</label>
@@ -103,7 +102,6 @@
 									placeholder="Teléfono remitente" required>
 							</div>
 						</div>						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreDestinatario">Nombre Destinatario</label>
@@ -126,8 +124,7 @@
 									th:field="*{telefono_destinatario}"
 									placeholder="Teléfono destinatario" required>
 								</div>
-						</div>
-											
+						</div>											
 						<div class="form-row">
 							<div class="col">						
 								<label for="inputCliente">Cliente</label>
@@ -144,8 +141,7 @@
 										th:value="${rider.id_user}" th:text="${rider.nick}"></option>										
 								</select>
 							</div>
-						</div>
-						
+						</div>						
 						<div class="form-row">
 							<div class="col">	
 								<label for="inputComentarios">Comentarios</label>
@@ -159,7 +155,6 @@
 									th:field="*{status}" placeholder="Status Pedido" required>
 							
 								<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-
 								<h5>
 									<a class="btn btn-info bg-primary m-2" autofocus
 										th:href="@{/admin/orderList}" href="#">Volver</a>
@@ -175,7 +170,6 @@
 
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>
-
 	</div>
 	<!-- Fin container principal -->
 

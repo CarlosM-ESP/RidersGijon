@@ -20,10 +20,7 @@
 				 	href="#">Disponibles</a>
 				<a class="nav-item nav-link" th:href="@{/riders/entregas}"
 				 	href="#">Entregas</a>				 	
-				 
-				<!-- Si venimos del area de admin muestra este enlace para volver a Admin
-				usamos un atributo de sesion creado en el UserController userLogin -->
-				
+				 			
 				<div th:if="${session.tipoUsuario == 'ADMIN'}">
 					<a class="nav-item nav-link" th:href="@{/admin}" href="#">Volver a ADMIN</a>
 				</div>						 

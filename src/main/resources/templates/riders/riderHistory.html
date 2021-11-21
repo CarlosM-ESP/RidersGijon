@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es" xmlns:th="thymeleaf.org">
 <head>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +12,11 @@
  <!-- DataTables -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
-   <!-- Custom css  -->
-<link rel="stylesheet" href="../css/styles.css">
-  <title>RidersRiderHistory</title>
+    
+<!-- Custom css  -->
+	<link rel="stylesheet" href="../css/styles.css">
+
+	<title>RidersRiderHistory</title>
 </head>
 
 <body>
@@ -26,22 +29,8 @@
    <section>
         <div class="row indexBody">        	          	
           	<div class="col-12 bg-light">
-            	<h2 class = "text-center">Pedidos</h2>            	              
-				
-				
-				
-				
-				
-				<!--Definir tabla de los peidod de este cliente
-				
-				HACER EL FILTRO POR RIDER PARA GENERAR EL LISTADO
-				
-				Si no tiviera pedidos mostrar emnsaje perosnalizado---Tabla Pedidos Totales-->
-	  			<div th:insert="pedidos/pedidosTotales :: pedidosRider"></div>    
-       		
-       		
-       		
-       		
+            	<h2 class = "text-center">Pedidos</h2>            	
+	  			<div th:insert="pedidos/pedidosTotales :: pedidosRider"></div>       		
        		</div>          	
         </div>
     </section>

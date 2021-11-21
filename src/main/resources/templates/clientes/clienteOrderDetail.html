@@ -50,8 +50,7 @@
 							class="form-control" th:field="*{fecha_entregado}"
 							placeholder="--NO ASIGNADA--" disabled>
 						</div>
-					</div>						
-					
+					</div>					
 					<div class="form-row">
 						<div class="col">
 							<label for="inputNombreRemitente">Nombre Remitente</label>
@@ -71,8 +70,7 @@
 								class="form-control" th:field="*{telefono_remitente}"
 								placeholder="Teléfono remitente" disabled>
 						</div>
-					</div>						
-					
+					</div>
 					<div class="form-row">
 						<div class="col">
 							<label for="inputNombreDestinatario">Nombre Destinatario</label>
@@ -96,7 +94,6 @@
 								placeholder="Teléfono destinatario" disabled>
 							</div>
 					</div>
-					
 					<div class="form-row">
 						<div class="col">	
 							<label for="inputComentarios">Comentarios</label>
@@ -113,18 +110,7 @@
 							<h5>
 								<a class="btn btn-info m-2" autofocus
 									th:href="@{history}" href="#">Volver</a>
-							</h5>
-									<!--NO HAY TIEMPO
-										todo Comprobar como usar el status para condicionar el estado de este boton  -->
-									<!-- 
-   									<span th:if="${status} == 0">
-   									<a class="btn btn-danger btn-lg  m-4"										
-									th:href="@{orderDelete(id_pedido=${id})}" href="#">Cancelar el Pedido[Pendiente de seleccionar Status]</a>
-   									</span>
-   									<span th:unless="${status} == 0">
-   										<a class="btn btn-danger btn-lg  m-4" href="#">No se puede Cancelar este pedido</a>
-   									</span>
-   									-->							
+							</h5>								
 						</div>
 					</div>						
 				</form>

@@ -20,11 +20,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author CarlosM
- *
- */
-
 //Anotaciones Lombock
 //Getters, Setters, Constructores con y sin argumentos
 //toString(), equals(), hascode()

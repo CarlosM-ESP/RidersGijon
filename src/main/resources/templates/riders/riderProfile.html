@@ -23,15 +23,13 @@
 		<div th:insert="templates/navbarRiders :: navbarRiders"></div>
 		
    <!-- Cuerpo Principal -->
-		<section>
-		
+		<section>		
 			 <div class="row">
 				<div class="col-12 d-sm-block bg-light text-center">
 					<h5 class="text-center" th:text="'Cliente: '+ ${detalleUser.nick}">Detalle
 						user</h5>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
 					<h5>
@@ -40,7 +38,6 @@
 							href="#">Cambiar Contraseña</a>
 					</h5>
 				</div>
-
 				<div class="col-12 col-sm-8 col-md-8 bg-light text-center">
 					<form th:action="@{/riders/profile}" method="post"
 						class="form-signin" th:object="${detalleUser}">
@@ -50,49 +47,38 @@
 						<input type="hidden" name="password" th:field="*{password}">
 						<input type="hidden" name="isActive" th:field="*{isActive}">
 
-						<label for="inputNombre">Nombre</label> <input type="text"
-							id="inputNombre" name="nombre" class="form-control"
+						<label for="inputNombre">Nombre</label>
+						<input type="text" id="inputNombre" name="nombre" class="form-control"
 							th:field="*{nombre}" placeholder="Nombre" required>
-
-						<label for="inputApellido1">Primer Apellido</label> <input
-							type="text" id="inputApellido1" name="apellido1"
+						<label for="inputApellido1">Primer Apellido</label>
+						<input type="text" id="inputApellido1" name="apellido1"
 							class="form-control" th:field="*{apellido1}"
-							placeholder="Primer Apellido" required> <label
-							for="inputApellido2">Segundo Apellido</label> <input type="text"
-							id="inputApellido2" name="apellido2" class="form-control"
+							placeholder="Primer Apellido" required>
+						<label for="inputApellido2">Segundo Apellido</label>
+						<input type="text" id="inputApellido2" name="apellido2" class="form-control"
 							th:field="*{apellido2}" placeholder="Segundo Apellido" required>
-
-						<label for="inputNIF">NIF</label> <input type="text" id="inputNIF"
-							name="nif" class="form-control" th:field="*{nif}"
-							placeholder="NIF" required> <label for="inputDireccion">Dirección</label>
+						<label for="inputNIF">NIF</label>
+						<input type="text" id="inputNIF" name="nif" class="form-control" th:field="*{nif}"
+							placeholder="NIF" required>
+						<label for="inputDireccion">Dirección</label>
 						<input type="text" id="inputDireccion" name="direccion"
 							class="form-control" th:field="*{direccion}"
-							placeholder="Dirección" required> <label
-							for="inputTelefono">Teléfono</label> <input type="text"
-							id="inputTelefono" name="telefono" class="form-control"
-							th:field="*{telefono}" placeholder="Teléfono" required> <label
-							for="inputNick">Nick del Usuario</label> <input type="text"
-							id="inputNick" name="nick" class="form-control"
-							th:field="*{nick}" placeholder="Nick" required> <label
-							for="inputEmail">Email address</label> <input type="email"
-							id="inputEmail" name="email" class="form-control"
+							placeholder="Dirección" required>
+						<label for="inputTelefono">Teléfono</label>
+						<input type="text" id="inputTelefono" name="telefono" class="form-control"
+							th:field="*{telefono}" placeholder="Teléfono" required>
+						<label for="inputNick">Nick del Usuario</label>
+						<input type="text" id="inputNick" name="nick" class="form-control"
+							th:field="*{nick}" placeholder="Nick" required>
+						<label for="inputEmail">Email address</label>
+						<input type="email" id="inputEmail" name="email" class="form-control"
 							th:field="*{email}" placeholder="Email address" required>
-
-						<!-- Los roles son una lista por lo que se deben mostrar de otra manera -->
-						<!-- 
-				<label for="inputRoles">Roles</label>
-				<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles">
-				 -->
-						
-
+							
 						<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-
 						<h5>
 							<a class="btn btn-info bg-primary m-2" autofocus
 								th:href="@{/riders/history}" href="#">Volver</a>
 						</h5>
-
-
 					</form>
 				</div>
 				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>
@@ -101,17 +87,9 @@
 		</section>
 
     <!-- Footer -->
-    <!-- todo PORQUE NO HAY STICKY FOOTER AQUI?????? -->
-    
-    
 		<footer class="footer row">
 			<div class="col-12 bg-dark text-white text-center">CopyRight&copy; 2020. J. Carlos Menéndez Martínez. Proyecto DAW CIFP La Laboral (Gijón)</div>
-		</footer> 
-		
-		
-		
-		
-		
+		</footer>	
   </div><!-- Fin container principal -->
 
   <script src="../js/jquery-3.5.1.min.js"></script>

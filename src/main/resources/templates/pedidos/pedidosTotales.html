@@ -24,10 +24,6 @@
     				<span th:case="'0'">Nuevo</span>
     				<span th:case="'1'">Asignado</span>
     				<span th:case="'2'">Entregado</span>
-    				<!-- 
-    				<span th:case="'3'">Cancelado</span>
-    				<span th:case="'4'">OnHold</span>
-    				-->
 				</td>		        	        
 		        <td>
 		        <a class="nav-item nav-link" 
@@ -40,6 +36,7 @@
     	</tbody>
 	</table>
 </div>
+
 <div th:fragment="pedidosRider">
 	<table id="tablaPedidosRiders" class="dataTable display compact">
 		<thead>
@@ -49,8 +46,7 @@
 				<th>Destinatario</th>				
 				<th>Cliente</th>				
 				<th>Status</th>
-				<th></th>
-				
+				<th></th>				
 			</tr>
 		</thead>
  		<tbody>
@@ -70,6 +66,7 @@
     	</tbody>
 	</table>
 </div>
+
 <div th:fragment="pedidosCliente">
 	<table id="tablaPedidosClientes" class="dataTable display compact">
 		<thead>
@@ -79,8 +76,7 @@
 				<th>Destinatario</th>
 				<th>Rider</th>
 				<th>status</th>
-				<th></th>
-				
+				<th></th>				
 			</tr>
 		</thead>
  		<tbody>

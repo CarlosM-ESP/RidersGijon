@@ -78,78 +78,58 @@
 
 						<div class="form-row">
 							<div class="col">
-								<label for="inputNombre">Nombre</label> <input type="text"
-									id="inputNombre" name="nombre" class="form-control"
+								<label for="inputNombre">Nombre</label>
+								<input type="text" id="inputNombre" name="nombre" class="form-control"
 									th:field="*{nombre}" placeholder="Nombre" required>
 							</div>
-
 							<div class="col">
-								<label for="inputApellido1">Primer Apellido</label> <input
-									type="text" id="inputApellido1" name="apellido1"
+								<label for="inputApellido1">Primer Apellido</label>
+								<input type="text" id="inputApellido1" name="apellido1"
 									class="form-control" th:field="*{apellido1}"
 									placeholder="Primer Apellido" required>
 							</div>
-
 							<div class="col">
-								<label for="inputApellido2">Segundo Apellido</label> <input
-									type="text" id="inputApellido2" name="apellido2"
+								<label for="inputApellido2">Segundo Apellido</label>
+								<input type="text" id="inputApellido2" name="apellido2"
 									class="form-control" th:field="*{apellido2}"
 									placeholder="Segundo Apellido" required>
 							</div>
-
 						</div>
-
-
-						<label for="inputNIF">NIF</label> <input type="text" id="inputNIF"
-							name="nif" class="form-control" th:field="*{nif}"
-							placeholder="NIF" required> <label for="inputDireccion">Dirección</label>
+						<label for="inputNIF">NIF</label>
+						<input type="text" id="inputNIF" name="nif" class="form-control" th:field="*{nif}"
+							placeholder="NIF" required>
+						<label for="inputDireccion">Dirección</label>
 						<input type="text" id="inputDireccion" name="direccion"
 							class="form-control" th:field="*{direccion}"
-							placeholder="Dirección" required> <label
-							for="inputTelefono">Teléfono</label> <input type="text"
-							id="inputTelefono" name="telefono" class="form-control"
-							th:field="*{telefono}" placeholder="Teléfono" required> <label
-							for="inputNick">Nick del Usuario</label> <input type="text"
-							id="inputNick" name="nick" class="form-control"
-							th:field="*{nick}" placeholder="Nick" required> <label
-							for="inputEmail">Email address</label> <input type="email"
-							id="inputEmail" name="email" class="form-control"
+							placeholder="Dirección" required>
+						<label for="inputTelefono">Teléfono</label>
+						<input type="text" id="inputTelefono" name="telefono" class="form-control"
+							th:field="*{telefono}" placeholder="Teléfono" required>
+						<label for="inputNick">Nick del Usuario</label>
+						<input type="text" id="inputNick" name="nick" class="form-control"
+							th:field="*{nick}" placeholder="Nick" required>
+						<label for="inputEmail">Email address</label>
+						<input type="email"	id="inputEmail" name="email" class="form-control"
 							th:field="*{email}" placeholder="Email address" required>
-
-						<label for="inputVehiculo">Vehículo del Rider</label> <input
-							type="text" id="inputVehiculo" name="vehiculo"
+						<label for="inputVehiculo">Vehículo del Rider</label>
+						<input type="text" id="inputVehiculo" name="vehiculo"
 							class="form-control" th:field="*{vehiculo}"
-							placeholder="Vehículo" required> <label
-							for="inputMatricula">Matricula del Vehículo</label> <input
-							type="text" id="inputMatricula" name="matricula"
+							placeholder="Vehículo" required>
+						<label for="inputMatricula">Matricula del Vehículo</label>
+						<input type="text" id="inputMatricula" name="matricula"
 							class="form-control" th:field="*{matricula}"
 							placeholder="Matrícula" required>
-
-
-
-						<!-- Los roles son una lista por lo que se deben mostrar de otra manera -->
-						<!-- <label for="inputRoles">Roles</label>
-				4<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles"> -->
-
-
-
-						<!-- <input type="hidden" name="isActive" th:field="*{isActive}"> -->
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" name="isActive"
 								th:field="*{isActive}" th:value="*{isActive}" id="inputActive">
 							<label class="form-check-label" for="inputActive">Activo?</label>
 						</div>
 
-
-
 						<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-
 						<h5>
 							<a class="btn btn-info bg-primary m-2" autofocus
 								th:href="@{/admin/riderList}" href="#">Volver</a>
 						</h5>
-
-
 					</form>
 				</div>
 				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>
@@ -158,7 +138,6 @@
 
 		<!-- Footer -->
 		<div th:insert="templates/footer :: footer"></div>
-
 	</div>
 	<!-- Fin container principal -->
 

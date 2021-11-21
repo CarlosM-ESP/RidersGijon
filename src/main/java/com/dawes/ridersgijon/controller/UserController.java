@@ -51,21 +51,22 @@ public class UserController {
 	PedidoService pedidoService;
 	
 	/**
-	 * Página home de accesoa la aplicación
+	 * Página home de acceso a la aplicación
 	 * @return
 	 */
 	@GetMapping("/")
 	public String inicio() {
 		return "index";
 	}
+	
 	/**
 	 * Página de inicio
 	 * @return
 	 */
 	@GetMapping("/index")
-	public String index() {
+	public String index(HttpSession session) {
 		return "index";
-	}	
+	}
 
 	/**
 	 * Página vista de LOGIN USUARIO	
@@ -80,6 +81,7 @@ public class UserController {
 	
 	/**
 	 * Mapeo definido en securityConfig tras logueo exitoso
+	 * Redirección a cada usuario a su área de la aplicación
 	 * @param model
 	 * @param session
 	 * @return
@@ -87,9 +89,7 @@ public class UserController {
 	@GetMapping("/loginUser")	
 	//Pasamos un atributos HttpSession para poder personalizar a voluntad las vistas en función del usuario
 	public String getUserLoginPage(Model model, HttpSession session){			
-	    if (userService.isAuthenticated()) {
-	    	//Le pasamos el nombre de usuario
-	    	//Decidir cual de los dos nos quedamos
+	    if (userService.isAuthenticated()) {	   
 	    	model.addAttribute("nick", userService.findUserLogged().getNick());
 	    	session.setAttribute("nick", userService.findUserLogged().getNick());
 	    	
@@ -119,12 +119,10 @@ public class UserController {
 		//todo Como hacer esto sin crear una entidad?????		
 		model.addAttribute("user", new EmailVO());
 		return "contact";
-	}
-	
-	//Envio de Emails desde contactos...PRUEBAS*****************************************	
+	}	
 	
 	/**
-	 * Proceso de Envío de Emails según datos de contacto
+	 * Envío Email formulario de Contacto
 	 * @param emailData
 	 * @param model
 	 * @return
@@ -154,7 +152,7 @@ public class UserController {
 	}
 
 	/**
-	 * Log out segñun spring securitu requiere
+	 * Log out. Requerido por Spring Security
 	 * @return
 	 */
 	@GetMapping("/logout")
@@ -163,7 +161,7 @@ public class UserController {
 	}
 	
 	/**
-	 * Registro de nuevo usuario	 * 
+	 * Registro de nuevo usuario 
 	 * @param model
 	 * @return
 	 */
@@ -176,6 +174,9 @@ public class UserController {
 	
 	/**
 	 * Guardar nuevo Usuario 
+	 * @param user
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/register")
 	public String registerSuccess(@ModelAttribute UserVO user, Model model){		
@@ -218,7 +219,7 @@ public class UserController {
 		model.addAttribute("newPassword1", newPassword1);
 		model.addAttribute("newPassword2", newPassword2);
 		model.addAttribute("id_user", id_user);
-		//Redirección según tipo de Cliente
+		//Redirección según tipo de usuario tras el cambio de contraseña
 		//TODO Feo.Intentar buscar otra forma
 		String tipoUsuario = userService.findUserLogged().getUser_type();
 		if(tipoUsuario.equals("CLIENT")) {

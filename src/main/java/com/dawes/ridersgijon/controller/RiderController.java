@@ -62,7 +62,7 @@ public class RiderController {
 		return "/riders/riderProfile";
 	}
 	
-	/*
+	/**
 	 * Actualización de datos de un rider
 	 */
 	@PostMapping ("/profile")
@@ -89,7 +89,7 @@ public class RiderController {
 	}
 	
 	/**
-	 * Vista de página de pedidos disponibles para un rider (nuevos)
+	 * Vista de página de pedidos disponibles para un rider (Nuevos. Status = 0)
 	 */
 	@GetMapping ("/available")
 	public String riderAvailableOrders(Model model){
@@ -99,13 +99,12 @@ public class RiderController {
 	}
 	
 	/**
-	 * Vista de Detalles de un Pedido Disponible para Riders 
+	 * Vista de Detalles de un Pedido Disponible para un rider 
 	 */
 	@GetMapping ("/orderDetailAvailable")
 	public String orderDetailAvailable(@RequestParam(name="id_pedido") int id_pedido,  Model model){
 		//Le pasamos el nombre de usuario autenticado
-    	model.addAttribute("nick", userService.findUserLogged().getNick());
-    	
+    	model.addAttribute("nick", userService.findUserLogged().getNick());    	
     	//Le pasamos el id del pedido para mostrarlo en la cabecera del formulario
     	model.addAttribute("id", id_pedido );
     	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
@@ -118,7 +117,7 @@ public class RiderController {
 	}
 	
 	/**	 
-	 * Actualización de un pedido a ASIGNADO a un rider 
+	 * Actualización de status de un pedido a "ASIGNADO" por el rider 
 	 */
 	@PostMapping("/orderDetailAvailable")
 	public String orderAssigned(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){
@@ -143,16 +142,12 @@ public class RiderController {
 	 */
 	@GetMapping ("/orderDetailEntrega")
 	public String orderDetailEntrega(@RequestParam(name="id_pedido") int id_pedido,  Model model){
-		//Le pasamos el nombre de usuario autenticado
-   	model.addAttribute("nick", userService.findUserLogged().getNick());   	
+	//Le pasamos el nombre de usuario autenticado
+		model.addAttribute("nick", userService.findUserLogged().getNick());   	
    	//Le pasamos el id del pedido para mostrarlo en la cabecera del formulario
-   	model.addAttribute("id", id_pedido );
+		model.addAttribute("id", id_pedido );
    	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
-   	model.addAttribute("detallePedido", pedidoService.findById(id_pedido));    	
-   	//Lista de Clientes para usar un select en el formulario    	
-   	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
-   	//Lista de Riders para usar un select en el formulario   	
-   	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
+		model.addAttribute("detallePedido", pedidoService.findById(id_pedido));
 		return "/riders/riderOrderDetailEntrega";	
 	}
 	

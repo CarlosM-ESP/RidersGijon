@@ -1,6 +1,7 @@
 package com.dawes.ridersgijon.controller;
 
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,10 +33,12 @@ public class AdminController {
 	@Autowired
 	UserRolService userRolService;
 	
-//ADMINISTRACION*************************************************************************
+//ADMINISTRACION*************************************************************************	
 	
 	/**
 	 * Pantalla de Inicio de Administrador tras autenticación
+	 * @param model
+	 * @return
 	 */
 	@GetMapping ("")
 	public String admin(Model model){
@@ -44,8 +47,12 @@ public class AdminController {
     	//Con redirect recargamos la página para mostrar la lista actualizda
 		return "redirect:/admin/adminList";
 	}
+
+	
 	/**
 	 * Listado de usuarios administradores
+	 * @param model
+	 * @return
 	 */
 	@GetMapping ("/adminList")
 	public String adminList(Model model){
@@ -56,8 +63,12 @@ public class AdminController {
 		return "/admin/adminAdminsAdminList";
 	}
 	
+	
 	/**
 	 * Actualizacion de usuario Administrador
+	 * @param detalleUser
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/adminList")
 	//Recogemos el UserVO con los datos del formulario
@@ -67,13 +78,18 @@ public class AdminController {
 		userService.save(detalleUser);		
 		return  "redirect:/admin/adminList";
 	}
+	
 	/**
 	 * Vista de detalle de datos de un Administrador. Se pasa el id por parámetro en la url
+	 * @param id_user
+	 * @param model
+	 * @return
 	 */
 	@GetMapping ("/adminDetail")
 	//Recoge el id pasado como parámetro para recuperar el el UserVO
-	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){	
-	
+	public String adminDetail(@RequestParam(name="id_user") int id_user,  Model model){
+	//Le mandamos el id del usuario logueado para comparar con el del detalle
+	model.addAttribute("adminLogueado", userService.findUserLogged().getId_user());
 	//Nick del usuario autenticado
 	model.addAttribute("nick", userService.findUserLogged().getNick());
 	//Le pasamos el UserVO para mostrar los datos en el formulario de la vista    	
@@ -81,8 +97,12 @@ public class AdminController {
 	return "/admin/adminAdminsAdminDetail";
 	}
 	
+	
 	/**
 	 * Borrar Administrador. Desde Vista de Detalle de Administrador
+	 * @param user
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/adminDelete")
 	public String adminDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
@@ -93,7 +113,7 @@ public class AdminController {
 		}else if(userService.findUserLogged().getId_user() == user.getId_user()){
 			return "/errorEliminarAutenticado";	
 		}else {				
-			//Debemos borrar primero el objeto UserRol relacionado
+		//Debemos borrar primero el objeto UserRol relacionado
 			UserRolVO userRol = userRolService.findByUser(user).get();				
 			userRolService.delete(userRol);				
 			userService.delete(user);				
@@ -101,8 +121,11 @@ public class AdminController {
 		}
 	}
 	
+	
 	/**
 	 * Vista Registro nuevo Administrador.Desde Vista de Detalle de Administrador.
+	 * @param model
+	 * @return
 	 */
 	@GetMapping("/registerAdmin")
 	public String registerAdmin(Model model) {
@@ -110,8 +133,12 @@ public class AdminController {
 		return "admin/registerAdmin";
 	}
 	
+	
 	/**
-	 * Guardar nuevo Administrador en BBDD.Desde Vista de Detalle de Administrador. Llamada a vista.
+	 * Guardar nuevo Administrador en BBDD.Desde Vista de Detalle de Administrador. Llamada a vista. 
+	 * @param user
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/registerAdmin")
 	public String registerSuccess(@ModelAttribute UserVO user, Model model){			
@@ -127,10 +154,12 @@ public class AdminController {
 	}
 		
 //CLIENTES*************************************************************************
-		
+				
 	/**
-	 * Vista de listado de clientes del area de administracion.
-	 */			
+	 * Vista de listado de clientes del área de administración.
+	 * @param model
+	 * @return
+	 */
 	@GetMapping ("/clientList")
 	public String clientList(Model model){
 		//Le pasamos el nombre de usuario autenticado
@@ -139,18 +168,24 @@ public class AdminController {
 		model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
 		return "/admin/adminClientsClientList";
 	}
-	
+		
 	/**
-	 * Actualización de datos de un Cliente
+	 * vista Actualización de datos de un Cliente
+	 * @param detalleUser
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/clientList")
 	public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
 		userService.save(detalleUser);		
 		return  "redirect:/admin/clientList";
 	}
-	
+		
 	/**
-	 * Vista de Detalles de Cliente 
+	 * Vista de Detalles de Cliente
+	 * @param id_user
+	 * @param model
+	 * @return
 	 */
 	@GetMapping ("/clientDetail")		
 	public String clientDetail(@RequestParam(name="id_user") int id_user,  Model model){
@@ -160,34 +195,37 @@ public class AdminController {
     	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
 		return "/admin/adminClientsClientDetail";
 	}
-	
+		
 	/**
 	 * Borrar Cliente. Desde Vista de Detalle de Cliente
+	 * @param user
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/clientDelete")
 	public String clientDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
 			//Eliminamos el UserRolVO asociado
 			UserRolVO userRol = userRolService.findByUser(user).get();
-			userRolService.delete(userRol);
-			
+			userRolService.delete(userRol);			
 			//Recogemos en una lista todos los pedidos de ese cliente
 			List<PedidoVO> pedidosCliente = pedidoService.findByCliente(user);
 			//Recorremos y vamos eliminando cada pedido
 			for (PedidoVO pedido : pedidosCliente) {				
 				System.out.println("Pedido: " +pedido);				
 				pedidoService.delete(pedido);				
-			}
-			
+			}			
 			//Eliminamos el usuario							
 			userService.delete(user);				
 			return "redirect:/admin/clientList";				
 		}
 	
 //RIDERS*************************************************************************
-	
+				
 	/**
 	 * Vista de listado de riders del area de administracion.
-	 */		
+	 * @param model
+	 * @return
+	 */
 	@GetMapping ("/riderList")
 	public String riderList(Model model){
 		//Le pasamos el nombre de usuario
@@ -195,10 +233,13 @@ public class AdminController {
     	//Le pasamos una colección con todos los usuarios Riders de la BBDD
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
 		return "/admin/adminRidersRiderList";
-	}	
+	}
 	
 	/**
 	 * Actualización de datos de un Rider
+	 * @param detalleUser
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/riderList")
 	public String riderUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
@@ -206,8 +247,12 @@ public class AdminController {
 		userService.save(detalleUser);		
 		return  "redirect:/admin/riderList";
 	}
+
 	/**
-	 * Vista de Detalles de Rider 
+	 * Vista de Detalles de Rider
+	 * @param id_user
+	 * @param model
+	 * @return
 	 */
 	@GetMapping ("/riderDetail")
 	public String riderDetail(@RequestParam(name="id_user") int id_user,  Model model){		
@@ -217,16 +262,18 @@ public class AdminController {
     	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
 		return "/admin/adminRidersRiderDetail";
 	}
-	
+		
 	/**
 	 * Borrar Rider. Desde Vista de Detalle de Rider
+	 * @param user
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/riderDelete")
 	public String riderDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
 			//Eliminar UserRolVO asociado al Rider
 			UserRolVO userRol = userRolService.findByUser(user).get();	
-			userRolService.delete(userRol);
-			
+			userRolService.delete(userRol);			
 			//Recogemos en una lista todos los pedidos de ese Rider
 			List<PedidoVO> pedidosRider = pedidoService.findByRider(user);
 			//Recorremos y vamos eliminando cada pedido
@@ -235,15 +282,19 @@ public class AdminController {
 				pedidoService.delete(pedido);		
 			}			
 			//Eliminamos el Rider							
-			userService.delete(userService.findById(user.getId_user()).get());
-			
+			userService.delete(userService.findById(user.getId_user()).get());			
 			return "redirect:/admin/riderList";				
 		}
 	
 //PEDIDOS*************************************************************************
 	/**
-	 * Vista de listado de Pedidos del area de administracion.
+	 * 
 	 */		
+	/** 
+	 * Vista de listado de Pedidos del area de administracion.
+	 * @param model
+	 * @return
+	 */
 	@GetMapping ("/orderList")
 	public String orderList(Model model){
 		//Le pasamos el nombre de usuario autenticado para mostrar en  el Header
@@ -255,14 +306,21 @@ public class AdminController {
 	
 	/**
 	 * Actualización de datos de un Pedido
+	 * @param detallePedido
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/orderList")
 	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){
 		pedidoService.save(detallePedido);		
 		return  "redirect:/admin/orderList";
 	}
+	
 	/**
-	 * Vista de Detalles de un Pedido 
+	 * Vista de Detalles de un Pedido
+	 * @param id_pedido
+	 * @param model
+	 * @return
 	 */
 	@GetMapping ("/orderDetail")
 	public String orderDetail(@RequestParam(name="id_pedido") int id_pedido,  Model model){
@@ -278,8 +336,12 @@ public class AdminController {
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
 		return "/admin/adminOrdersOrderDetail";
 	}
+	
 	/**
 	 * Borrar Pedido. Desde Vista de Detalle de Pedido
+	 * @param pedido
+	 * @param model
+	 * @return
 	 */
 	@PostMapping("/orderDelete")
 	public String orderDelete(@ModelAttribute("detallePedido") PedidoVO pedido, Model model) {

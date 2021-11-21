@@ -20,7 +20,6 @@
 	<div class="container-fluid">
 	
 		<div th:insert="templates/headerClientes :: headerClientes"></div>
-
 		<div th:insert="templates/navbarClientes :: navbarClientes"></div>
 
 		<!-- Cuerpo Principal -->
@@ -28,24 +27,12 @@
         <div class="row indexBody">        	          	
           	<div class="col-12 bg-light">
             	<h2 class = "text-center">Pedidos</h2>            	              
-				
-				
-				
-				
-				
-				<!--Definir tabla de los peidod de este cliente
-				Si no tiviera pedidos mostrar emnsaje perosnalizado---Tabla Pedidos Totales-->
-	  			<div th:insert="pedidos/pedidosTotales :: pedidosCliente"></div>    
-       		
-       		
-       		
-       		
+	  			<div th:insert="pedidos/pedidosTotales :: pedidosCliente"></div>
        		</div>          	
         </div>
     </section>
     <!-- Footer -->
-	<div th:insert="templates/footer :: footer"></div>
-		
+	<div th:insert="templates/footer :: footer"></div>		
   </div><!-- Fin container principal -->
   
   	<!-- JQuery -->

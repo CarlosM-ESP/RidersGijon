@@ -19,7 +19,6 @@
   <div class="container-fluid">
   
   		<div th:insert="templates/headerClientes :: headerClientes"></div>
-
 		<div th:insert="templates/navbarClientes :: navbarClientes"></div>
 		
 			<!-- Cuerpo Principal -->
@@ -31,12 +30,10 @@
 						user</h5>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
 					<h5>
-						<a 
-						class="btn btn-info bg-primary m-2" 
+						<a class="btn btn-info bg-primary m-2" 
 						th:href="@{../passwordChange(id_user=${detalleUser.id_user})}" 
 						href="#">
 						Cambiar Contraseña
@@ -53,48 +50,39 @@
 						<input type="hidden" name="password" th:field="*{password}">
 						<input type="hidden" name="isActive" th:field="*{isActive}">
 
-						<label for="inputNombre">Nombre</label> <input type="text"
-							id="inputNombre" name="nombre" class="form-control"
+						<label for="inputNombre">Nombre</label>
+						<input type="text" id="inputNombre" name="nombre" class="form-control"
 							th:field="*{nombre}" placeholder="Nombre" required>
 
-						<label for="inputApellido1">Primer Apellido</label> <input
-							type="text" id="inputApellido1" name="apellido1"
+						<label for="inputApellido1">Primer Apellido</label>
+						<input type="text" id="inputApellido1" name="apellido1"
 							class="form-control" th:field="*{apellido1}"
-							placeholder="Primer Apellido" required> <label
-							for="inputApellido2">Segundo Apellido</label> <input type="text"
-							id="inputApellido2" name="apellido2" class="form-control"
+							placeholder="Primer Apellido" required>
+						<label for="inputApellido2">Segundo Apellido</label>
+						<input type="text" id="inputApellido2" name="apellido2" class="form-control"
 							th:field="*{apellido2}" placeholder="Segundo Apellido" required>
 
-						<label for="inputNIF">NIF</label> <input type="text" id="inputNIF"
-							name="nif" class="form-control" th:field="*{nif}"
-							placeholder="NIF" required> <label for="inputDireccion">Dirección</label>
+						<label for="inputNIF">NIF</label>
+						<input type="text" id="inputNIF" name="nif" class="form-control" th:field="*{nif}"
+							placeholder="NIF" required>
+						<label for="inputDireccion">Dirección</label>
 						<input type="text" id="inputDireccion" name="direccion"
 							class="form-control" th:field="*{direccion}"
-							placeholder="Dirección" required> <label
-							for="inputTelefono">Teléfono</label> <input type="text"
-							id="inputTelefono" name="telefono" class="form-control"
-							th:field="*{telefono}" placeholder="Teléfono" required> <label
-							for="inputNick">Nick del Usuario</label> <input type="text"
-							id="inputNick" name="nick" class="form-control"
-							th:field="*{nick}" placeholder="Nick" required> <label
-							for="inputEmail">Email address</label> <input type="email"
-							id="inputEmail" name="email" class="form-control"
+							placeholder="Dirección" required>
+						<label for="inputTelefono">Teléfono</label>
+						<input type="text" id="inputTelefono" name="telefono" class="form-control"
+							th:field="*{telefono}" placeholder="Teléfono" required>
+						<label for="inputNick">Nick del Usuario</label>
+						<input type="text" id="inputNick" name="nick" class="form-control"
+							th:field="*{nick}" placeholder="Nick" required>
+						<label for="inputEmail">Email address</label>
+						<input type="email"	id="inputEmail" name="email" class="form-control"
 							th:field="*{email}" placeholder="Email address" required>
-
-						<!-- Los roles son una lista por lo que se deben mostrar de otra manera -->
-						<!-- 
-				<label for="inputRoles">Roles</label>
-				<input	type="text" id="inputRoles" name="roles" class="form-control" th:field="*{roles}" placeholder="roles">
-				 -->						
-
 						<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-
 						<h5>
 							<a class="btn btn-info bg-primary m-2" autofocus
 								th:href="@{/clientes/history}" href="#">Volver</a>
 						</h5>
-
-
 					</form>
 				</div>
 				<div class="col-12 col-sm-2 col-md-2 bg-light"></div>

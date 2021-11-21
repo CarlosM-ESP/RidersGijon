@@ -82,16 +82,16 @@ public class ClienteController {
 		return "/clientes/clientOrder";
 	}
 	
-	/*
-	 * Creación de nueva order
+	/**
+	 * Creación de un nuevo pedido
 	 */
 	@PostMapping ("/orders")
 	public String newOrder(@ModelAttribute PedidoVO pedidoVO, Model model) {
+		
 		pedidoVO.setCliente(userService.findUserLogged());
 		//Asiganmos fecha actual como fecha de pedido y status 0 => 'nuevo'
 		pedidoVO.setFechaPedido(LocalDate.now());
-		pedidoVO.setStatus(0);
-		
+		pedidoVO.setStatus(0);		
 		pedidoService.save(pedidoVO);
 		return "redirect:/clientes/history";
 	}

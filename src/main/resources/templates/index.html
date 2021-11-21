@@ -18,31 +18,23 @@
 		<!-- Header -->
 		<div th:insert="templates/headerMaster :: headerInicio"></div>
 
-		<!-- NavBar -->
-		<div th:insert="templates/navbarMaster :: navInicio"></div>
-
-		<!-- 
-***********************************************************************************************************************		
-		Pruebas autenticacion
 		
-		<div class="row indexBody">
-				<div class="col-6 col-md-6 col-lg-4 bg-light embed-responsive"></div>
-				<div class="col-6 col-md-6 col-lg-4 bg-light embed-responsive">
-				<h6>Pruebas Autenticacion-Autorizacion</h6>
-					<a th:href="@{/admin}">Area de Administracion</a>
-					<br>					
-					<a th:href="@{/clientes}">Area de Clientes</a>
-					<br>
-					<a th:href="@{/riders}">Area de Riders</a>
-					<br>
-					<a th:href="@{/pedidos}">Area de Pedidos</a>
-					<br>
-    				<a th:href="@{/logout}">LogOut</a>
-				
-				</div>
+		<div th:if="${session.tipoUsuario == 'ADMIN'}">
+					<div th:insert="templates/navbarAdmin :: navbarAdmin"></div>
 		</div>
-********************************************************************************************************************************
-		-->
+		
+		<div th:if="${session.tipoUsuario == 'CLIENT'}">
+					<div th:insert="templates/navbarClientes :: navbarClientes"></div>
+		</div>
+		
+		<div th:if="${session.tipoUsuario == 'RIDER'}">
+					<div th:insert="templates/navbarRiders :: navbarRiders"></div>
+		</div>
+		
+		<!-- NavBar -->
+		<div th:if="${session.tipoUsuario != 'RIDER' && session.tipoUsuario != 'CLIENT' && session.tipoUsuario != 'ADMIN'}">
+		<div th:insert="templates/navbarMaster :: navInicio"></div>
+		</div>
 
 		<!-- Cuerpo Principal -->
 		<section>		
@@ -68,39 +60,6 @@
 						src="https://www.gijon.es/es/eventos" frameborder="0">
 					</iframe>
 				</div>
-	<!-- PRUEBAS MAQUETACION Y BANNERS ************************************************************************-->
-	<!-- 			<div class="col-12 col-lg-4 d-none d-lg-block bg-warning">
-					PRUEBAS DE MAQUETACION DE BANNERS
-					<div class="card">
-						<img src="./img/amazon.png" class=" img-fluid card-img-top"
-							height="200px" alt="logo Amazon">
-						<div class="card-body">
-							<p class="card-text">Contenido de la Card</p>
-							<a href="https://www.amazon.es" target="_blank"
-								class="btn btn-primary">Enlace a Publicidad</a>
-						</div>
-					</div>
-					<div class="card" style="width: 10rem;">
-						<img src="./img/seur.PNG" class="card-img-top" alt="Logo Seur">
-						<div class="card-body">
-							<p class="card-text">Otro Contenido</p>
-							<a href="https://www.seur.com" target="_blank"
-								class="btn btn-primary">Enlace a Seur</a>
-						</div>
-					</div>
-					<div class="media">
-						<img src="./img/seur.PNG" class="rounded-circle mr-3"
-							alt="logo Seur">
-						<div class="media-body">
-							<h5 class="mt-0">Media heading</h5>
-							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-							scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-							vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-							nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-						</div>
-					</div>
-				</div> -->
-<!-- FIN PRUEBAS DE MAQUETACION DE BANNER**************************************************************************** -->
 			</div><!-- Fin row -->
 		</section>
 	

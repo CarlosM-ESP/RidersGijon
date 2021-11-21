@@ -11,9 +11,6 @@
  <!-- DataTables -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
- 
- 
- 
 
    <!-- Custom css  -->
 <link rel="stylesheet" href="../css/styles.css">
@@ -27,7 +24,6 @@
 
 		<div th:insert="templates/navbarRiders :: navbarRiders"></div>
 		
-
 <!-- Cuerpo Principal -->
 		<section>
 			<div class="row">
@@ -36,10 +32,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 col-sm-2 col-md-2 bg-light text-center">
-							
-				</div>
-
+				<div class="col-12 col-sm-2 col-md-2 bg-light text-center"></div>
 				<div class="col-12 col-sm-8 col-md-8 bg-light">				
 <!-- COMIENZO FORMULARIO -->
 					<form th:action="@{/riders/orderList}" method="post"
@@ -61,7 +54,6 @@
 								placeholder="--SIN ASIGNAR--" disabled>
 							</div>
 						</div>						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreRemitente">Nombre Remitente</label>
@@ -82,7 +74,6 @@
 									placeholder="Teléfono remitente" disabled>
 							</div>
 						</div>						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreDestinatario">Nombre Destinatario</label>
@@ -105,8 +96,7 @@
 									th:field="*{telefono_destinatario}"
 									placeholder="Teléfono destinatario" disabled>
 								</div>
-						</div>
-											
+						</div>											
 						<div class="form-row">
 							<div class="col">						
 								<label for="inputCliente">Cliente</label>
@@ -125,17 +115,6 @@
 									placeholder="Comentarios" required disabled></textarea>
 							</div>
 							<div class="col text-center">
-																						
-								<!--
-								<select class="custom-select" id="inputStatus" th:field="*{status}" >
-									<option th:each="rider : ${listaRiders}"
-										th:value="${rider.id_user}" th:text="${rider.nick}"></option>
-								</select>
-								-->
-								<!-- 
-								<button class="btn btn-lg btn-primary" type="submit">Actualizar</button>
-								 -->
-								
 								<h5>
 									<a class="btn btn-info bg-primary m-2"
 										autofocus th:href="@{history}" href="#">Volver</a>

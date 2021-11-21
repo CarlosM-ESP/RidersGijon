@@ -1,6 +1,4 @@
 <div th:fragment="adminTotales">
-
-
 	<table id="tablaAdminTotales" class="dataTable display compact">
 		<thead>
 			<tr>			
@@ -13,25 +11,11 @@
 			</tr>
 		</thead>
  		<tr data-th-each="admin : ${listaAdmins}">
-	        <!-- <td data-th-text="${admin.id_user}">...</td> -->
-	        <!-- <td data-th-text="${admin.user_type}">...</td> -->
 	        <td data-th-text="${admin.nombre}">...</td>
 	        <td data-th-text="${admin.apellido1}">...</td>
 	        <td data-th-text="${admin.apellido2}">...</td>
-	        <!-- <td data-th-text="${admin.nif}">...</td> -->
-	        <!-- <td data-th-text="${admin.direccion}">...</td> -->
-	        <!-- <td data-th-text="${admin.telefono}">...</td> -->
 	        <td data-th-text="${admin.nick}">...</td>	                
 	        <td data-th-text="${admin.email}">...</td>
-	        <!-- <td data-th-text="${admin.password}">...</td> -->
-	        <!-- <td data-th-text="${admin.matricula}">...</td> -->
-	        <!-- <td data-th-text="${admin.vehiculo}">...</td> -->
-	        <!-- <td data-th-text="${admin.isActive}">...</td> -->
-	        
-<!-- ESTO ES UNA LISTA HAY QUE MOSTRARLO DIFERENTE -->
-	        <!-- <td data-th-text="${admin.roles}">...</td> -->
-	        	        
-	        	        	        
 	        <td><a class="nav-item nav-link" th:href="@{adminDetail(id_user=${admin.id_user})}"
 						    href="#">Perfil</a></td>	        
     	</tr>

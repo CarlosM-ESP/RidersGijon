@@ -14,31 +14,17 @@
 			</tr>
 		</thead>
  		<tr data-th-each="cliente : ${listaClientes}">
-	        <!-- <td data-th-text="${cliente.id_user}">...</td> -->
-	        <!-- <td data-th-text="${cliente.user_type}">...</td> -->
 	        <td data-th-text="${cliente.nombre}">...</td>
 	        <td data-th-text="${cliente.apellido1}">...</td>
-	        <td data-th-text="${cliente.apellido2}">...</td>
-	        <!-- <td data-th-text="${cliente.nif}">...</td> -->
-	        <!-- <td data-th-text="${cliente.direccion}">...</td> -->
-	        <!-- <td data-th-text="${cliente.telefono}">...</td> -->
+	        <td data-th-text="${cliente.apellido2}">...</td>	        
 	        <td data-th-text="${cliente.nick}">...</td>	                
-	        <td data-th-text="${cliente.email}">...</td>
-	        <!-- <td data-th-text="${cliente.password}">...</td> -->
-	        <!-- <td data-th-text="${cliente.matricula}">...</td> -->
-	        <!-- <td data-th-text="${cliente.vehiculo}">...</td> -->
-	        <!-- <td data-th-text="${cliente.isActive}">...</td> -->	        
+	        <td data-th-text="${cliente.email}">...</td>	        	        
 	        <td>
 	        <div class="form-check">
   					<input class="form-check-input" type="checkbox" name="isActive"  th:value="${cliente.isActive}" th:checked="${cliente.isActive}" id="inputActive" disabled >
   					<label class="form-check-label" for="inputActive">Activo</label>
 				</div>
-	        </td>
-	        
-<!-- ESTO ES UNA LISTA HAY QUE MOSTRARLO DIFERENTE -->
-	        <!-- <td data-th-text="${cliente.roles}">...</td> -->
-	        	        
-	        	        	        
+	        </td>       	        
 	        <td><a class="nav-item nav-link" th:href="@{clientDetail(id_user=${cliente.id_user})}"
 						    href="#">Perfil</a></td>	        
     	</tr>

@@ -21,7 +21,6 @@
   <div class="container-fluid">
   
     	<div th:insert="templates/headerClientes :: headerClientes"></div>
-
 		<div th:insert="templates/navbarClientes :: navbarClientes"></div>
 		
    <!-- Cuerpo Principal -->
@@ -39,17 +38,8 @@
 						
 						<!-- Usuario cliente logueado que está en esta página -->
 						<input type = "hidden" name = "id_user" value="">
-												 
-							
-							
 						<!-- Inicializar status del pedido a 0 [NUEVO] -->	
 						<input type="hidden" id="status" name="status" value = 0>
-						
-							
-						<!-- No rider -->
-						<!-- No fecha entrega -->
-						
-						
 						<div class="form-row">
 							<div class="col">
 								<label for="inputNombreRemitente">Nombre Remitente</label>
@@ -107,8 +97,6 @@
 									</h5>
 								</div>
 							</div>
-								
-						
 					</form>
 <!-- FIN FORMULARIO -->
 				</div>

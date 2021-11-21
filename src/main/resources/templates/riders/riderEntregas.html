@@ -11,46 +11,25 @@
  <!-- DataTables -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
- 
- 
- 
 
-   <!-- Custom css  -->
-<link rel="stylesheet" href="../css/styles.css">
-  <title>RidersRiderAvailable</title>
+<!-- Custom css  -->
+	<link rel="stylesheet" href="../css/styles.css">
+	<title>RidersRiderAvailable</title>
 </head>
 
 <body>
  <div class="container-fluid">
  
     	<div th:insert="templates/headerRiders :: headerRiders"></div>
-
 		<div th:insert="templates/navbarRiders :: navbarRiders"></div>
 		
     <!-- Cuerpo Principal -->
    <section>
         <div class="row indexBody">        	          	
           	<div class="col-12 bg-light">
-            	<h2 class = "text-center">Pedidos</h2>            	              
-				
-<!-- 
-
-DEFINIR LOS PEDIDOS QUE TENGAN EL STATUS DE NUEVO PERO SIN ASIGNACION....AÑADIR UN ENLACE DE "ASIGNAR" Y CAMBIAR STATUS DEL PEDIDO
-LISTAR LOS PEDIDOS
-
-SE DEBE PASAR LAS LISTA AL MODELO DESDE EL CONTROLLER
-
-model.addAttribute("listaPedidos", pedidoService.findAll());
-
-
- -->				
-				
+            	<h2 class = "text-center">Pedidos</h2>
 				
 	  			<div th:insert="pedidos/pedidosTotales :: pedidosEntregas"></div>    
-       		
-       		
-       		
-       		
        		</div>          	
         </div>
     </section>

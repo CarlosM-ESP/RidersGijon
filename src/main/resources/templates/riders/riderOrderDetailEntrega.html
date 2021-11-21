@@ -35,25 +35,21 @@
 					<form th:action="@{/riders/orderDetailEntrega}" method="post"
 						class="form-signin" th:object="${detallePedido}">
 
+						<!-- Debo añadir estos hidden porque el formulario no envía los campos disabled.
+						si uso readonly tengo problemas con thymeleaf
+						 -->
 						<input type ="hidden" name="id_pedido" th:field="*{id_pedido}">
-						<input type ="hidden" name="status" th:field="*{status}">
-						
-						<input type ="hidden" name="rider" th:field="*{rider.id_user}">
-						
-						<input type ="hidden" name="fechaPedido" th:field="*{fechaPedido}">
-						
-						<input type ="hidden" name="cliente" th:field="*{cliente.id_user}">
-						
-						<input type ="hidden" name="*nombre_remitente" th:field="*{nombre_remitente}">
+						<input type ="hidden" name="status" th:field="*{status}">						
+						<input type ="hidden" name="rider" th:field="*{rider.id_user}">						
+						<input type ="hidden" name="fechaPedido" th:field="*{fechaPedido}">						
+						<input type ="hidden" name="cliente" th:field="*{cliente.id_user}">						
+						<input type ="hidden" name="nombre_remitente" th:field="*{nombre_remitente}">
 						<input type ="hidden" name="dir_remitente" th:field="*{dir_remitente}">
-						<input type ="hidden" name="telefono_remitente" th:field="*{telefono_remitente}">
-						
+						<input type ="hidden" name="telefono_remitente" th:field="*{telefono_remitente}">						
 						<input type ="hidden" name="nombre_destinatario" th:field="*{nombre_destinatario}">
 						<input type ="hidden" name="dir_destinatario" th:field="*{dir_destinatario}">
-						<input type ="hidden" name="telefono_destinatario" th:field="*{telefono_destinatario}">
-						
-						<input type ="hidden" name="comentarios" th:field="*{comentarios}">
-						
+						<input type ="hidden" name="telefono_destinatario" th:field="*{telefono_destinatario}">						
+						<input type ="hidden" name="comentarios" th:field="*{comentarios}">						
 						
 						<div class="form-row">
 							<div class="col">
