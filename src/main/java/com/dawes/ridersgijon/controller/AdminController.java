@@ -45,7 +45,7 @@ public class AdminController {
 		//Le pasamos el nombre de usuario logueado para mostrarlos en el header de la vista
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Con redirect recargamos la página para mostrar la lista actualizda
-		return "redirect:/admin/adminList";
+		return "redirect:adminList";
 	}
 
 	
@@ -60,7 +60,7 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos una colección con todos los usuarios Administradores de la BBDD para mostrarlos en la vista
     	model.addAttribute("listaAdmins", userService.findByUser_type("ADMIN"));
-		return "/admin/adminAdminsAdminList";
+		return "admin/adminAdminsAdminList";
 	}
 	
 	
@@ -76,7 +76,7 @@ public class AdminController {
 		//Administradores siempre activos
 		detalleUser.setIsActive(true);		
 		userService.save(detalleUser);		
-		return  "redirect:/admin/adminList";
+		return "redirect:adminList";
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class AdminController {
 	model.addAttribute("nick", userService.findUserLogged().getNick());
 	//Le pasamos el UserVO para mostrar los datos en el formulario de la vista    	
 	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
-	return "/admin/adminAdminsAdminDetail";
+	return "admin/adminAdminsAdminDetail";
 	}
 	
 	
@@ -108,16 +108,16 @@ public class AdminController {
 	public String adminDelete(@ModelAttribute("detalleUser") UserVO user, Model model) {
 		//No se puede eliminar si solo hay un administrador
 		if(userService.findByUser_type("ADMIN").size() == 1) {				
-			return "/errorEliminarAdmin";
+			return "errorEliminarAdmin";
 		//No se puede Eliminar si es el que está logueado
 		}else if(userService.findUserLogged().getId_user() == user.getId_user()){
-			return "/errorEliminarAutenticado";	
+			return "errorEliminarAutenticado";	
 		}else {				
 		//Debemos borrar primero el objeto UserRol relacionado
 			UserRolVO userRol = userRolService.findByUser(user).get();				
 			userRolService.delete(userRol);				
 			userService.delete(user);				
-			return "redirect:/admin/adminList";				
+			return "redirect:adminList";				
 		}
 	}
 	
@@ -166,7 +166,7 @@ public class AdminController {
 		model.addAttribute("nick", userService.findUserLogged().getNick());
 		//Le pasamos una colección con todos los usuarios Clientes de la BBDD
 		model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
-		return "/admin/adminClientsClientList";
+		return "admin/adminClientsClientList";
 	}
 		
 	/**
@@ -178,7 +178,7 @@ public class AdminController {
 	@PostMapping("/clientList")
 	public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
 		userService.save(detalleUser);		
-		return  "redirect:/admin/clientList";
+		return  "redirect:clientList";
 	}
 		
 	/**
@@ -193,7 +193,7 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
     	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
-		return "/admin/adminClientsClientDetail";
+		return "admin/adminClientsClientDetail";
 	}
 		
 	/**
@@ -216,7 +216,7 @@ public class AdminController {
 			}			
 			//Eliminamos el usuario							
 			userService.delete(user);				
-			return "redirect:/admin/clientList";				
+			return "redirect:clientList";				
 		}
 	
 //RIDERS*************************************************************************
@@ -232,7 +232,7 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos una colección con todos los usuarios Riders de la BBDD
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));
-		return "/admin/adminRidersRiderList";
+		return "admin/adminRidersRiderList";
 	}
 	
 	/**
@@ -245,7 +245,7 @@ public class AdminController {
 	public String riderUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){				
 
 		userService.save(detalleUser);		
-		return  "redirect:/admin/riderList";
+		return  "redirect:riderList";
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());    	
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
     	model.addAttribute("detalleUser", userService.findById(id_user).get());    	
-		return "/admin/adminRidersRiderDetail";
+		return "admin/adminRidersRiderDetail";
 	}
 		
 	/**
@@ -283,7 +283,7 @@ public class AdminController {
 			}			
 			//Eliminamos el Rider							
 			userService.delete(userService.findById(user.getId_user()).get());			
-			return "redirect:/admin/riderList";				
+			return "redirect:riderList";				
 		}
 	
 //PEDIDOS*************************************************************************
@@ -301,7 +301,7 @@ public class AdminController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//Le pasamos una colección con todos los pedidos de la BBDD
     	model.addAttribute("listaPedidos", pedidoService.findAll());    	
-		return "/admin/adminOrdersOrderList";
+		return "admin/adminOrdersOrderList";
 	}
 	
 	/**
@@ -313,7 +313,8 @@ public class AdminController {
 	@PostMapping("/orderList")
 	public String orderUpdate(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){
 		pedidoService.save(detallePedido);		
-		return  "redirect:/admin/orderList";
+//		return "admin/adminOrdersOrderList";
+		return  "redirect:orderList";
 	}
 	
 	/**
@@ -334,7 +335,7 @@ public class AdminController {
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
     	//Lista de Riders para usar un select en el formulario 	
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
-		return "/admin/adminOrdersOrderDetail";
+		return "admin/adminOrdersOrderDetail";
 	}
 	
 	/**
@@ -346,6 +347,6 @@ public class AdminController {
 	@PostMapping("/orderDelete")
 	public String orderDelete(@ModelAttribute("detallePedido") PedidoVO pedido, Model model) {
 			pedidoService.delete(pedido);				
-			return "redirect:/admin/orderList";				
+			return "redirect:orderList";				
 	}	
 }

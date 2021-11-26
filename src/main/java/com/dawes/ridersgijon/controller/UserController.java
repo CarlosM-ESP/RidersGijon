@@ -263,11 +263,11 @@ public class UserController {
 		}else if(!newPassword1.equals(newPassword2)){
 			String tipoUsuario = userService.findUserLogged().getUser_type();
 			if(tipoUsuario.equals("CLIENT")) {
-				return "/errorCambioContrasena2_cliente";
+				return "errorCambioContrasena2_cliente";
 			}else if(tipoUsuario.equals("RIDER")) {
-				return "/errorCambioContrasena2_rider";
+				return "errorCambioContrasena2_rider";
 			}else if(tipoUsuario.equals("ADMIN")) {
-				return "/errorCambioContrasena2";
+				return "errorCambioContrasena2";
 			}
 							
 		}else{				

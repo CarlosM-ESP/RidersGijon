@@ -12,27 +12,22 @@
 
 <title>ERROR</title>
 </head>
-<body>
-	<div class="container-fluid">
-		<!-- Header -->
-		<div th:insert="templates/headerMaster :: headerInicio"></div>
-
-		<!-- NavBar -->
-		<div th:insert="templates/navbarMaster :: navInicio"></div>
+<body class="bg-light">
+	<div class="container-fluid">	
 		
-		<!-- Cuerpo Principal -->
-		<section>
-			<div class="row indexBody">
-				<div class="col-12 col-md-6 col-lg-4 bg-light embed-responsive">
-				</div>
-				<div class="col-12 col-md-6 col-lg-4 bg-success embed-responsive">
-					<h5 class="bg-danger">Intento no autorizado de asignacion de ROLES. Usuario BORRADO</h5>
-					<div>
-						<a class="text-dark text-decoration-none" href="#"
+		<section class="indexBody">
+			<div class="row h-50"></div>			
+			<div class="row h-50">			
+				<div class="col-12 col-md-6 col-lg-4 bg-light"></div>
+				<div class="col-12 col-md-6 col-lg-4 bg-light">
+					<h5 class="bg-danger text-center">Intento no autorizado de asignacion de ROLES. Usuario BORRADO</h5>
+					<div class="text-center">					
+						<a class="text-dark text-decoration-none btn btn-primary" href="#"
 							th:href="@{index}" autofocus>Volver</a>
+						</a>
 					</div>
 				</div>
-				<div class="col-12 col-lg-4 d-none d-lg-block bg-warning"></div>
+				<div class="col-12 col-lg-4 d-none d-lg-block bg-light"></div>
 			</div>
 			<!-- Fin row -->
 		</section>
@@ -43,7 +38,10 @@
 		
 		<script src="js/jquery-3.5.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-	</div>
-	<!-- Fin container fluid -->
+	</div><!-- Fin container fluid -->
 </body>
-</html>
+
+
+
+<a class="text-dark text-decoration-none" href="#"
+							th:href="@{index}" autofocus>Volver</a>
