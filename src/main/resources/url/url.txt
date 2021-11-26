@@ -1,0 +1,24 @@
+Despliegue Heroku
+
+https://ridersgijon.herokuapp.com/
+
+Despliegue Jelastic
+
+http://ridersgijon.es-1.axarnet.cloud/
+
+Administrador
+	email:
+		admin@admin.com
+	password:
+		1234
+		
+Cliente
+	jose@jose.com
+	1234
+Rider
+	alex@alex.com
+	1234
+
+
+
+
