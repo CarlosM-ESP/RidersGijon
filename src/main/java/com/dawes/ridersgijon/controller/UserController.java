@@ -140,8 +140,7 @@ public class UserController {
 			email.sendSimpleMessage(address, "RE: "+subject, AutomaticResponse);
 			 
 			return "enviado";
-		}	
-		//Envio de Emails...PRUEBAS*****************************************
+		}
 	
 	/**
 	 * Error 403. No permitido
@@ -198,6 +197,13 @@ public class UserController {
 			userService.delete(user);
 			return "errorRoles";
 		}
+		
+		//Enviamos mail
+		String AutomaticResponse = "Thank you for register in our app, "+user.getNombre()+". Esperamos que disfrutes de ella.";		
+		String address = user.getEmail();
+		String subject = user.getNombre()+ "has been registered as"+ user.getUser_type();
+		email.sendSimpleMessage(address,subject, AutomaticResponse);
+		email.sendSimpleMessage("carlosmdaw2020@gmail.com", "RE: "+subject, "New User: "+ user.getNombre());		
 		return "signingSuccess";
 }
 	

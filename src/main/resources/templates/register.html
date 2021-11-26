@@ -30,13 +30,14 @@
 					<h5 class="text-center">Formulario Registro</h5>
 				</div>
 			</div>
+			
+			<form th:action="@{/register}" method="post" class="form-signin" id="registerForm">
+			
 			<div class="row ">				
-				<div class="col-12 col-sm-6 col-md-6 bg-light">					
-					<form th:action="@{/register}" method="post" class="form-signin" id="registerForm">						 					
-						
+				<div class="col-12 col-sm-6 col-md-6 bg-light">
 						<label for="inputNombre">Nombre</label>
 						<input type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre"
-						required data-parsley-maxlength=30 autofocus>
+						data-parsley-maxlength=30 required autofocus>
 						
 						<label for="inputApellido1">Primer Apellido</label>
 						<input	type="text" id="inputApellido1" name="apellido1" class="form-control" placeholder="Primer Apellido" 
@@ -48,18 +49,18 @@
 						
 						<label for="inputNIF">NIF</label>
 						<input	type="text" id="inputNIF" name="nif" class="form-control" placeholder="NIF"
-						data-parsley-maxlength=9 required>
-						
+						data-parsley-maxlength=9
+						data-parsley-pattern="^([0-9]{8}[aA-zZ])$"
+						required>
+												
 						<label for="inputDireccion">Dirección</label>
 						<input	type="text" id="inputDireccion" name="direccion" class="form-control" placeholder="Dirección"
 						data-parsley-maxlength=100 required>
 						
 						<label for="inputTelefono">Teléfono</label>
 						<input	type="text" id="inputTelefono" name="telefono" class="form-control" placeholder="Teléfono"
-						data-parsley-maxlength=9 data-parsley-type="digits" required>
-						
-					</div>
-						
+						data-parsley-maxlength="9" data-parsley-type="digits" required>						
+					</div>						
 					<div class="col-12 col-sm-6 d-sm-block col-md-6 bg-light">
 						<label for="user_type">¿Qué tipo de usuario quieres ser?</label>	
 						 <select class="form-control" name="user_type" id="user_type">
@@ -67,8 +68,7 @@
 							<option th:value="RIDER">RIDER</option>
 							
 							<!-- TODO .QUITAR EN PRODUCCION -->
-							<option th:value="ADMIN">Prueba De falseo De ROL</option>
-							
+							<option th:value="ADMIN">Prueba De falseo De ROL</option>							
 						</select>		
 						
 						<label for="inputNick">Nick del Usuario</label>
@@ -85,7 +85,7 @@
 						
 						<label for="inputPassword2">Repite Password</label>
 						<input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Password"
-						data-parsley-maxlength=30 data-parsley-equalto="#inputPassword"required>
+						data-parsley-maxlength=30 data-parsley-equalto="#inputPassword" required>
 						
 						
 						<!-- TODO siguiente fase de la aplicación
@@ -94,14 +94,11 @@
 						<label for="inputMatricula">Matrícula</label>
 						<input	type="text" id="inputMatricula" name="matricula" class="form-control" placeholder="Matrícula">
 						  -->
-					</div>
-			</div>
-			<div class="row">
-				<div class="col-12 bg-light text-center">
-					<button class="btn btn-lg btn-primary " type="submit">Registrar</button>
-					</form>			
+					
+					<button class="btn btn-lg btn-primary " type="submit">Registrar</button>								
 				</div>
-			</div>
+ 			</div> <!-- Fin row -->
+			</form>
 		</section>
 		<!-- Footer -->
 		 <div th:replace="templates/footer::footer"></div>

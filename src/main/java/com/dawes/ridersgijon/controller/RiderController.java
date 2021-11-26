@@ -1,5 +1,6 @@
 package com.dawes.ridersgijon.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.ridersgijon.model.EmailVO;
 import com.dawes.ridersgijon.model.PedidoVO;
 import com.dawes.ridersgijon.model.UserVO;
+import com.dawes.ridersgijon.service.EmailService;
 import com.dawes.ridersgijon.service.PedidoService;
 import com.dawes.ridersgijon.service.UserService;
 
@@ -24,7 +27,8 @@ public class RiderController {
 	UserService userService;	
 	@Autowired
 	PedidoService pedidoService;	
-	
+	@Autowired
+	EmailService email;
 	
 	/**
 	 * Pantalla de inicio del Rider tras autenticación
@@ -68,7 +72,7 @@ public class RiderController {
 	@PostMapping ("/profile")
 	public String riderUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
 		userService.save(detalleUser);		
-		return  "redirect:/riders/profile";
+		return  "redirect:/riders/history";
 	}
 	
 	/**
@@ -122,8 +126,35 @@ public class RiderController {
 	@PostMapping("/orderDetailAvailable")
 	public String orderAssigned(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){
 		detallePedido.setStatus(1);
-		detallePedido.setRider(userService.findUserLogged());
-		pedidoService.save(detallePedido);		
+		detallePedido.setRider(userService.findUserLogged());		
+		pedidoService.save(detallePedido);	
+		
+				
+		//Email-------------------------------
+				EmailVO mailUpdatedOrder = new EmailVO();
+				
+				mailUpdatedOrder.setFechaEmail(LocalDate.now());				
+				mailUpdatedOrder.setName(detallePedido.getRider().getNombre());
+				
+				mailUpdatedOrder.setSubject("Pedido Asignado al Rider : "+detallePedido.getRider().getNombre());
+				mailUpdatedOrder.setMessage("PedidoAsignado al Rider " + detallePedido.getRider().getNombre() + ".\n Mensaje:\n"
+				+"Fecha de entrega asignada: "+ detallePedido.getFecha_entregado());
+				
+				mailUpdatedOrder.setEmail(detallePedido.getCliente().getEmail());						
+				
+				
+				String subject = mailUpdatedOrder.getSubject();				
+				String message = mailUpdatedOrder.getMessage();				
+				String clientAddress = mailUpdatedOrder.getEmail();
+				String riderAddress = detallePedido.getRider().getEmail();
+				String AutomaticResponse = "thank you for using our Platform, "+detallePedido.getRider().getNombre()+".";
+				//mensaje al cliente
+				email.sendSimpleMessage(clientAddress, subject, message);
+				//mensaje al administrador
+				email.sendSimpleMessage("carlosmdaw2020@gmail.com", subject, message);
+				//Mensaje de agradecimiento de la plataforma al Rider				
+				email.sendSimpleMessage(riderAddress, "RE: "+subject, AutomaticResponse);
+		
 		return  "redirect:/riders/history";
 	}
 	
@@ -157,7 +188,38 @@ public class RiderController {
 	@PostMapping("/orderDetailEntrega")
 	public String orderEntrega(@ModelAttribute("detallePedido") PedidoVO detallePedido, Model model){
 		detallePedido.setStatus(2);		
-		pedidoService.save(detallePedido);		
+		pedidoService.save(detallePedido);
+		
+		//Email-------------------------------
+		EmailVO mailDeliveredOrder = new EmailVO();
+		
+		mailDeliveredOrder.setFechaEmail(LocalDate.now());				
+		mailDeliveredOrder.setName(detallePedido.getRider().getNombre());
+		
+		mailDeliveredOrder.setSubject("Pedido " + detallePedido.getId_pedido() + " Entregado");
+		mailDeliveredOrder.setMessage("Pedido " + detallePedido.getId_pedido() + " Entregado" + ".\n Mensaje:\n"
+		+"Fecha de entrega final: "+ detallePedido.getFecha_entregado());
+		
+		mailDeliveredOrder.setEmail(detallePedido.getCliente().getEmail());						
+		
+		
+		String subject = mailDeliveredOrder.getSubject();				
+		String message = mailDeliveredOrder.getMessage();				
+		String clientAddress = mailDeliveredOrder.getEmail();
+		String riderAddress = detallePedido.getRider().getEmail();
+		String AutomaticResponse = "Good Job, "+detallePedido.getRider().getNombre()+". Keep using our platform";
+		String AutomaticResponseClient = "Your Order "+detallePedido.getId_pedido()+ " has been delivered, "+detallePedido.getCliente().getNombre()+". Keep using our platform!";
+		
+		//mensaje al cliente
+		email.sendSimpleMessage(clientAddress, subject, message);
+		//mensaje al administrador
+		email.sendSimpleMessage("carlosmdaw2020@gmail.com", subject, message);
+		//Mensaje de agradecimiento de la plataforma al Rider				
+		email.sendSimpleMessage(riderAddress, "RE: "+subject, AutomaticResponse);		
+		//Mensjae Final al cliente
+		email.sendSimpleMessage(clientAddress, "RE: "+subject, AutomaticResponseClient);
+		
+		
 		return  "redirect:/riders/history";
 	}
 	

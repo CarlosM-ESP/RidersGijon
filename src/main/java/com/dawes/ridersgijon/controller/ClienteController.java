@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dawes.ridersgijon.model.EmailVO;
 import com.dawes.ridersgijon.model.PedidoVO;
 import com.dawes.ridersgijon.model.UserVO;
+import com.dawes.ridersgijon.service.EmailService;
 import com.dawes.ridersgijon.service.PedidoService;
 import com.dawes.ridersgijon.service.UserService;
 
@@ -28,6 +29,8 @@ public class ClienteController {
 	UserService userService;	
 	@Autowired
 	PedidoService pedidoService;
+	@Autowired
+	EmailService email;
 	
 	/**
 	 * Pantalla de inicio del Cliente tras autenticación
@@ -68,7 +71,7 @@ public class ClienteController {
 	@PostMapping ("/profile")
 	public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
 		userService.save(detalleUser);		
-		return  "redirect:/clientes/profile";
+		return  "redirect:/clientes/history";
 	}
 	/**
 	 * Vista de página de nuevo pedido
@@ -92,8 +95,26 @@ public class ClienteController {
 		//Asiganmos fecha actual como fecha de pedido y status 0 => 'nuevo'
 		pedidoVO.setFechaPedido(LocalDate.now());
 		pedidoVO.setStatus(0);		
-		pedidoService.save(pedidoVO);
+		pedidoService.save(pedidoVO);		
+		//Email-------------------------------
+		EmailVO mailNewOrder = new EmailVO();
+		
+		mailNewOrder.setFechaEmail(LocalDate.now());
+		mailNewOrder.setName(pedidoVO.getCliente().getNombre());
+		mailNewOrder.setSubject("Nuevo Pedido de: "+pedidoVO.getCliente().getNombre());
+		mailNewOrder.setMessage("Nuevo pedido de " + pedidoVO.getCliente().getNombre() + ".\n Mensaje:\n"+pedidoVO.getComentarios());
+		mailNewOrder.setEmail(pedidoVO.getCliente().getEmail());
+		
+		String address = mailNewOrder.getEmail();
+		String subject = mailNewOrder.getSubject();
+		String message = mailNewOrder.getMessage();
+		String AutomaticResponse = "thank you for using our Platform, "+mailNewOrder.getName()+". We will keep you updated with your order status.";
+		message = "From: "+mailNewOrder.getName()+". \n"+message;
+		email.sendSimpleMessage("carlosmdaw2020@gmail.com", subject, message);
+		email.sendSimpleMessage(address, "RE: "+subject, AutomaticResponse);		
+		
 		return "redirect:/clientes/history";
+		
 	}
 	
 	/**
@@ -109,7 +130,7 @@ public class ClienteController {
     	//Lista de Clientes para usar un select en el formulario    	
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
     	//Lista de Riders para usar un select en el formulario 	
-    	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
+    	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	    			
 		return "/clientes/clienteOrderDetail";
 	}
 	
