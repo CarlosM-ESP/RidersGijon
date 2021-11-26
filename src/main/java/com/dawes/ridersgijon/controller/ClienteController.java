@@ -39,7 +39,7 @@ public class ClienteController {
 	public String clientes(Model model){
 		//Le pasamos el nick del usuario que será usado en el header de la página como bienvenida
     	model.addAttribute("nick", userService.findUserLogged().getNick());	
-		return "/clientes/clientHistory";
+		return "clientes/clientHistory";
 	}
 	/**
 	 * Listado histórico de pedidos de un Cliente
@@ -51,7 +51,7 @@ public class ClienteController {
     	UserVO user = userService.findUserLogged();
     	//recuperamos una lista de los pedidos de ese cliente
     	model.addAttribute("listaPedidos", pedidoService.findByCliente(user));
-		return "/clientes/clientHistory";
+		return "clientes/clientHistory";
 	}
 	/**
 	 * Perfil del cliente
@@ -63,7 +63,7 @@ public class ClienteController {
     	int id_user = userService.findUserLogged().getId_user();
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
     	model.addAttribute("detalleUser", userService.findById(id_user).get());
-		return "/clientes/clientProfile";		
+		return "clientes/clientProfile";		
 	}
 	/**
 	 * Actualización de datos de un cliente
@@ -71,7 +71,7 @@ public class ClienteController {
 	@PostMapping ("/profile")
 	public String clientUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
 		userService.save(detalleUser);		
-		return  "redirect:/clientes/history";
+		return  "redirect:history";
 	}
 	/**
 	 * Vista de página de nuevo pedido
@@ -82,7 +82,7 @@ public class ClienteController {
     	model.addAttribute("nick", userService.findUserLogged().getNick());
     	//le pasamos un objeto PedidoVO que devolverá con datos
     	model.addAttribute("pedido", new PedidoVO());	
-		return "/clientes/clientOrder";
+		return "clientes/clientOrder";
 	}
 	
 	/**
@@ -113,7 +113,7 @@ public class ClienteController {
 		email.sendSimpleMessage("carlosmdaw2020@gmail.com", subject, message);
 		email.sendSimpleMessage(address, "RE: "+subject, AutomaticResponse);		
 		
-		return "redirect:/clientes/history";
+		return "redirect:history";
 		
 	}
 	
@@ -131,7 +131,7 @@ public class ClienteController {
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
     	//Lista de Riders para usar un select en el formulario 	
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	    			
-		return "/clientes/clienteOrderDetail";
+		return "clientes/clienteOrderDetail";
 	}
 	
 	/**
@@ -141,6 +141,6 @@ public class ClienteController {
 	@GetMapping("/orderDelete")
 	public String orderDelete(@RequestParam(name="id_pedido") int id_pedido, Model model) {
 			pedidoService.deleteById(id_pedido);				
-			return "redirect:/clientes/history";				
+			return "redirect:history";				
 	}	
 }

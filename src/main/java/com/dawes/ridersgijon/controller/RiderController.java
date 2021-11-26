@@ -37,7 +37,7 @@ public class RiderController {
 	@GetMapping("")	
 	public String riders(Model model){
     	model.addAttribute("nick", userService.findUserLogged().getNick());	
-		return "/riders/riderHistory";
+		return "riders/riderHistory";
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class RiderController {
     	UserVO user = userService.findUserLogged();
     	//recuperamos la lista de pedidos del rider
     	model.addAttribute("listaPedidos", pedidoService.findByRider(user));
-		return "/riders/riderHistory";
+		return "riders/riderHistory";
 	}
 	
 	/**
@@ -63,7 +63,7 @@ public class RiderController {
     	int id_user = userService.findUserLogged().getId_user();
     	//Le pasamos el UserVO para mostrarlo en formulario de la vista    	
     	model.addAttribute("detalleUser", userService.findById(id_user).get());
-		return "/riders/riderProfile";
+		return "riders/riderProfile";
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class RiderController {
 	@PostMapping ("/profile")
 	public String riderUpdate(@ModelAttribute ("detalleUser") UserVO detalleUser, Model model){	
 		userService.save(detalleUser);		
-		return  "redirect:/riders/history";
+		return  "redirect:history";
 	}
 	
 	/**
@@ -89,7 +89,7 @@ public class RiderController {
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
     	//Lista de Riders para usar un select en el formulario 	
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
-		return "/riders/riderOrderDetail";
+		return "riders/riderOrderDetail";
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public class RiderController {
 	public String riderAvailableOrders(Model model){
     	model.addAttribute("nick", userService.findUserLogged().getNick());    	    	
     	model.addAttribute("listaPedidos", pedidoService.findByStatus(0));    	
-    	return "/riders/riderAvailable";
+    	return "riders/riderAvailable";
 	}
 	
 	/**
@@ -117,7 +117,7 @@ public class RiderController {
     	model.addAttribute("listaClientes", userService.findByUser_type("CLIENT"));
     	//Lista de Riders para usar un select en el formulario 	
     	model.addAttribute("listaRiders", userService.findByUser_type("RIDER"));    	
-		return "/riders/riderOrderDetailAvailable";
+		return "riders/riderOrderDetailAvailable";
 	}
 	
 	/**	 
@@ -148,14 +148,14 @@ public class RiderController {
 				String clientAddress = mailUpdatedOrder.getEmail();
 				String riderAddress = detallePedido.getRider().getEmail();
 				String AutomaticResponse = "thank you for using our Platform, "+detallePedido.getRider().getNombre()+".";
-				//mensaje al cliente
+				//mensaje al cliente	
 				email.sendSimpleMessage(clientAddress, subject, message);
 				//mensaje al administrador
 				email.sendSimpleMessage("carlosmdaw2020@gmail.com", subject, message);
 				//Mensaje de agradecimiento de la plataforma al Rider				
 				email.sendSimpleMessage(riderAddress, "RE: "+subject, AutomaticResponse);
 		
-		return  "redirect:/riders/history";
+		return  "redirect:available";
 	}
 	
 	/**
@@ -165,7 +165,7 @@ public class RiderController {
 	public String riderEntregasOrders(Model model){
     	model.addAttribute("nick", userService.findUserLogged().getNick());    	    	
     	model.addAttribute("listaPedidos", pedidoService.findByRiderAndStatus(userService.findUserLogged(), 1));
-    	return "/riders/riderEntregas";
+    	return "riders/riderEntregas";
 	}
 	
 	/**
@@ -179,7 +179,7 @@ public class RiderController {
 		model.addAttribute("id", id_pedido );
    	//Le pasamos el PedidoVO para mostrarlo en formulario de la vista
 		model.addAttribute("detallePedido", pedidoService.findById(id_pedido));
-		return "/riders/riderOrderDetailEntrega";	
+		return "riders/riderOrderDetailEntrega";	
 	}
 	
 	/**	 
@@ -217,10 +217,9 @@ public class RiderController {
 		//Mensaje de agradecimiento de la plataforma al Rider				
 		email.sendSimpleMessage(riderAddress, "RE: "+subject, AutomaticResponse);		
 		//Mensjae Final al cliente
-		email.sendSimpleMessage(clientAddress, "RE: "+subject, AutomaticResponseClient);
+		email.sendSimpleMessage(clientAddress, "RE: "+subject, AutomaticResponseClient);		
 		
-		
-		return  "redirect:/riders/history";
+		return  "redirect:entregas";
 	}
 	
 	
