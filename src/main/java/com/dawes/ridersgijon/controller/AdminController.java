@@ -1,6 +1,8 @@
 package com.dawes.ridersgijon.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -141,14 +143,27 @@ public class AdminController {
 	 * @return
 	 */
 	@PostMapping("/registerAdmin")
-	public String registerSuccess(@ModelAttribute UserVO user, Model model){			
-		//Falta Validación Datos Formulario...............................	
+	public String registerSuccess(@ModelAttribute UserVO user, Model model){
+		//Comprueba que no existe el email ya registrado
+		//todo No me gusta, pero funciona. Para mejorar...Llamadas ajax?
+				boolean bool;
+				try {
+				UserVO userWithEmail = userService.findByEmail(user.getEmail()).get();
+				bool = true;
+				}
+				catch(NoSuchElementException e){
+				 bool = false;
+				}				
+				if(bool) {
+					return "admin/emailExistsAdmin";
+				}
+		
 		user.setIsActive(true);
 		user.setUser_type("ADMIN");
 		user.setPassword(userService.encode(user.getPassword()));				
 		userService.save(user);
 		//Crear Objeto UserRolVO asociado
-		UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(2).get());
+		UserRolVO userRol = new UserRolVO(0, userService.findById(user.getId_user()).get(),rolService.findById(1).get());
 		userRolService.save(userRol);			
 		return "admin/signingAdminSuccess";
 	}

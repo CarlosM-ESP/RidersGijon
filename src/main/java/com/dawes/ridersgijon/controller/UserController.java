@@ -1,6 +1,9 @@
 package com.dawes.ridersgijon.controller;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -178,9 +181,24 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/register")
-	public String registerSuccess(@ModelAttribute UserVO user, Model model){		
-		//Falta Validación Datos Formulario
+	public String registerSuccess(@ModelAttribute UserVO user, Model model){
 		//Activamos usuario y codificamos contraseña antes de guardarla
+		
+		//Comprueba que no existe el email ya registrado
+		//todo No me gusta, pero funciona. Para mejorar...Llamadas ajax?
+		boolean bool;
+		try {
+		UserVO userWithEmail = userService.findByEmail(user.getEmail()).get();
+		bool = true;
+		}
+		catch(NoSuchElementException e){
+		 bool = false;
+		}
+		
+		if(bool) {
+			return "emailExists";
+		}
+		
 		user.setIsActive(true);
 		user.setPassword(userService.encode(user.getPassword()));				
 		userService.save(user);		

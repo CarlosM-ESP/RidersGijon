@@ -113,6 +113,9 @@ public interface UserService {
 	 */
 	List<UserVO> findRidersByCliente(UserVO cliente);
 	
+	
+	Optional<UserVO> findByEmail(String email);
+	
 
 	/**
 	 * Spring Security. Requerido para definir los campos de login
@@ -142,5 +145,7 @@ public interface UserService {
 	 * @return
 	 */
 	UserVO findUserLogged();
+	
+	
 	
 }

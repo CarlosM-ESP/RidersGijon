@@ -221,4 +221,8 @@ public class UserServiceImpl implements UserDetailsService, UserService{
 		    }
 		    return userLogged;
 		}
+	
+	public Optional<UserVO> findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
 }

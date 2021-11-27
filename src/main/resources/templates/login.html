@@ -34,15 +34,10 @@
 				<div class="col-12 col-sm-4 bg-light"></div>
 				<div class="col-12 col-sm-4 bg-light">
 					<form th:action="@{/login}" method="post" class="form-signin" id="loginForm">
-					
-<!-- TODO .CAMBIAR A tipo EMAIL en produccion -->
-						<label for="inputEmail">Email address</label>
-						<input type="text" id="inputEmail" name="email" class="form-control"
+						<label for="inputEmail">Email address</label>						
+						<input type="email" id="inputEmail" name="email" class="form-control"
 							placeholder="Email address"
-							required autofocus>
-<!-- 						<input type="email" id="inputEmail" name="email" class="form-control" -->
-<!-- 							placeholder="Email address" -->
-<!-- 							data-parsley-type="email" data-parsley-maxlength=50 required autofocus> -->
+							data-parsley-type="email" data-parsley-maxlength=50 required autofocus>
 						<label for="inputPassword">Password</label>
 						<input type="password" id="inputPassword" name="password" class="form-control"
 							placeholder="Password" required data-parsley-maxlength=30>
